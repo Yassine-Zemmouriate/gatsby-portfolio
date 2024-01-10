@@ -1,3 +1,2 @@
-yassine-zemmouriate-portfolio/node_modules/
-yassine-zemmouriate-portfolio/.cache/
-.idea/
+node_modules/
+.cache/
