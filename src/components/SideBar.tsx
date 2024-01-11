@@ -12,25 +12,52 @@ export interface SideBarProps {
 
 }
 
+const primaryAvatarStyle = {
+    bgcolor: "#FFB400",
+    width: "150px",
+    height: "150px",
+    marginTop: "50px",
+    marginBottom: "31px",
+    cursor: "pointer"
+}
+
+const stackStyle = {
+    paddingBottom: "25px",
+    borderBottom: "1.5px solid #F0F0F6",
+    width: "220px"
+}
+
+const socialMediaStyle = {
+    bgcolor : "#FFB400",
+    width: "24px",
+    height: "24px",
+    cursor: "pointer"
+}
+
+const iconStyle = {
+    width: "14px",
+    height: "14px"
+}
+
 const SideBar : React.FC<SideBarProps> = () => {
     return (
         <Container>
             <AvatarField>
-                <Avatar sx={{ bgcolor: "#FFB400", width: "150px", height: "150px", marginTop: "50px", marginBottom: "31px" }}>YZ</Avatar>
+                <Avatar sx={primaryAvatarStyle}>YZ</Avatar>
                 <NameField>yassine zemmouriate</NameField>
                 <JobField>Data Scientist & Développeur Full-Stack </JobField>
-                <Stack direction={"row"} spacing={2}>
-                    <Avatar sx={{ bgcolor : "#FFB400", width: "24px", height: "24px"}}>
-                        <FacebookRoundedIcon sx={{width: "14px", height: "14px"}} />
+                <Stack direction={"row"} justifyContent={"center"} spacing={2} sx={stackStyle}>
+                    <Avatar sx={socialMediaStyle}>
+                        <FacebookRoundedIcon sx={iconStyle} />
                     </Avatar>
-                    <Avatar sx={{ bgcolor : "#FFB400", width: "24px", height: "24px"}}>
-                        <XIcon sx={{width: "14px", height: "14px"}} />
+                    <Avatar sx={socialMediaStyle}>
+                        <XIcon sx={iconStyle} />
                     </Avatar>
-                    <Avatar sx={{ bgcolor : "#FFB400", width: "24px", height: "24px"}}>
-                        <LinkedInIcon sx={{width: "14px", height: "14px"}} />
+                    <Avatar sx={socialMediaStyle}>
+                        <LinkedInIcon sx={iconStyle} />
                     </Avatar>
-                    <Avatar sx={{ bgcolor : "#FFB400", width: "24px", height: "24px"}}>
-                        <YouTubeIcon sx={{width: "14px", height: "14px"}} />
+                    <Avatar sx={socialMediaStyle}>
+                        <YouTubeIcon sx={iconStyle} />
                     </Avatar>
 
                 </Stack>
@@ -62,6 +89,7 @@ const NameField = styled.div`
     text-transform: capitalize;
     width: 100%;
     text-align: center;
+    margin-bottom: 15px;
 `;
 
 const JobField = styled(NameField)`
@@ -70,6 +98,7 @@ const JobField = styled(NameField)`
     font-weight: 400;
     line-height: 24px; /* 160% */
     text-transform: capitalize;
+    margin-bottom: 15px;
 `;
 const AvatarField = styled.div`
     display: flex;
