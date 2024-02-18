@@ -8,17 +8,17 @@ const pageStyles = {
   padding: 0,
   margin: 0,
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
-    backgroundColor: "#F0F0F6",
-    width: "100%",
-    height: "100%"
+  backgroundColor: "#F0F0F6",
+  width: "100%",
+  height: "100%"
 }
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
-    <main style={pageStyles}>
+    <div style={pageStyles}>
         <SideBar />
       <Link to={'/404'}>404</Link>
-    </main>
+    </div>
   )
 }
 
