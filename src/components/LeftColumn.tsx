@@ -53,7 +53,7 @@ const cvButtonStyle = {
 
 const dataJSON = {
     "age": "23",
-    "adress" : "76 rue Sente à My 57070 Metz",
+    "adress" : "Metz, France",
     "permis" : "B",
     "phone" : "07 66 52 62 43",
     "status" : "En alternance"
