@@ -8,8 +8,6 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import LevelField from "./LevelField";
 
-import {useResponsiveDimensions} from "../utils/dimensions";
-
 export interface SideBarProps {
     width : string;
 }
@@ -144,8 +142,6 @@ const skills = [
 ]
 
 const LeftColumn : React.FC<SideBarProps> = ({width}) => {
-
-    const { responsiveWidth, responsiveHeight } = useResponsiveDimensions();
 
     return (
         <Container width={width}>
