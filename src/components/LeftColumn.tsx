@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Avatar, Stack} from "@mui/material";
+import {Avatar, Stack, Button} from "@mui/material";
 import styled from "styled-components";
 
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
@@ -8,10 +8,10 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import LevelField from "./LevelField";
 
-import {getWidth, getHeight, useResponsiveDimensions} from "../utils/dimensions";
+import {useResponsiveDimensions} from "../utils/dimensions";
 
 export interface SideBarProps {
-
+    width : string;
 }
 
 function primaryAvatarStyle(width :  number, height : number) {
@@ -44,6 +44,15 @@ const iconStyle = {
     height: "14px"
 }
 
+const cvButtonStyle = {
+    marginTop : '25px',
+    marginBottom : '25px',
+    borderBottom : "1.5px solid #F0F0F6",
+    color : "black",
+    backgroundColor : "#FFB400",
+    borderRadius : "0px"
+}
+
 const dataJSON = {
     "age": "23",
     "adress" : "76 rue Sente à My 57070 Metz",
@@ -67,12 +76,79 @@ const languages = [
     }
 ]
 
-const SideBar : React.FC<SideBarProps> = () => {
+const skills = [
+    {
+        value : 100,
+        title : "HTML"
+    },
+    {
+        value : 100,
+        title : "CSS"
+    },
+    {
+        value : 100,
+        title : "Javascript"
+    },
+    {
+        value : 100,
+        title : "Java"
+    },
+    {
+        value : 100,
+        title : "C++"
+    },
+    {
+        value : 100,
+        title : "Cuda"
+    },
+    {
+        value : 100,
+        title : "HTML"
+    },
+    {
+        value : 100,
+        title : "Python"
+    },
+    {
+        value : 100,
+        title : "ReactJS"
+    },
+    {
+        value : 100,
+        title : "Django Rest Framework"
+    },
+    {
+        value : 100,
+        title : "Docker"
+    },
+    {
+        value : 100,
+        title : "Kubernetes"
+    },
+    {
+        value : 100,
+        title : "CI/CD pipeline"
+    },
+    {
+        value : 100,
+        title : "Git"
+    },
+    {
+        value : 100,
+        title : "Gatsby"
+    },
+    {
+        value : 100,
+        title : "DevOps"
+    },
+]
+
+const LeftColumn : React.FC<SideBarProps> = ({width}) => {
 
     const { responsiveWidth, responsiveHeight } = useResponsiveDimensions();
 
     return (
-        <Container width={responsiveWidth(305)} height={responsiveHeight(926)}>
+        <Container width={width}>
             <AvatarField>
                 <Avatar sx={primaryAvatarStyle(150, 150)}>YZ</Avatar>
                 <NameField>yassine zemmouriate</NameField>
@@ -119,24 +195,45 @@ const SideBar : React.FC<SideBarProps> = () => {
                 <LanguageTitle>Languages</LanguageTitle>
                 {languages.map((element) => <LevelField value={element.value} title={element.title}/>)}
             </LanguagesField>
+            <SkillsField>
+                <SkillsTitle>Skills</SkillsTitle>
+                {skills.map((element) => <LevelField value={element.value} title={element.title} />)}
+            </SkillsField>
+            <a href={"static/pdf/cv.pdf"} target={"_blank"}>
+                <Button sx={cvButtonStyle} >Télécharger CV</Button>
+            </a>
         </Container>
     )
 }
 
-export default SideBar;
+export default LeftColumn;
+
+const InfosField = styled.div`
+    width: 80%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #F0F0F6;
+`;
+
+const LanguagesField = styled(InfosField)`
+    padding-top : 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #F0F0F6;
+`;
 
 const LanguageTitle = styled.div`
     font-size : 18px;
     padding-bottom : 15px;
 `;
 
-const Container = styled.div<{ width: number, height: number }>`
-    width : ${props => `${props.width}px`};
-    height : ${props => `${props.height}px`};
+const SkillsField = styled(LanguagesField)``;
+const SkillsTitle = styled(LanguageTitle)``;
+
+
+const Container = styled.div<{width : string}>`
+    width : ${props => props.width};
+    height : 100%;
     background-color: #FFF;
-    position: fixed;
-    top: 0;
-    left: 0;
     justify-content: start;
     display: flex;
     margin-bottom: 15px;
@@ -168,19 +265,6 @@ const AvatarField = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-`;
-
-const InfosField = styled.div`
-    width: 80%;
-    padding-top: 25px;
-    padding-bottom: 13px;
-    border-bottom: 1px solid #F0F0F6;
-`;
-
-const LanguagesField = styled(InfosField)`
-    padding-top : 12px;
-    padding-bottom: 13px;
-    border-bottom: 1px solid #F0F0F6;
 `;
 
 const FieldContainer = styled.div`
