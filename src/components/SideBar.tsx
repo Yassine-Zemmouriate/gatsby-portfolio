@@ -8,17 +8,22 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import LevelField from "./LevelField";
 
+import {getWidth, getHeight, useResponsiveDimensions} from "../utils/dimensions";
+
 export interface SideBarProps {
 
 }
 
-const primaryAvatarStyle = {
-    bgcolor: "#FFB400",
-    width: "150px",
-    height: "150px",
-    marginTop: "50px",
-    marginBottom: "31px",
-    cursor: "pointer"
+function primaryAvatarStyle(width :  number, height : number) {
+
+    return({
+               bgcolor: "#FFB400",
+               width: `${width}px`,
+               height: `${height}px`,
+               marginTop: "50px",
+               marginBottom: "31px",
+               cursor: "pointer"
+           })
 }
 
 const stackStyle = {
@@ -63,10 +68,13 @@ const languages = [
 ]
 
 const SideBar : React.FC<SideBarProps> = () => {
+
+    const { responsiveWidth, responsiveHeight } = useResponsiveDimensions();
+
     return (
-        <Container>
+        <Container width={responsiveWidth(305)} height={responsiveHeight(926)}>
             <AvatarField>
-                <Avatar sx={primaryAvatarStyle}>YZ</Avatar>
+                <Avatar sx={primaryAvatarStyle(150, 150)}>YZ</Avatar>
                 <NameField>yassine zemmouriate</NameField>
                 <JobField>Data Scientist & Développeur Full-Stack </JobField>
                 <Stack direction={"row"} justifyContent={"center"} spacing={2} sx={stackStyle}>
@@ -122,9 +130,9 @@ const LanguageTitle = styled.div`
     padding-bottom : 15px;
 `;
 
-const Container = styled.div`
-    height : 100%;
-    width : 305px;
+const Container = styled.div<{ width: number, height: number }>`
+    width : ${props => `${props.width}px`};
+    height : ${props => `${props.height}px`};
     background-color: #FFF;
     position: fixed;
     top: 0;
