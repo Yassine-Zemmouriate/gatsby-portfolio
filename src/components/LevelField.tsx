@@ -3,6 +3,7 @@ import LinearProgress, { LinearProgressProps } from "@mui/material/LinearProgres
 import styled from "styled-components";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import '../../public/styles/index.css'
 
 function LinearProgressWithLabel(props: LinearProgressProps & { value: number }) {
   return (
@@ -27,7 +28,7 @@ const LevelField : React.FC<LevelFieldProps>= ({value, title}) => {
     return(
         <Container>
             <TextField>{title}</TextField>
-            <LinearProgressWithLabel value={value} />
+            <LinearProgressWithLabel className={"custom-progress-bar"} value={value} style={{backgroundColor : "transparent", border : "1px solid #FFB400"}} />
         </Container>
     )
 }

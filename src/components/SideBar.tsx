@@ -102,12 +102,13 @@ const SideBar : React.FC<SideBarProps> = () => {
                 <KeyField>Téléphone : </KeyField>
                 <ValueField>{dataJSON.phone}</ValueField>
             </FieldContainer>
-                <FieldContainer style={{borderBottom : "1.5px solid #F0F0F6"}}>
+                <FieldContainer>
                 <KeyField>Status : </KeyField>
-                <ValueField style={{marginBottom : "25px"}}>{dataJSON.status}</ValueField>
+                <ValueField>{dataJSON.status}</ValueField>
             </FieldContainer>
             </InfosField>
             <LanguagesField>
+                <LanguageTitle>Languages</LanguageTitle>
                 {languages.map((element) => <LevelField value={element.value} title={element.title}/>)}
             </LanguagesField>
         </Container>
@@ -115,6 +116,11 @@ const SideBar : React.FC<SideBarProps> = () => {
 }
 
 export default SideBar;
+
+const LanguageTitle = styled.div`
+    font-size : 18px;
+    padding-bottom : 15px;
+`;
 
 const Container = styled.div`
     height : 100%;
@@ -158,11 +164,16 @@ const AvatarField = styled.div`
 
 const InfosField = styled.div`
     width: 80%;
-    padding-top : 25px;
-    padding-bottom: 25px;
+    padding-top: 25px;
+    padding-bottom: 13px;
+    border-bottom: 1px solid #F0F0F6;
 `;
 
-const LanguagesField = styled(InfosField)``;
+const LanguagesField = styled(InfosField)`
+    padding-top : 12px;
+    padding-bottom: 13px;
+    border-bottom: 1px solid #F0F0F6;
+`;
 
 const FieldContainer = styled.div`
     display: flex;
