@@ -18,7 +18,7 @@ export interface RightColumnProps {
 const icons = [
     {   id : 0,
         icon : <House/>,
-        title : "A propos"
+        title : "À propos de moi"
     },
 {id : 1,
     icon : <Code color={"black"}/>,
@@ -26,11 +26,11 @@ const icons = [
 },
 {id : 2,
     icon : <Grade/>,
-    title : "Expérience Académique"
+    title : "Académiques"
 },
 {id : 3,
     icon : <Job/>,
-    title : "Expérience Professionnelle"
+    title : "Professionnelles"
 },
 {id : 4,
     icon : <Feather/>,
@@ -58,9 +58,6 @@ const RightColumn : React.FC<RightColumnProps> = ({width}) => {
 
     return(
         <Container width={width}>
-            <ModeIcon>
-                <Moon />
-            </ModeIcon>
             <ListIcon>
                 {icons.map((element) => (
                     <BootstrapTooltip key={element.id} title={element.title} placement={"top"}>
@@ -83,14 +80,10 @@ const Container = styled.div<{width : string}>`
     background-color : #FFF;
     justify-content: center;
     align-items: center;
-    position: relative;
-`;
-
-const ModeIcon = styled.div`   
-    margin-top: 50px;
-    position : absolute;
-    top : 50px;
-    left : 50% - 15px;
+    position: fixed;
+    top : 0;
+    right : 0;
+    height : 100%;
 `;
 
 const ListIcon = styled.div`
