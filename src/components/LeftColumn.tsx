@@ -53,7 +53,7 @@ const cvButtonStyle = {
 
 const dataJSON = {
     "age": "23",
-    "adress" : "76 rue Sente à My 57070 Metz",
+    "adress" : "Metz, France",
     "permis" : "B",
     "phone" : "07 66 52 62 43",
     "status" : "En alternance"
@@ -189,11 +189,11 @@ const LeftColumn : React.FC<SideBarProps> = ({width}) => {
             </InfosField>
             <LanguagesField>
                 <LanguageTitle>Languages</LanguageTitle>
-                {languages.map((element) => <LevelField value={element.value} title={element.title}/>)}
+                {languages.map((element, index) => <LevelField key={`language-key-${index}`} value={element.value} title={element.title}/>)}
             </LanguagesField>
             <SkillsField>
                 <SkillsTitle>Skills</SkillsTitle>
-                {skills.map((element) => <LevelField value={element.value} title={element.title} />)}
+                {skills.map((element, index) => <LevelField key={`skill-key-${index}`} value={element.value} title={element.title} />)}
             </SkillsField>
             <a href={"static/pdf/cv.pdf"} target={"_blank"}>
                 <Button sx={cvButtonStyle} >Télécharger CV</Button>
@@ -232,7 +232,6 @@ const Container = styled.div<{width : string}>`
     background-color: #FFF;
     justify-content: start;
     display: flex;
-    margin-bottom: 15px;
     flex-direction: column;
     align-items: center;
 `;
