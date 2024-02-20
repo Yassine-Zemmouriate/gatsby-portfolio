@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Avatar, Stack, Button} from "@mui/material";
 import styled from "styled-components";
+import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
 
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import XIcon from '@mui/icons-material/X';
@@ -15,22 +16,38 @@ export interface RightColumnProps {
 }
 
 const icons = [
-    { id : 0,
-        icon : <House/>
-},
+    {   id : 0,
+        icon : <House/>,
+        title : "A propos"
+    },
 {id : 1,
-    icon : <Code color={"black"}/>
+    icon : <Code color={"black"}/>,
+    title : "Informatique"
 },
 {id : 2,
-    icon : <Grade/>
+    icon : <Grade/>,
+    title : "Expérience Académique"
 },
 {id : 3,
-    icon : <Job/>
+    icon : <Job/>,
+    title : "Expérience Professionnelle"
 },
 {id : 4,
-    icon : <Feather/>
+    icon : <Feather/>,
+    title : "Certification"
 }
 ]
+
+const BootstrapTooltip = styled(({ className, ...props }: TooltipProps) => (
+  <Tooltip {...props} arrow classes={{ popper: className }} />
+))(({ theme }) => ({
+  [`& .${tooltipClasses.arrow}`]: {
+    color: "#3A3B3C",
+  },
+  [`& .${tooltipClasses.tooltip}`]: {
+    backgroundColor: "#3A3B3C",
+  },
+}));
 
 const RightColumn : React.FC<RightColumnProps> = ({width}) => {
 
@@ -46,9 +63,11 @@ const RightColumn : React.FC<RightColumnProps> = ({width}) => {
             </ModeIcon>
             <ListIcon>
                 {icons.map((element) => (
+                    <BootstrapTooltip key={element.id} title={element.title} placement={"top"}>
                     <IconContainer key={`icon-key-${element.id}`} bgcolor={selectedId === element.id ? "#FFB400" : "#F0F0F6"} onClick={() => handleClick(element.id)}>
                         {React.cloneElement(element.icon, { color : selectedId === element.id ? "#2B2B2B" : "#767676"})}
                     </IconContainer>
+                        </BootstrapTooltip>
                 ))}
             </ListIcon>
         </Container>
