@@ -3,7 +3,7 @@ import LinearProgress, { LinearProgressProps } from "@mui/material/LinearProgres
 import styled from "styled-components";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import '../styles/index.css'
+import '../../styles/index.css'
 
 function LinearProgressWithLabel(props: LinearProgressProps & { value: number }) {
   return (

@@ -1,9 +1,9 @@
 import * as React from "react"
 import {Link, PageProps} from "gatsby"
-import Header from "../components/Header";
-import LeftColumn from "../components/LeftColumn";
-import MiddleColumn from "../components/MiddleColumn";
-import RightColumn from "../components/RightColumn";
+import Header from "../components/header/Header";
+import LeftColumn from "../components/columns/LeftColumn";
+import MiddleColumn from "../components/columns/MiddleColumn";
+import RightColumn from "../components/columns/RightColumn";
 
 const pageStyles = {
     display: "flex",

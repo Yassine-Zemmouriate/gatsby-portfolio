@@ -6,7 +6,7 @@ import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import XIcon from '@mui/icons-material/X';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import LevelField from "./LevelField";
+import LevelField from "../utils/LevelField";
 
 export interface SideBarProps {
     width : string;
@@ -42,10 +42,9 @@ const iconStyle = {
     height: "14px"
 }
 
-const cvButtonStyle = {
+export const cvButtonStyle = {
     marginTop : '25px',
     marginBottom : '25px',
-    borderBottom : "1.5px solid #F0F0F6",
     color : "black",
     backgroundColor : "#FFB400",
     borderRadius : "0px"
@@ -98,10 +97,6 @@ const skills = [
     {
         value : 100,
         title : "Cuda"
-    },
-    {
-        value : 100,
-        title : "HTML"
     },
     {
         value : 100,
