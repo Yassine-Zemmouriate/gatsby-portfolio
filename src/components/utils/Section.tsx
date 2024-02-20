@@ -36,10 +36,10 @@ const Description = styled.div`
     margin-top: 25px;
     font-size: 15px;
     color : #767676;
+    font-style: italic;
 `;
 
 const ChildrenContainer = styled.div`
-    background-color: white;
     margin-top: 50px;
     height : auto;
     width : 100%;

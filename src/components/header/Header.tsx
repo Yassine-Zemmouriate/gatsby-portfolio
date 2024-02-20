@@ -1,8 +1,5 @@
 import * as React from 'react';
 import styled from "styled-components";
-import {Button} from "@mui/material";
-import {cvButtonStyle} from "../columns/LeftColumn";
-import {ArrowRight, MachineLearning} from "../../../public/static/images/svgs";
 
 export interface HeaderProps {
 
@@ -11,10 +8,9 @@ const Header : React.FC<HeaderProps> = () => {
     return (
         <Container id={"section-0"}>
             <TextField>
-                <Title>Je suis Yassine Zemmouriate <JobTitle>Consultant Data Scientist & FullStack Developer</JobTitle></Title>
+                <Title>Yassine Zemmouriate <JobTitle>Consultant Data Scientist & FullStack Developer</JobTitle></Title>
                 <Description>
-                    Je suis un jeune en alternance en tant que Consultant Data Scientist chez Batt & Associés, je suis très passionné par ce domaine, et par le développement web
-                    <Button sx={{...cvButtonStyle, borderRadius : "5px", width : "auto", alignItems: 'center'}}>Hire me<ArrowRight /></Button>
+                    Je suis un jeune en alternance en tant que Consultant Data Scientist chez Batt & Associés, je suis très passionné par ce domaine, et par le développement we
                 </Description>
             </TextField>
             <ImageField>Image en cours de fabrication</ImageField>
@@ -26,10 +22,12 @@ export default Header;
 const Container = styled.div`
     height : 30rem;
     width : 100%;
-    background-color: #FFF;
     display: flex;
     gap : 2%;
     border-radius: 5px;
+    background-image: url("static/images/img_1.png");
+    background-position: center;
+    background-size: 100% 100%;
 `;
 
 const TextField = styled.div`

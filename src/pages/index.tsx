@@ -9,7 +9,7 @@ const pageStyles = {
     display: "flex",
     gap: "2%",
     fontFamily: "Inter, Roboto, sans-serif, serif",
-    backgroundColor: "#E5E5E5"
+    backgroundColor: "#F0F0F6"
 }
 
 const IndexPage: React.FC<PageProps> = () => {
