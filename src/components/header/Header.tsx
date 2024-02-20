@@ -20,12 +20,12 @@ const Header : React.FC<HeaderProps> = () => {
 export default Header;
 
 const Container = styled.div`
-    height : 30rem;
-    width : 100%;
+    height: 30rem;
+    width: 100%;
     display: flex;
-    gap : 2%;
+    gap: 2%;
     border-radius: 5px;
-    background-image: url("static/images/img_1.png");
+    background-image: url("images/img_1.png");
     background-position: center;
     background-size: 100% 100%;
 `;
