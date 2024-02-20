@@ -4,7 +4,7 @@ import {Card, CardContent, CardActionArea, CardMedia} from "@mui/material";
 
 import Header from '../header/Header';
 import Section from "../utils/Section";
-import {DevWeb, MachineLearning} from "../../../public/static/images/svgs";
+import {DevWeb, MachineLearning} from "../utils/svgs";
 
 export interface MiddleColumnProps {
     width : string;
