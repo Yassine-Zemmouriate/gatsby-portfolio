@@ -1,14 +1,7 @@
 import * as React from 'react';
-import {Avatar, Stack, Button} from "@mui/material";
 import styled from "styled-components";
 import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
-
-import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
-import XIcon from '@mui/icons-material/X';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import YouTubeIcon from '@mui/icons-material/YouTube';
-import LevelField from "./LevelField";
-import { Moon, House, Job, Grade, Feather, Code } from "../images/svgs";
+import { House, Job, Grade, Feather, Code } from "../../../public/static/images/svgs";
 import {useState} from "react";
 
 export interface RightColumnProps {
@@ -18,7 +11,7 @@ export interface RightColumnProps {
 const icons = [
     {   id : 0,
         icon : <House/>,
-        title : "A propos"
+        title : "À propos de moi"
     },
 {id : 1,
     icon : <Code color={"black"}/>,
@@ -26,11 +19,11 @@ const icons = [
 },
 {id : 2,
     icon : <Grade/>,
-    title : "Expérience Académique"
+    title : "Académiques"
 },
 {id : 3,
     icon : <Job/>,
-    title : "Expérience Professionnelle"
+    title : "Professionnelles"
 },
 {id : 4,
     icon : <Feather/>,
@@ -51,20 +44,22 @@ const BootstrapTooltip = styled(({ className, ...props }: TooltipProps) => (
 
 const RightColumn : React.FC<RightColumnProps> = ({width}) => {
 
-    const [mode, setMode] = useState<boolean>(false);
     const [selectedId, setSelectedId] = useState<number>(0);
 
-    const handleClick = (id : number) => setSelectedId(id);
+    const handleClick = (id : number) => {
+        setSelectedId(id);
+        const element = document.getElementById(`section-${id}`);
+        if (element) {
+            element.scrollIntoView({behavior : "smooth", block: "start"})
+        }
+    };
 
     return(
         <Container width={width}>
-            <ModeIcon>
-                <Moon />
-            </ModeIcon>
             <ListIcon>
                 {icons.map((element) => (
                     <BootstrapTooltip key={element.id} title={element.title} placement={"top"}>
-                    <IconContainer key={`icon-key-${element.id}`} bgcolor={selectedId === element.id ? "#FFB400" : "#F0F0F6"} onClick={() => handleClick(element.id)}>
+                    <IconContainer key={`icon-key-${element.id}`} color={selectedId === element.id ? "#FFB400" : "#F0F0F6"} onClick={() => handleClick(element.id)}>
                         {React.cloneElement(element.icon, { color : selectedId === element.id ? "#2B2B2B" : "#767676"})}
                     </IconContainer>
                         </BootstrapTooltip>
@@ -83,14 +78,10 @@ const Container = styled.div<{width : string}>`
     background-color : #FFF;
     justify-content: center;
     align-items: center;
-    position: relative;
-`;
-
-const ModeIcon = styled.div`   
-    margin-top: 50px;
-    position : absolute;
-    top : 50px;
-    left : 50% - 15px;
+    position: fixed;
+    top : 0;
+    right : 0;
+    height : 100%;
 `;
 
 const ListIcon = styled.div`
@@ -102,13 +93,13 @@ const ListIcon = styled.div`
     align-items: center;
 `;
 
-const IconContainer = styled.div<{bgcolor : string}>`
+const IconContainer = styled.div<{color : string}>`
     width : 40px;
     height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background-color: ${props => props.bgcolor};
+    background-color: ${props => props.color};
     cursor: pointer;
 `;

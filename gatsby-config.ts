@@ -12,7 +12,10 @@ const config: GatsbyConfig = {
   flags: {
     DEV_SSR: true
   },
-  plugins: ["gatsby-plugin-styled-components"]
+  plugins: [
+      "gatsby-plugin-styled-components",
+      "gatsby-plugin-typescript"
+  ],
 };
 
 export default config;
