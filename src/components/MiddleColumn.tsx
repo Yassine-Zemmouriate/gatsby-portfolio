@@ -16,7 +16,7 @@ const MiddleColumn : React.FC<MiddleColumnProps> = ({width}) => {
 
     return(
         <Container width={width}>
-            isjdofijsodifjosidjfoisdjfoisdjfosdijfoisdjfoisdjfoidsjfosdjfoisdjfoi
+            A faire après tkt
         </Container>
     )
 }
@@ -27,4 +27,5 @@ const Container = styled.div<{width : string}>`
     width : ${props => props.width};
     background-color : #FFF;
     height : 100%;
+    text-align: center;
 `;
