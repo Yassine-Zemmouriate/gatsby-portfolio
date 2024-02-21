@@ -25,7 +25,8 @@ const Container = styled.div`
     display: flex;
     gap: 2%;
     border-radius: 5px;
-    background-image: url("images/img_1.png");
+    background-image: url("images/header.png");
+    backdrop-filter: blur(10px);
     background-position: center;
     background-size: 100% 100%;
 `;

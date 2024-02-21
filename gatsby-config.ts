@@ -14,7 +14,20 @@ const config: GatsbyConfig = {
   },
   plugins: [
       "gatsby-plugin-styled-components",
-      "gatsby-plugin-typescript"
+      "gatsby-plugin-typescript",
+    {
+      resolve: "gatsby-plugin-webfonts",
+      options: {
+        fonts: {
+          google: [
+            {
+              family: 'Inter',
+              variants: ["400", "500", "600", "700"],
+            }
+          ]
+        }
+      }
+    }
   ],
 };
 
