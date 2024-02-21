@@ -89,6 +89,10 @@ const skills = [
     },
     {
         value : 100,
+        title : "Typescript"
+    },
+    {
+        value : 100,
         title : "Java"
     },
     {
@@ -224,7 +228,7 @@ const SkillsTitle = styled(LanguageTitle)``;
 
 const Container = styled.div<{width : string}>`
     width : ${props => props.width};
-    height : 100%;
+    height : auto;
     background-color: #FFF;
     justify-content: start;
     display: flex;

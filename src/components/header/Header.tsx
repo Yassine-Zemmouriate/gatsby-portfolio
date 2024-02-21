@@ -10,10 +10,10 @@ const Header : React.FC<HeaderProps> = () => {
             <TextField>
                 <Title>Yassine Zemmouriate <JobTitle>Consultant Data Scientist & FullStack Developer</JobTitle></Title>
                 <Description>
-                    Je suis un jeune en alternance en tant que Consultant Data Scientist chez Batt & Associés, je suis très passionné par ce domaine, et par le développement we
+                    Bonjour 👋 ! Je suis Yassine Zemmouriate, un étudiant en alternance passionné par les sciences des données et le développement web et mobile. Avec une solide expérience en apprentissage en projets innovants, je crée des solutions numériques que ça soit en rapport avec le Data science ou Sotware Engineering. Bienvenue sur mon portfolio créé par mes soins !
                 </Description>
             </TextField>
-            <ImageField>Image en cours de fabrication</ImageField>
+            <ImageField>Image</ImageField>
         </Container>);
 }
 
@@ -22,6 +22,7 @@ export default Header;
 const Container = styled.div`
     height: 30rem;
     width: 100%;
+    padding-left: 20px;
     display: flex;
     gap: 2%;
     border-radius: 5px;
@@ -62,8 +63,10 @@ const ImageField = styled.div`
     display: flex;
     background-color: transparent;
     width: 38%;
+    height: 100%;
     border-bottom-right-radius: 5px ;
     text-align: center;
     align-items: center;
     justify-content: center;
+    object-fit: cover;
 `;

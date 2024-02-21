@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from "styled-components";
 import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
+import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import { House, Job, Grade, Feather, Code } from "../utils/svgs";
 import {useState} from "react";
 
@@ -14,21 +15,22 @@ const icons = [
         title : "À propos de moi"
     },
 {id : 1,
-    icon : <Code color={"black"}/>,
-    title : "Informatique"
+    icon : <Grade/>,
+    title : "Diplômes / Formations"
 },
 {id : 2,
-    icon : <Grade/>,
+    icon : <Job/>,
     title : "Académiques"
 },
 {id : 3,
-    icon : <Job/>,
+    icon : <Feather/>,
     title : "Professionnelles"
 },
-{id : 4,
-    icon : <Feather/>,
-    title : "Certification"
-}
+    {
+        id: 4,
+        icon : <WorkspacePremiumIcon />,
+        title : "Certifications"
+    }
 ]
 
 const BootstrapTooltip = styled(({ className, ...props }: TooltipProps) => (
@@ -60,7 +62,7 @@ const RightColumn : React.FC<RightColumnProps> = ({width}) => {
                 {icons.map((element) => (
                     <BootstrapTooltip key={element.id} title={element.title} placement={"top"}>
                     <IconContainer key={`icon-key-${element.id}`} color={selectedId === element.id ? "#FFB400" : "#F0F0F6"} onClick={() => handleClick(element.id)}>
-                        {React.cloneElement(element.icon, { color : selectedId === element.id ? "#2B2B2B" : "#767676"})}
+                        {React.cloneElement(element.icon, { color : selectedId === element.id ? "#2B2B2B" : "#767676", sx : selectedId === element.id ? {color : "#2B2B2B"} : {color : "#767676"}})}
                     </IconContainer>
                         </BootstrapTooltip>
                 ))}
