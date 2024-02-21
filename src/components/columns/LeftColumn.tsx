@@ -188,7 +188,7 @@ const LeftColumn : React.FC<SideBarProps> = ({width}) => {
             </LanguagesField>
             <SkillsField>
                 <SkillsTitle>Skills</SkillsTitle>
-                {skills.map((element, index) => <LevelField key={`skill-key-${index}`} value={element.value} title={element.title} display={false} />)}
+                {skills.map((element, index) => <LevelField key={`skill-key-${index}`} value={element.value} title={element.title} display={false} displaybar={false} />)}
             </SkillsField>
             <a href={"static/pdf/cv.pdf"} target={"_blank"}>
                 <Button sx={cvButtonStyle} >Télécharger CV</Button>

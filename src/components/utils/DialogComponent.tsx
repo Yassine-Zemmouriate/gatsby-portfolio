@@ -4,7 +4,6 @@ import {
     Dialog,
     DialogTitle,
     DialogContent,
-    DialogContentText,
     ThemeProvider,
     IconButton
 } from '@mui/material';
@@ -13,7 +12,7 @@ import CloseIcon from "@mui/icons-material/Close";
 
 interface DialogComponentProps {
     title : string;
-    contentText : string;
+    contentText : string | React.ReactNode;
     open : boolean;
     handleClose : () => void;
 }
@@ -33,7 +32,7 @@ const theme = createTheme({
 const DialogComponent : React.FC<DialogComponentProps> = ({ title = "", contentText = "", open, handleClose }) => {
   return (
       <ThemeProvider theme={theme}>
-    <Dialog open={open} onClose={handleClose}>
+    <Dialog open={open} onClose={handleClose} scroll={"paper"}>
       <DialogTitle>{title}</DialogTitle>
         <IconButton
           aria-label="close"
@@ -48,9 +47,7 @@ const DialogComponent : React.FC<DialogComponentProps> = ({ title = "", contentT
           <CloseIcon />
         </IconButton>
       <DialogContent>
-        <DialogContentText>
             {contentText}
-        </DialogContentText>
       </DialogContent>
     </Dialog>
           </ThemeProvider>

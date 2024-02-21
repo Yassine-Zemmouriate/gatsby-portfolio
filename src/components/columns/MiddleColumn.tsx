@@ -1,61 +1,150 @@
 import * as React from 'react';
 import styled from "styled-components";
-import {Card, CardContent, CardActionArea, CardMedia} from "@mui/material";
+import {Card, CardContent, CardActionArea, CardMedia, DialogContent, List, ListItem} from "@mui/material";
 
 import Header from '../header/Header';
 import Section from "../utils/Section";
 import {DevWeb, MachineLearning} from "../utils/svgs";
 import DialogComponent from "../utils/DialogComponent";
 import {useState} from "react";
+import Typography from "@mui/material/Typography";
 
 export interface MiddleColumnProps {
     width : string;
+}
+
+const ImageContainer = styled.div`
+    display : flex;
+    justify-content: space-between;
+    height: 70px;
+    width: 30%;
+    object-fit: fill;
+`;
+
+const listItemStyle = {
+    position : "relative",
+    display : "flex",
+    justifyContent : "space-between",
+    alignItems : "center",
+    gap : "2%",
+    marginBottom : "10px"
 }
 
 const fields = [
     {
         id : 0,
         icon : <MachineLearning color={"#FFB400"} height={"100px"} width={"100px"}/>,
-        title : "Science des données et de l'Information",
-        description : "Machine Learning, Deep Learning, Reinforcement Learning ...",
-        dialogDescription : `
-        
-        `
+        title : "Machine Learning",
+        description :
+                <List>
+                    <ListItem>
+                        <Typography>
+                            - Exploration et analyse des données
+                        </Typography>
+                    </ListItem>
+                    <ListItem sx={{...listItemStyle, flexDirection : "column"}}>
+                        <Typography>
+                            - Apprentissage supervisé : Régression logistique, Random forest, Decision tree, SVM
+                        </Typography>
+                        <Typography>
+                            - Apprentissage non supervisé : Vector quantization, clustering, PCA
+                        </Typography>
+                    </ListItem>
+                    <ListItem sx={listItemStyle}>
+                        <Typography sx={{width : "70%"}}>
+                            - Création de modèles de Machine Learning (Régression Logistique, SVM, Random Forest, ...) avec la bibliothèque scikit-learn
+                        </Typography>
+                        <ImageContainer>
+                            <img src={"images/sklearn.png"} />
+                        </ImageContainer>
+                    </ListItem>
+                    <ListItem>
+                        <Typography>
+                            - Tester des modèles : Confusion Matrix, F1 score, ...
+                        </Typography>
+                    </ListItem>
+                </List>
     },
     {
         id : 1,
-        icon : <DevWeb  color={"#FFB400"} height={"100px"} width={"100px"} />,
-        title : "Développement Web Full Stack",
-        description : "HTML, CSS, Javascipt, Reactjs, Django, DRF ...",
-        dialogDescription: ""
+        icon : <MachineLearning color={"#FFB400"} height={"100px"} width={"100px"}/>,
+        title : "Deep Learning",
+        description : <List>
+                    <ListItem>
+                        <Typography>
+                            - Exploration et analyse des données
+                        </Typography>
+                    </ListItem>
+                    <ListItem sx={{...listItemStyle, flexDirection : "column"}}>
+                        <Typography>
+                            - Apprentissage supervisé : Régression logistique, Random forest, Decision tree, SVM
+                        </Typography>
+                        <Typography>
+                            - Apprentissage non supervisé : Vector quantization, clustering, PCA
+                        </Typography>
+                    </ListItem>
+                    <ListItem sx={listItemStyle}>
+                        <Typography sx={{width : "70%"}}>
+                            - Création de modèles de Machine Learning (Régression Logistique, SVM, Random Forest, ...) avec la bibliothèque scikit-learn
+                        </Typography>
+                        <ImageContainer>
+                            <img src={"images/pytorch.png"} />
+                        </ImageContainer>
+                    </ListItem>
+                    <ListItem>
+                        <Typography>
+                            - Tester des modèles : Confusion Matrix, F1 score, ...
+                        </Typography>
+                    </ListItem>
+                </List>
     },
     {
         id : 2,
-        icon : <DevWeb  color={"#FFB400"} height={"100px"} width={"100px"} />,
-        title : "Développement Web Full Stack",
-        description : "HTML, CSS, Javascipt, Reactjs, Django, DRF ...",
-        dialogDescription: ""
+        icon : <MachineLearning color={"#FFB400"} height={"100px"} width={"100px"}/>,
+        title : "Reinforcement Learning",
+        description : "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
     },
     {
         id : 3,
-        icon : <DevWeb  color={"#FFB400"} height={"100px"} width={"100px"} />,
-        title : "Développement Web Full Stack",
-        description : "HTML, CSS, Javascipt, Reactjs, Django, DRF ...",
-        dialogDescription: ""
+        icon : <MachineLearning color={"#FFB400"} height={"100px"} width={"100px"}/>,
+        title : "Natural Language Processing",
+        description : "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
     },
     {
         id : 4,
         icon : <DevWeb  color={"#FFB400"} height={"100px"} width={"100px"} />,
-        title : "Développement Web Full Stack",
-        description : "HTML, CSS, Javascipt, Reactjs, Django, DRF ...",
-        dialogDescription: ""
+        title : "FullStack Development",
+        description : "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
     },
     {
         id : 5,
+        icon : <MachineLearning color={"#FFB400"} height={"100px"} width={"100px"}/>,
+        title : "Data Engineering",
+        description : "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
+    },
+    {
+        id : 6,
+        icon : <MachineLearning color={"#FFB400"} height={"100px"} width={"100px"}/>,
+        title : "Ingénierie d'Applications Logicielles",
+        description : "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
+    },
+    {
+        id : 7,
         icon : <DevWeb  color={"#FFB400"} height={"100px"} width={"100px"} />,
-        title : "Développement Web Full Stack",
-        description : "HTML, CSS, Javascipt, Reactjs, Django, DRF ...",
-        dialogDescription: ""
+        title : "Mobile Development",
+        description : "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
+    },
+    {
+        id : 8,
+        icon : <MachineLearning color={"#FFB400"} height={"100px"} width={"100px"}/>,
+        title : "Big Data",
+        description : "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
+    },
+    {
+        id : 9,
+        icon : <MachineLearning color={"#FFB400"} height={"100px"} width={"100px"}/>,
+        title : "Programmation GPU",
+        description : "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
     }
 ]
 
@@ -74,7 +163,7 @@ const MiddleColumn : React.FC<MiddleColumnProps> = ({width}) => {
     return(
         <Container width={width}>
             <Header />
-            <Section id={"section-1"} title={"Compétences Informatiques & Projets"} description={"Je porte deux casquettes"}>
+            <Section id={"section-1"} title={"Compétences Informatiques & Projets"} description={""}>
                 <ContentContainer>
                 {fields.map((elmnt, idx) => (
                     <Card variant={"outlined"} sx={cardStyle} key={`card-${elmnt.id}`}>
@@ -84,10 +173,9 @@ const MiddleColumn : React.FC<MiddleColumnProps> = ({width}) => {
                             </CardMedia>
                             <CardContent>
                                 <CardTitle>{elmnt.title}</CardTitle>
-                                <CardDescription>{elmnt.description}</CardDescription>
                             </CardContent>
                         </CardActionArea>
-                        <DialogComponent title={elmnt.title} contentText={elmnt.dialogDescription} open={isOpen === elmnt.id} handleClose={handleClose} />
+                        <DialogComponent title={elmnt.title} contentText={elmnt.description} open={isOpen === elmnt.id} handleClose={handleClose} />
                     </Card>
                 ))}
                 </ContentContainer>
@@ -131,3 +219,4 @@ export const cardStyle = {
     height : "225px",
     width : "40%",
 }
+
