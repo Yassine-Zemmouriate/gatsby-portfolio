@@ -50,7 +50,7 @@ const RightColumn : React.FC<RightColumnProps> = ({width}) => {
         setSelectedId(id);
         const element = document.getElementById(`section-${id}`);
         if (element) {
-            element.scrollIntoView({behavior : "smooth", block: "start"})
+            element.scrollIntoView({behavior : "smooth", block: "start", inline : "nearest"})
         }
     };
 

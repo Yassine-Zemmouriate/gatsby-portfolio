@@ -22,7 +22,7 @@ const theme = createTheme({
         MuiBackdrop: {
             styleOverrides: {
                 root: {
-                    backgroundColor: 'rgba(0, 0, 0, 0.1)'
+                    backgroundColor: 'rgba(0, 0, 0, 0.05)'
                 }
             }
         }
@@ -32,7 +32,7 @@ const theme = createTheme({
 const DialogComponent : React.FC<DialogComponentProps> = ({ title = "", contentText = "", open, handleClose }) => {
   return (
       <ThemeProvider theme={theme}>
-    <Dialog open={open} onClose={handleClose} scroll={"paper"}>
+    <Dialog open={open} onClose={handleClose} scroll={"paper"} maxWidth={"xl"} aria-labelledby="responsive-dialog-title">
       <DialogTitle>{title}</DialogTitle>
         <IconButton
           aria-label="close"

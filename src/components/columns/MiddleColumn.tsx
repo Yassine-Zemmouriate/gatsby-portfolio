@@ -145,6 +145,12 @@ const fields = [
         icon : <MachineLearning color={"#FFB400"} height={"100px"} width={"100px"}/>,
         title : "Programmation GPU",
         description : "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
+    },
+    {
+        id : 10,
+        icon : <MachineLearning color={"#FFB400"} height={"100px"} width={"100px"}/>,
+        title : "Modèles Statistiques",
+        description : "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
     }
 ]
 
@@ -163,7 +169,75 @@ const MiddleColumn : React.FC<MiddleColumnProps> = ({width}) => {
     return(
         <Container width={width}>
             <Header />
-            <Section id={"section-1"} title={"Compétences Informatiques & Projets"} description={""}>
+            <Section id={"section-1"} title={"Expériences Académiques"} description={""}>
+                <ContentContainer>
+                {fields.map((elmnt, idx) => (
+                    <Card variant={"outlined"} sx={cardStyle} key={`card-${elmnt.id}`}>
+                        <CardActionArea sx={{width : "100%", height : "100%"}} onClick={() => handleClick(elmnt.id)}>
+                            <CardMedia>
+                                {elmnt.icon}
+                            </CardMedia>
+                            <CardContent>
+                                <CardTitle>{elmnt.title}</CardTitle>
+                            </CardContent>
+                        </CardActionArea>
+                        <DialogComponent title={elmnt.title} contentText={elmnt.description} open={isOpen === elmnt.id} handleClose={handleClose} />
+                    </Card>
+                ))}
+                </ContentContainer>
+            </Section>
+            <Section id={"section-2"} title={"Expériences Académiques"} description={""}>
+                <ContentContainer>
+                {fields.map((elmnt, idx) => (
+                    <Card variant={"outlined"} sx={cardStyle} key={`card-${elmnt.id}`}>
+                        <CardActionArea sx={{width : "100%", height : "100%"}} onClick={() => handleClick(elmnt.id)}>
+                            <CardMedia>
+                                {elmnt.icon}
+                            </CardMedia>
+                            <CardContent>
+                                <CardTitle>{elmnt.title}</CardTitle>
+                            </CardContent>
+                        </CardActionArea>
+                        <DialogComponent title={elmnt.title} contentText={elmnt.description} open={isOpen === elmnt.id} handleClose={handleClose} />
+                    </Card>
+                ))}
+                </ContentContainer>
+            </Section>
+            <Section id={"section-3"} title={"Expériences Académiques"} description={""}>
+                <ContentContainer>
+                {fields.map((elmnt, idx) => (
+                    <Card variant={"outlined"} sx={cardStyle} key={`card-${elmnt.id}`}>
+                        <CardActionArea sx={{width : "100%", height : "100%"}} onClick={() => handleClick(elmnt.id)}>
+                            <CardMedia>
+                                {elmnt.icon}
+                            </CardMedia>
+                            <CardContent>
+                                <CardTitle>{elmnt.title}</CardTitle>
+                            </CardContent>
+                        </CardActionArea>
+                        <DialogComponent title={elmnt.title} contentText={elmnt.description} open={isOpen === elmnt.id} handleClose={handleClose} />
+                    </Card>
+                ))}
+                </ContentContainer>
+            </Section>
+            <Section id={"section-4"} title={"Expériences Académiques"} description={""}>
+                <ContentContainer>
+                {fields.map((elmnt, idx) => (
+                    <Card variant={"outlined"} sx={cardStyle} key={`card-${elmnt.id}`}>
+                        <CardActionArea sx={{width : "100%", height : "100%"}} onClick={() => handleClick(elmnt.id)}>
+                            <CardMedia>
+                                {elmnt.icon}
+                            </CardMedia>
+                            <CardContent>
+                                <CardTitle>{elmnt.title}</CardTitle>
+                            </CardContent>
+                        </CardActionArea>
+                        <DialogComponent title={elmnt.title} contentText={elmnt.description} open={isOpen === elmnt.id} handleClose={handleClose} />
+                    </Card>
+                ))}
+                </ContentContainer>
+            </Section>
+            <Section id={"section-5"} title={"Expériences Académiques"} description={""}>
                 <ContentContainer>
                 {fields.map((elmnt, idx) => (
                     <Card variant={"outlined"} sx={cardStyle} key={`card-${elmnt.id}`}>

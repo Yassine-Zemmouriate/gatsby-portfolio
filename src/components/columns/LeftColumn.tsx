@@ -3,6 +3,7 @@ import {Avatar, Stack, Button} from "@mui/material";
 import styled from "styled-components";
 
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
+import GetAppOutlinedIcon from '@mui/icons-material/GetAppOutlined';
 import XIcon from '@mui/icons-material/X';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import YouTubeIcon from '@mui/icons-material/YouTube';
@@ -179,7 +180,7 @@ const LeftColumn : React.FC<SideBarProps> = ({width}) => {
             </FieldContainer>
                 <FieldContainer>
                 <KeyField>Status : </KeyField>
-                <ValueField>{dataJSON.status}</ValueField>
+                <ValueField style={{color : "green"}}>{dataJSON.status}</ValueField>
             </FieldContainer>
             </InfosField>
             <LanguagesField>
@@ -191,7 +192,7 @@ const LeftColumn : React.FC<SideBarProps> = ({width}) => {
                 {skills.map((element, index) => <LevelField key={`skill-key-${index}`} value={element.value} title={element.title} display={false} displaybar={false} />)}
             </SkillsField>
             <a href={"static/pdf/cv.pdf"} target={"_blank"}>
-                <Button sx={cvButtonStyle} >Télécharger CV</Button>
+                <Button sx={cvButtonStyle} endIcon={<GetAppOutlinedIcon />}>Télécharger CV</Button>
             </a>
         </Container>
     )
