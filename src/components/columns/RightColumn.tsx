@@ -19,11 +19,11 @@ const icons = [
     title : "Diplômes / Formations"
 },
 {id : 2,
-    icon : <Job/>,
+    icon : <Feather/> ,
     title : "Académiques"
 },
 {id : 3,
-    icon : <Feather/>,
+    icon : <Job/>,
     title : "Professionnelles"
 },
     {

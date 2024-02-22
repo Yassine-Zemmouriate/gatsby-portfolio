@@ -29,11 +29,15 @@ const theme = createTheme({
     }
 })
 
+const textStyle = {
+    fontFamily : "'Inter', sans-serif"
+}
+
 const DialogComponent : React.FC<DialogComponentProps> = ({ title = "", contentText = "", open, handleClose }) => {
   return (
       <ThemeProvider theme={theme}>
     <Dialog open={open} onClose={handleClose} scroll={"paper"} maxWidth={"xl"} aria-labelledby="responsive-dialog-title">
-      <DialogTitle>{title}</DialogTitle>
+      <DialogTitle sx={textStyle}>{title}</DialogTitle>
         <IconButton
           aria-label="close"
           onClick={handleClose}

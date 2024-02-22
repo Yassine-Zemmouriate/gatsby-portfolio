@@ -1,6 +1,8 @@
 import * as React from 'react';
 import styled from "styled-components";
-import {Card, CardContent, CardActionArea, CardMedia, DialogContent, List, ListItem} from "@mui/material";
+import {Card, CardContent, CardActionArea, CardMedia, List, ListItem, ListItemText} from "@mui/material";
+import ListItemIcon from '@mui/material/ListItemIcon';
+import PlayArrowTwoToneIcon from '@mui/icons-material/PlayArrowTwoTone';
 
 import Header from '../header/Header';
 import Section from "../utils/Section";
@@ -8,6 +10,7 @@ import {DevWeb, MachineLearning} from "../utils/svgs";
 import DialogComponent from "../utils/DialogComponent";
 import {useState} from "react";
 import Typography from "@mui/material/Typography";
+import ItemList from "../utils/ItemList";
 
 export interface MiddleColumnProps {
     width : string;
@@ -21,13 +24,20 @@ const ImageContainer = styled.div`
     object-fit: fill;
 `;
 
+export const ListItemDialog : React.FC<{description : string}> = ({description}) => (
+    <ListItem>
+        <ListItemIcon>
+            <PlayArrowTwoToneIcon sx={{color : "#FFB400"}} />
+        </ListItemIcon>
+        <ListItemText sx={listItemStyle}>
+            {description}
+        </ListItemText>
+    </ListItem>
+);
+
 const listItemStyle = {
-    position : "relative",
-    display : "flex",
-    justifyContent : "space-between",
-    alignItems : "center",
-    gap : "2%",
-    marginBottom : "10px"
+    fontStyle : "italic",
+    fontFamily : "'Inter', sans-serif"
 }
 
 const fields = [
@@ -37,32 +47,22 @@ const fields = [
         title : "Machine Learning",
         description :
                 <List>
+                    <ListItemDialog description={"Exploration et analyse des données"}/>
+                    <ListItemDialog description={"Apprentissage supervisé : Régression logistique, Random forest, Decision tree, SVM"}/>
+                    <ListItemDialog description={"Apprentissage non supervisé : Vector quantization, clustering, PCA"}/>
+                    <ListItemDialog description={"Apprentissage non supervisé : Vector quantization, clustering, PCA"}/>
                     <ListItem>
-                        <Typography>
-                            - Exploration et analyse des données
-                        </Typography>
-                    </ListItem>
-                    <ListItem sx={{...listItemStyle, flexDirection : "column"}}>
-                        <Typography>
-                            - Apprentissage supervisé : Régression logistique, Random forest, Decision tree, SVM
-                        </Typography>
-                        <Typography>
-                            - Apprentissage non supervisé : Vector quantization, clustering, PCA
-                        </Typography>
-                    </ListItem>
-                    <ListItem sx={listItemStyle}>
-                        <Typography sx={{width : "70%"}}>
-                            - Création de modèles de Machine Learning (Régression Logistique, SVM, Random Forest, ...) avec la bibliothèque scikit-learn
-                        </Typography>
+                        <ListItemIcon>
+                            <PlayArrowTwoToneIcon sx={{color : "#FFB400"}} />
+                        </ListItemIcon>
+                        <ListItemText sx={listItemStyle}>
+                            Création de modèles de Machine Learning (Régression Logistique, SVM, Random Forest, ...) avec la bibliothèque scikit-learn
+                        </ListItemText>
                         <ImageContainer>
                             <img src={"images/sklearn.png"} />
                         </ImageContainer>
                     </ListItem>
-                    <ListItem>
-                        <Typography>
-                            - Tester des modèles : Confusion Matrix, F1 score, ...
-                        </Typography>
-                    </ListItem>
+                    <ListItemDialog description={"Tester des modèles : Confusion Matrix, F1 score, ..."}/>
                 </List>
     },
     {
@@ -70,32 +70,7 @@ const fields = [
         icon : <MachineLearning color={"#FFB400"} height={"100px"} width={"100px"}/>,
         title : "Deep Learning",
         description : <List>
-                    <ListItem>
-                        <Typography>
-                            - Exploration et analyse des données
-                        </Typography>
-                    </ListItem>
-                    <ListItem sx={{...listItemStyle, flexDirection : "column"}}>
-                        <Typography>
-                            - Apprentissage supervisé : Régression logistique, Random forest, Decision tree, SVM
-                        </Typography>
-                        <Typography>
-                            - Apprentissage non supervisé : Vector quantization, clustering, PCA
-                        </Typography>
-                    </ListItem>
-                    <ListItem sx={listItemStyle}>
-                        <Typography sx={{width : "70%"}}>
-                            - Création de modèles de Machine Learning (Régression Logistique, SVM, Random Forest, ...) avec la bibliothèque scikit-learn
-                        </Typography>
-                        <ImageContainer>
-                            <img src={"images/pytorch.png"} />
-                        </ImageContainer>
-                    </ListItem>
-                    <ListItem>
-                        <Typography>
-                            - Tester des modèles : Confusion Matrix, F1 score, ...
-                        </Typography>
-                    </ListItem>
+
                 </List>
     },
     {
@@ -154,6 +129,93 @@ const fields = [
     }
 ]
 
+const formations = [
+    {
+        location : "CentraleSupélec",
+        city : "Metz - France",
+        date : "Septembre 2020 - Décembre 2024",
+        title : "Mention Data Science",
+        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet dapibus nibh ut faucibus nunc, egestas id amet porttitor. Pulvinar quisque sed amet, nulla nunc. Eleifend sodales posuere fusce tempus etiam et pellentesque. Molestie risus enim neque eget dui.",
+        status : "Étudiant - Apprenti",
+        img : "images/centrale.png"
+    },
+    {
+        location : "Lycée Numérique Colbert",
+        city : "Tourcoing - France",
+        date : "Septembre 2018 - Décembre 2020",
+        title : "Classes Préparatoires aux Grandes Écoles option TSI",
+        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet dapibus nibh ut faucibus nunc, egestas id amet porttitor. Pulvinar quisque sed amet, nulla nunc. Eleifend sodales posuere fusce tempus etiam et pellentesque. Molestie risus enim neque eget dui.",
+        status : "Étudiant",
+        img : "images/colbert.svg"
+    },
+    {
+        location : "Lycée Moulay Ismaïl",
+        city : "Meknès - Maroc",
+        date : "Septembre 2017 - Décembre 2018",
+        title : "Baccalauréat Générale Sciences Mathématiques B option Science de l'Ingénieur",
+        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet dapibus nibh ut faucibus nunc, egestas id amet porttitor. Pulvinar quisque sed amet, nulla nunc. Eleifend sodales posuere fusce tempus etiam et pellentesque. Molestie risus enim neque eget dui.",
+        status : "Étudiant",
+        img : "images/bac.png"
+    }
+]
+
+const jobs = [
+    {
+        location : "Batt Advisors",
+        city : "Metz - France",
+        date : "Octobre 2020 - aujourd'hui",
+        title : "Consultant Data Scientist - Développeur Full-Stack",
+        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet dapibus nibh ut faucibus nunc, egestas id amet porttitor. Pulvinar quisque sed amet, nulla nunc. Eleifend sodales posuere fusce tempus etiam et pellentesque. Molestie risus enim neque eget dui.",
+        status : "En alternance",
+        img : "images/batt_advisors.png"
+    },
+    {
+        location : "Appunto",
+        city : "Paris 15ème Arrondissement - France",
+        date : "Février 2018 - Otobre 2022",
+        title : "Développeur Front-end",
+        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet dapibus nibh ut faucibus nunc, egestas id amet porttitor. Pulvinar quisque sed amet, nulla nunc. Eleifend sodales posuere fusce tempus etiam et pellentesque. Molestie risus enim neque eget dui.",
+        status : "En alternance",
+        img : "images/appunto.jpeg"
+    }
+]
+
+const certificats = [
+    {
+        location : "IBM",
+        date : "Octobre 2023",
+        title : "Developing AI Applications with Python & Flask",
+        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet dapibus nibh ut faucibus nunc, egestas id amet porttitor. Pulvinar quisque sed amet, nulla nunc. Eleifend sodales posuere fusce tempus etiam et pellentesque. Molestie risus enim neque eget dui.",
+        status : "Certificat Coursera",
+        img : "images/ibm.png"
+    },
+    {
+        location : "IBM",
+        date : "Octobre 2023",
+        title : "Introduction to Containers Docker, Kubernetes & OpenShift",
+        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet dapibus nibh ut faucibus nunc, egestas id amet porttitor. Pulvinar quisque sed amet, nulla nunc. Eleifend sodales posuere fusce tempus etiam et pellentesque. Molestie risus enim neque eget dui.",
+        status : "Certificat Coursera",
+        img : "images/ibm.png"
+    },
+    {
+        location : "IBM",
+        date : "Août 2023",
+        title : "Introduction to DevOps",
+        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet dapibus nibh ut faucibus nunc, egestas id amet porttitor. Pulvinar quisque sed amet, nulla nunc. Eleifend sodales posuere fusce tempus etiam et pellentesque. Molestie risus enim neque eget dui.",
+        status : "Certificat Coursera",
+        img : "images/ibm.png"
+    }
+]
+
+const listStyle = {
+    backgroundColor : "#FFFFFF",
+    width : "100%",
+    paddingTop : "47px",
+    paddingLeft : "37px",
+    paddingRight : "29px",
+    paddingBottom : "0px"
+}
+
 const MiddleColumn : React.FC<MiddleColumnProps> = ({width}) => {
 
     const [isOpen, setOpen] = useState<number | null>(null);
@@ -170,40 +232,20 @@ const MiddleColumn : React.FC<MiddleColumnProps> = ({width}) => {
         <Container width={width}>
             <Header />
             <Section id={"section-1"} title={"Mes Diplômes & Formations"} description={""}>
-                <ContentContainer>
-                {fields.map((elmnt, idx) => (
-                    <Card variant={"outlined"} sx={cardStyle} key={`card-${elmnt.id}`}>
-                        <CardActionArea sx={{width : "100%", height : "100%"}} onClick={() => handleClick(elmnt.id)}>
-                            <CardMedia>
-                                {elmnt.icon}
-                            </CardMedia>
-                            <CardContent>
-                                <CardTitle>{elmnt.title}</CardTitle>
-                            </CardContent>
-                        </CardActionArea>
-                        <DialogComponent title={elmnt.title} contentText={elmnt.description} open={isOpen === elmnt.id} handleClose={handleClose} />
-                    </Card>
-                ))}
-                </ContentContainer>
+                <List sx={listStyle}>
+                    {formations.map((element, index) => (
+                        <ItemList location={element.location} status={element.status} date={element.date} title={element.title} description={element.description} image={element.img} city={element.city} />
+                    ))}
+                </List>
             </Section>
-            <Section id={"section-2"} title={"Mes Expériences Académiques"} description={""}>
-                <ContentContainer>
-                {fields.map((elmnt, idx) => (
-                    <Card variant={"outlined"} sx={cardStyle} key={`card-${elmnt.id}`}>
-                        <CardActionArea sx={{width : "100%", height : "100%"}} onClick={() => handleClick(elmnt.id)}>
-                            <CardMedia>
-                                {elmnt.icon}
-                            </CardMedia>
-                            <CardContent>
-                                <CardTitle>{elmnt.title}</CardTitle>
-                            </CardContent>
-                        </CardActionArea>
-                        <DialogComponent title={elmnt.title} contentText={elmnt.description} open={isOpen === elmnt.id} handleClose={handleClose} />
-                    </Card>
-                ))}
-                </ContentContainer>
+            <Section id={"section-2"} title={"Mes Expériences Professionnelles"} description={""}>
+                <List sx={listStyle}>
+                    {jobs.map((element, index) => (
+                        <ItemList location={element.location} status={element.status} date={element.date} title={element.title} description={element.description} image={element.img} city={element.city} />
+                    ))}
+                </List>
             </Section>
-            <Section id={"section-3"} title={"Mes Expériences Professionnelles"} description={""}>
+            <Section id={"section-3"} title={"Mes Expériences Académiques"} description={""}>
                 <ContentContainer>
                 {fields.map((elmnt, idx) => (
                     <Card variant={"outlined"} sx={cardStyle} key={`card-${elmnt.id}`}>
@@ -221,21 +263,11 @@ const MiddleColumn : React.FC<MiddleColumnProps> = ({width}) => {
                 </ContentContainer>
             </Section>
             <Section id={"section-4"} title={"Mes Certificats"} description={""}>
-                <ContentContainer>
-                {fields.map((elmnt, idx) => (
-                    <Card variant={"outlined"} sx={cardStyle} key={`card-${elmnt.id}`}>
-                        <CardActionArea sx={{width : "100%", height : "100%"}} onClick={() => handleClick(elmnt.id)}>
-                            <CardMedia>
-                                {elmnt.icon}
-                            </CardMedia>
-                            <CardContent>
-                                <CardTitle>{elmnt.title}</CardTitle>
-                            </CardContent>
-                        </CardActionArea>
-                        <DialogComponent title={elmnt.title} contentText={elmnt.description} open={isOpen === elmnt.id} handleClose={handleClose} />
-                    </Card>
-                ))}
-                </ContentContainer>
+                <List sx={listStyle}>
+                    {certificats.map((element, index) => (
+                        <ItemList location={element.location} status={element.status} date={element.date} title={element.title} description={element.description} image={element.img} />
+                    ))}
+                </List>
             </Section>
         </Container>
     )
@@ -263,13 +295,6 @@ const CardTitle = styled.div`
     font-size: 18px;
     font-family: Inter, sans-serif;
     font-style: normal;
-`;
-
-const CardDescription = styled.div`
-    font-size: 15px;
-    font-family: Inter, sans-serif;
-    color : #767676;
-    margin-top: 30px;
 `;
 
 export const cardStyle = {
