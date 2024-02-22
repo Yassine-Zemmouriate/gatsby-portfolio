@@ -56,7 +56,8 @@ const dataJSON = {
     "adress" : "Metz, France",
     "permis" : "B",
     "phone" : "07 66 52 62 43",
-    "status" : "En alternance"
+    "status" : "En alternance",
+    "email" : "zemmouriat@gmail.com"
 }
 
 const languages = [
@@ -186,6 +187,10 @@ const LeftColumn : React.FC<SideBarProps> = ({width}) => {
                 <KeyField>Status : </KeyField>
                 <ValueField style={{color : "green"}}>{dataJSON.status}</ValueField>
             </FieldContainer>
+                <FieldContainer>
+                <KeyField>Email : </KeyField>
+                <ValueField>{dataJSON.email}</ValueField>
+            </FieldContainer>
             </InfosField>
             <LanguagesField>
                 <LanguageTitle>Languages</LanguageTitle>
@@ -228,7 +233,6 @@ const SkillsTitle = styled(LanguageTitle)``;
 
 const Container = styled.div<{width : string}>`
     width : ${props => props.width};
-    height : auto;
     background-color: #FFF;
     justify-content: start;
     display: flex;

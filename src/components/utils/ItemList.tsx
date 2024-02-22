@@ -1,51 +1,90 @@
 import React from 'react';
 import styled from "styled-components";
+import {CardActionArea} from "@mui/material";
+import DialogComponent from "./DialogComponent";
 
 interface ItemListProps {
+    id : string;
     location : string;
     city? : string;
     status : string;
     date : string;
     title : string;
-    description : string;
+    description? : string | React.ReactNode;
     image? : string;
+    clickable? : boolean;
 }
 
-const ItemList : React.FC<ItemListProps> = ({location, status, city, date, description, title, image}) => {
+const ItemList : React.FC<ItemListProps> = ({ id, location, status, city, date, description, title, image, clickable = false}) => {
 
-return (
-    <Container>
+return !clickable ? (
+    <Container id={id}>
+            <ImageContainer>
+            <img src={image} alt={image} height={"100%"} width={"100%"} style={{objectFit: "contain"}}/>
+        </ImageContainer>
         <LeftContainer>
             <LocationContainer>
                 {location}
             </LocationContainer>
-                <div style={{display : "flex", alignItems : "center", width : "80%", justifyContent : "space-between"}}>
-                    <StatusContainer>
-                        {status}
-                    </StatusContainer>
-                    <DateContainer>
-                        {date}
-                    </DateContainer>
-                </div>
+            <StatusContainer>
+                {status}
+            </StatusContainer>
+            <DateContainer>
+                {date}
+            </DateContainer>
             <CityContainer>{city}</CityContainer>
         </LeftContainer>
         <RightContainer>
             <TitleContainer>
                 {title}
             </TitleContainer>
-            <DescriptionContainer>
+            {description && <DescriptionContainer>
                 {description}
-            </DescriptionContainer>
+            </DescriptionContainer>}
         </RightContainer>
-        <ImageContainer>
-            <img src={image} alt={image} height={"100%"} width={"100%"} style={{objectFit: "contain"}}/>
-        </ImageContainer>
     </Container>
 )
+    :
+    (
+            <CardActionArea id={id} sx={containerStyle}>
+            <ImageContainer>
+            <img src={image} alt={image} height={"100%"} width={"100%"} style={{objectFit: "contain"}}/>
+        </ImageContainer>
+        <LeftContainer>
+            <LocationContainer>
+                {location}
+            </LocationContainer>
+            <StatusContainer>
+                {status}
+            </StatusContainer>
+            <DateContainer>
+                {date}
+            </DateContainer>
+            <CityContainer>{city}</CityContainer>
+        </LeftContainer>
+        <RightContainer>
+            <TitleContainer>
+                {title}
+            </TitleContainer>
+            {description && <DescriptionContainer>
+                {description}
+            </DescriptionContainer>}
+        </RightContainer>
+            </CardActionArea>
+    )
 
 }
 
 export default ItemList;
+
+const containerStyle = {
+    display : "flex",
+    flexDirection : "row",
+    gap : "3%",
+    borderBottom: "1px solid #F0F0F6",
+    paddingBottom: "22px",
+    paddingTop: "11px",
+}
 
 const Container = styled.div`
     display: flex;
@@ -57,19 +96,21 @@ const Container = styled.div`
 `;
 
 const LeftContainer = styled.div`
-    flex : 3;
+    flex : 2;
     text-align: left;
 `;
 
 const RightContainer = styled.div`
-    flex : 3;
-    text-align: left;
+    display: flex;
+    flex : 4;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 `;
 
 const TitleContainer = styled.div`
     font-size: 18px;
     font-style: italic;
-    margin-bottom: 28px;
 `;
 
 const DescriptionContainer = styled.div`
@@ -80,7 +121,9 @@ const DescriptionContainer = styled.div`
 `;
 
 const StatusContainer = styled.div`
+    color : green;
     font-size: 15px;
+    margin-bottom: 10px;
 `;
 
 const LocationContainer = styled.div`
@@ -94,6 +137,7 @@ const DateContainer = styled.div`
     background-color: #FFB400;
     color : white;
     padding : 2px 4px 2px;
+    width : auto;
 `;
 
 const ImageContainer = styled.div`
@@ -101,7 +145,7 @@ const ImageContainer = styled.div`
 `;
 
 const CityContainer = styled.div`
-    margin-top: 5px;
+    margin-top: 10px;
     font-style: italic;
     color : #767676;
     font-size: 10px;

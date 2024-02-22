@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import { House, Job, Grade, Feather, Code } from "../utils/svgs";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 export interface RightColumnProps {
     width : string;

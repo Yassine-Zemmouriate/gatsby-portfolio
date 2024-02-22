@@ -1,16 +1,18 @@
 import * as React from 'react';
 import styled from "styled-components";
-import {Card, CardContent, CardActionArea, CardMedia, List, ListItem, ListItemText} from "@mui/material";
+import {Card, CardContent, CardActionArea, CardMedia, List, ListItem, ListItemText, Chip, Stack} from "@mui/material";
 import ListItemIcon from '@mui/material/ListItemIcon';
 import PlayArrowTwoToneIcon from '@mui/icons-material/PlayArrowTwoTone';
+import ArrowRightOutlinedIcon from '@mui/icons-material/ArrowRightOutlined';
 
 import Header from '../header/Header';
 import Section from "../utils/Section";
 import {DevWeb, MachineLearning} from "../utils/svgs";
 import DialogComponent from "../utils/DialogComponent";
 import {useState} from "react";
-import Typography from "@mui/material/Typography";
 import ItemList from "../utils/ItemList";
+import {Link} from "gatsby";
+import {cvButtonStyle} from "./LeftColumn";
 
 export interface MiddleColumnProps {
     width : string;
@@ -70,7 +72,22 @@ const fields = [
         icon : <MachineLearning color={"#FFB400"} height={"100px"} width={"100px"}/>,
         title : "Deep Learning",
         description : <List>
-
+<ListItemDialog description={"Exploration et analyse des données"}/>
+                    <ListItemDialog description={"Apprentissage supervisé : Régression logistique, Random forest, Decision tree, SVM"}/>
+                    <ListItemDialog description={"Apprentissage non supervisé : Vector quantization, clustering, PCA"}/>
+                    <ListItemDialog description={"Apprentissage non supervisé : Vector quantization, clustering, PCA"}/>
+                    <ListItem>
+                        <ListItemIcon>
+                            <PlayArrowTwoToneIcon sx={{color : "#FFB400"}} />
+                        </ListItemIcon>
+                        <ListItemText sx={listItemStyle}>
+                            Création de modèles de Machine Learning (Régression Logistique, SVM, Random Forest, ...) avec la bibliothèque scikit-learn
+                        </ListItemText>
+                        <ImageContainer>
+                            <img src={"images/sklearn.png"} />
+                        </ImageContainer>
+                    </ListItem>
+                    <ListItemDialog description={"Tester des modèles : Confusion Matrix, F1 score, ..."}/>
                 </List>
     },
     {
@@ -126,34 +143,40 @@ const fields = [
         icon : <MachineLearning color={"#FFB400"} height={"100px"} width={"100px"}/>,
         title : "Modèles Statistiques",
         description : "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
+    },
+    {
+        id : 11,
+        icon : <MachineLearning color={"#FFB400"} height={"100px"} width={"100px"}/>,
+        title : "Software Engineering",
+        description : "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
     }
 ]
 
 const formations = [
     {
+        id : 0,
         location : "CentraleSupélec",
         city : "Metz - France",
         date : "Septembre 2020 - Décembre 2024",
-        title : "Mention Data Science",
-        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet dapibus nibh ut faucibus nunc, egestas id amet porttitor. Pulvinar quisque sed amet, nulla nunc. Eleifend sodales posuere fusce tempus etiam et pellentesque. Molestie risus enim neque eget dui.",
+        title : "Science des Données et de l'Information",
         status : "Étudiant - Apprenti",
         img : "images/centrale.png"
     },
     {
+        id : 1,
         location : "Lycée Numérique Colbert",
         city : "Tourcoing - France",
         date : "Septembre 2018 - Décembre 2020",
         title : "Classes Préparatoires aux Grandes Écoles option TSI",
-        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet dapibus nibh ut faucibus nunc, egestas id amet porttitor. Pulvinar quisque sed amet, nulla nunc. Eleifend sodales posuere fusce tempus etiam et pellentesque. Molestie risus enim neque eget dui.",
         status : "Étudiant",
         img : "images/colbert.svg"
     },
     {
+        id : 2,
         location : "Lycée Moulay Ismaïl",
         city : "Meknès - Maroc",
         date : "Septembre 2017 - Décembre 2018",
         title : "Baccalauréat Générale Sciences Mathématiques B option Science de l'Ingénieur",
-        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet dapibus nibh ut faucibus nunc, egestas id amet porttitor. Pulvinar quisque sed amet, nulla nunc. Eleifend sodales posuere fusce tempus etiam et pellentesque. Molestie risus enim neque eget dui.",
         status : "Étudiant",
         img : "images/bac.png"
     }
@@ -161,20 +184,20 @@ const formations = [
 
 const jobs = [
     {
+        id : 0,
         location : "Batt Advisors",
         city : "Metz - France",
-        date : "Octobre 2020 - aujourd'hui",
+        date : "Octobre 2022 - aujourd'hui",
         title : "Consultant Data Scientist - Développeur Full-Stack",
-        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet dapibus nibh ut faucibus nunc, egestas id amet porttitor. Pulvinar quisque sed amet, nulla nunc. Eleifend sodales posuere fusce tempus etiam et pellentesque. Molestie risus enim neque eget dui.",
         status : "En alternance",
         img : "images/batt_advisors.png"
     },
     {
+        id : 1,
         location : "Appunto",
         city : "Paris 15ème Arrondissement - France",
-        date : "Février 2018 - Otobre 2022",
-        title : "Développeur Front-end",
-        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet dapibus nibh ut faucibus nunc, egestas id amet porttitor. Pulvinar quisque sed amet, nulla nunc. Eleifend sodales posuere fusce tempus etiam et pellentesque. Molestie risus enim neque eget dui.",
+        date : "Février 2018 - Octobre 2022",
+        title : "Développeur Front-end et Mobile",
         status : "En alternance",
         img : "images/appunto.jpeg"
     }
@@ -182,35 +205,36 @@ const jobs = [
 
 const certificats = [
     {
+        id : 0,
         location : "IBM",
         date : "Octobre 2023",
         title : "Developing AI Applications with Python & Flask",
-        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet dapibus nibh ut faucibus nunc, egestas id amet porttitor. Pulvinar quisque sed amet, nulla nunc. Eleifend sodales posuere fusce tempus etiam et pellentesque. Molestie risus enim neque eget dui.",
         status : "Certificat Coursera",
         img : "images/ibm.png"
     },
     {
+        id : 1,
         location : "IBM",
         date : "Octobre 2023",
         title : "Introduction to Containers Docker, Kubernetes & OpenShift",
-        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet dapibus nibh ut faucibus nunc, egestas id amet porttitor. Pulvinar quisque sed amet, nulla nunc. Eleifend sodales posuere fusce tempus etiam et pellentesque. Molestie risus enim neque eget dui.",
         status : "Certificat Coursera",
         img : "images/ibm.png"
     },
     {
+        id : 2,
         location : "IBM",
         date : "Août 2023",
         title : "Introduction to DevOps",
-        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet dapibus nibh ut faucibus nunc, egestas id amet porttitor. Pulvinar quisque sed amet, nulla nunc. Eleifend sodales posuere fusce tempus etiam et pellentesque. Molestie risus enim neque eget dui.",
         status : "Certificat Coursera",
         img : "images/ibm.png"
     }
 ]
 
 const listStyle = {
+    borderRadius : "6px",
     backgroundColor : "#FFFFFF",
     width : "100%",
-    paddingTop : "47px",
+    paddingTop : "0px",
     paddingLeft : "37px",
     paddingRight : "29px",
     paddingBottom : "0px"
@@ -224,6 +248,10 @@ const MiddleColumn : React.FC<MiddleColumnProps> = ({width}) => {
         setOpen(id);
     }
 
+    const handleCertificatClick = (element: { link: string | URL | undefined; }) => {
+        window.open(element.link);
+    }
+
     const handleClose = () => {
         setOpen(null);
     }
@@ -234,14 +262,14 @@ const MiddleColumn : React.FC<MiddleColumnProps> = ({width}) => {
             <Section id={"section-1"} title={"Mes Diplômes & Formations"} description={""}>
                 <List sx={listStyle}>
                     {formations.map((element, index) => (
-                        <ItemList location={element.location} status={element.status} date={element.date} title={element.title} description={element.description} image={element.img} city={element.city} />
+                        <ItemList id={`formation-id-${element.id}`} location={element.location} status={element.status} date={element.date} title={element.title} image={element.img} city={element.city} />
                     ))}
                 </List>
             </Section>
             <Section id={"section-2"} title={"Mes Expériences Professionnelles"} description={""}>
                 <List sx={listStyle}>
                     {jobs.map((element, index) => (
-                        <ItemList location={element.location} status={element.status} date={element.date} title={element.title} description={element.description} image={element.img} city={element.city} />
+                        <ItemList id={`job-id-${element.id}`} location={element.location} status={element.status} date={element.date} title={element.title} image={element.img} city={element.city} />
                     ))}
                 </List>
             </Section>
@@ -265,7 +293,7 @@ const MiddleColumn : React.FC<MiddleColumnProps> = ({width}) => {
             <Section id={"section-4"} title={"Mes Certificats"} description={""}>
                 <List sx={listStyle}>
                     {certificats.map((element, index) => (
-                        <ItemList location={element.location} status={element.status} date={element.date} title={element.title} description={element.description} image={element.img} />
+                        <ItemList id={`certificat-id-${element.id}`} location={element.location} status={element.status} date={element.date} title={element.title} image={element.img} />
                     ))}
                 </List>
             </Section>
