@@ -1,86 +1,93 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import styled from "styled-components";
-import {CardActionArea} from "@mui/material";
+import { CardActionArea } from "@mui/material";
 import DialogComponent from "./DialogComponent";
 
 interface ItemListProps {
-    id : string;
-    location : string;
-    city? : string;
-    status : string;
-    date : string;
-    title : string;
-    description? : string | React.ReactNode;
-    image? : string;
-    clickable? : boolean;
+    id: string;
+    location: string;
+    city?: string;
+    status: string;
+    date: string;
+    title: string;
+    description?: string | React.ReactNode;
+    image?: string;
+    clickable?: boolean;
+    open: boolean;
+    handleClose: () => void;
+    handleClick: () => void;
+    style? : CSSProperties;
 }
 
-const ItemList : React.FC<ItemListProps> = ({ id, location, status, city, date, description, title, image, clickable = false}) => {
+const ItemList: React.FC<ItemListProps> = ({ id, location, status, city, date, description, title, image, clickable = false, open = false, handleClose, handleClick, style }) => {
 
-return !clickable ? (
-    <Container id={id}>
+    return !clickable ? (
+        <Container id={id} style={style}>
             <ImageContainer>
-            <img src={image} alt={image} height={"100%"} width={"100%"} style={{objectFit: "contain"}}/>
-        </ImageContainer>
-        <LeftContainer>
-            <LocationContainer>
-                {location}
-            </LocationContainer>
-            <StatusContainer>
-                {status}
-            </StatusContainer>
-            <DateContainer>
-                {date}
-            </DateContainer>
-            <CityContainer>{city}</CityContainer>
-        </LeftContainer>
-        <RightContainer>
-            <TitleContainer>
-                {title}
-            </TitleContainer>
-            {description && <DescriptionContainer>
-                {description}
-            </DescriptionContainer>}
-        </RightContainer>
-    </Container>
-)
-    :
-    (
-            <CardActionArea id={id} sx={containerStyle}>
-            <ImageContainer>
-            <img src={image} alt={image} height={"100%"} width={"100%"} style={{objectFit: "contain"}}/>
-        </ImageContainer>
-        <LeftContainer>
-            <LocationContainer>
-                {location}
-            </LocationContainer>
-            <StatusContainer>
-                {status}
-            </StatusContainer>
-            <DateContainer>
-                {date}
-            </DateContainer>
-            <CityContainer>{city}</CityContainer>
-        </LeftContainer>
-        <RightContainer>
-            <TitleContainer>
-                {title}
-            </TitleContainer>
-            {description && <DescriptionContainer>
-                {description}
-            </DescriptionContainer>}
-        </RightContainer>
-            </CardActionArea>
+                <img src={image} alt={image} height={"100%"} width={"100%"} style={{ objectFit: "contain" }} />
+            </ImageContainer>
+            <LeftContainer>
+                <LocationContainer>
+                    {location}
+                </LocationContainer>
+                <StatusContainer>
+                    {status}
+                </StatusContainer>
+                <DateContainer>
+                    {date}
+                </DateContainer>
+                <CityContainer>{city}</CityContainer>
+            </LeftContainer>
+            <RightContainer>
+                <TitleContainer>
+                    {title}
+                </TitleContainer>
+                {description && <DescriptionContainer>
+                    {description}
+                </DescriptionContainer>}
+            </RightContainer>
+        </Container>
     )
+        :
+        (
+            <Container id={id} style={{ border: "none" }}>
+                <CardActionArea id={id} sx={{...containerStyle, ...style}} onClick={handleClick}>
+                    <ImageContainer>
+                        <img src={image} alt={image} height={"100%"} width={"100%"} style={{ objectFit: "contain" }} />
+                    </ImageContainer>
+                    <LeftContainer>
+                        <LocationContainer>
+                            {location}
+                        </LocationContainer>
+                        <StatusContainer>
+                            {status}
+                        </StatusContainer>
+                        <DateContainer>
+                            {date}
+                        </DateContainer>
+                        <CityContainer>{city}</CityContainer>
+                    </LeftContainer>
+                    <RightContainer>
+                        <TitleContainer>
+                            {title}
+                        </TitleContainer>
+                        {description && <DescriptionContainer>
+                            {description}
+                        </DescriptionContainer>}
+                    </RightContainer>
+                </CardActionArea>
+                <DialogComponent title={''} contentText={undefined} open={open} handleClose={handleClose} />
+            </Container>
+        )
 
 }
 
 export default ItemList;
 
 const containerStyle = {
-    display : "flex",
-    flexDirection : "row",
-    gap : "3%",
+    display: "flex",
+    flexDirection: "row",
+    gap: "3%",
     borderBottom: "1px solid #F0F0F6",
     paddingBottom: "22px",
     paddingTop: "11px",
