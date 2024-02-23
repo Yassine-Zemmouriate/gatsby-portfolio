@@ -1,6 +1,17 @@
 import * as React from 'react';
 import styled from "styled-components";
-import { Card, CardContent, CardActionArea, CardMedia, List, ListItem, ListItemText, Chip, Stack } from "@mui/material";
+import {
+    Card,
+    CardContent,
+    CardActionArea,
+    CardMedia,
+    List,
+    ListItem,
+    ListItemText,
+    Chip,
+    Stack,
+    Button
+} from "@mui/material";
 import ListItemIcon from '@mui/material/ListItemIcon';
 import PlayArrowTwoToneIcon from '@mui/icons-material/PlayArrowTwoTone';
 import ArrowRightOutlinedIcon from '@mui/icons-material/ArrowRightOutlined';
@@ -13,6 +24,7 @@ import { useState } from "react";
 import ItemList from "../utils/ItemList";
 import { Link } from "gatsby";
 import { cvButtonStyle } from "./LeftColumn";
+import GetAppOutlinedIcon from "@mui/icons-material/GetAppOutlined";
 
 export interface MiddleColumnProps {
     width: string;
@@ -26,7 +38,7 @@ const ImageContainer = styled.div`
     object-fit: fill;
 `;
 
-export const ListItemDialog: React.FC<{ description: string }> = ({ description }) => (
+export const ListItemDialog: React.FC<{ description: string, img? : string }> = ({ description, img }) => (
     <ListItem>
         <ListItemIcon>
             <PlayArrowTwoToneIcon sx={{ color: "#FFB400" }} />
@@ -34,6 +46,9 @@ export const ListItemDialog: React.FC<{ description: string }> = ({ description 
         <ListItemText sx={listItemStyle}>
             {description}
         </ListItemText>
+        <ImageContainer>
+            {img && <img src={img} alt={img}/>}
+        </ImageContainer>
     </ListItem>
 );
 
@@ -58,7 +73,7 @@ const fields = [
                         <PlayArrowTwoToneIcon sx={{ color: "#FFB400" }} />
                     </ListItemIcon>
                     <ListItemText sx={listItemStyle}>
-                        Création de modèles de Machine Learning (Régression Logistique, SVM, Random Forest, ...) avec la bibliothèque scikit-learn
+                        Création d'un kanban pour la gestion des projets des clients dans le site interne de la startup avec Reactjs et React-Admin
                     </ListItemText>
                     <ImageContainer>
                         <img src={"images/sklearn.png"} />
@@ -190,7 +205,38 @@ const jobs = [
         date: "Octobre 2022 - aujourd'hui",
         title: "Consultant Data Scientist - Développeur Full-Stack",
         status: "En alternance",
-        img: "images/batt_advisors.png"
+        img: "images/batt_advisors.png",
+        dialogContent : {
+            title : "Consultant Data Scientist - Développeur Full-Stack",
+            contentText : <List>
+                <ListItemDialog
+                    description={"Traitement, analyse et visualisation de données financières et extra financières pour les clients du groupe"}
+                />
+                <ListItemDialog
+                    description={"Relation client et agilité"}
+                />
+                <ListItemDialog
+                    description={"Ajout d'outils dans le site interne de Batt & Associés avec Reactjs et Django Rest Framework"}
+                    img={"images/drf.png"}
+                />
+                <ListItemDialog
+                    description={"Création d'une extension de gestion des étiquettes de colis avec Tableau"}
+                    img={"images/tableau.png"}
+                />
+                <ListItemDialog
+                    description={"Ajout de l'outil Tableau Embedding v3 dans le site interne"}
+                />
+                <ListItemDialog
+                    description={"Création d'un paquet python pour calculer les liasses fiscales des clients"}
+                    img={"images/python.png"}
+                />
+                <div style={{display : "flex", justifyContent : "flex-end"}}>
+                    <a href={"https://www.battadvisors.eu/"} target={"_blank"}>
+                        <Button sx={cvButtonStyle}>Site de l'entreprise</Button>
+                    </a>
+                </div>
+            </List>
+        }
     },
     {
         id: 1,
@@ -199,7 +245,40 @@ const jobs = [
         date: "Février 2018 - Octobre 2022",
         title: "Développeur Front-end et Mobile",
         status: "En alternance",
-        img: "images/appunto.jpeg"
+        img: "images/appunto.jpeg",
+        dialogContent : {
+            title : "Développeur Front-end et Mobile",
+            contentText : <List>
+                <ListItemDialog
+                    description={"Mise à jour du site web vitrine appunto.io avec Gatsbyjs"}
+                    img={"images/gatsby.png"}
+                />
+                <ListItemDialog
+                    description={"Ajout de l'outil Kanban dans le site interne avec Reactjs et React-Admin"}
+                    img={"images/reactjs.png"}
+                />
+                <ListItemDialog
+                    description={"Création du front d'une application pour les crèches avec React Native"}
+                    img={"images/react-native.png"}
+                />
+                <ListItemDialog
+                    description={"Rédaction d'un plan de validation et création des tests unitaires avec Jest Puppeteer"}
+                    img={"images/puppeteer.png"}
+                />
+                <ListItemDialog
+                    description={"Création du front d'un site de datavisualisation avec Recharts.js et D3.js"}
+                    img={"images/d3.png"}
+                />
+                <div style={{display : "flex", justifyContent : "space-between"}}>
+                    <a href={"pdf/reco_appunto.pdf"} target={"_blank"}>
+                        <Button sx={cvButtonStyle} endIcon={<GetAppOutlinedIcon/>}>Lettre de Recommandation</Button>
+                    </a>
+                    <a href={"https://www.appunto.io/"} target={"_blank"}>
+                        <Button sx={cvButtonStyle}>Site de l'entreprise</Button>
+                    </a>
+                </div>
+            </List>
+        }
     }
 ]
 
@@ -260,14 +339,40 @@ const MiddleColumn: React.FC<MiddleColumnProps> = ({ width }) => {
             <Section id={"section-1"} title={"Mes Diplômes & Formations"} description={""}>
                 <List sx={listStyle}>
                     {formations.map((element, index) => (
-                        <ItemList id={`formation-id-${element.id}`} handleClick={() => handleClick(`formation-id-${element.id}`)} location={element.location} status={element.status} date={element.date} title={element.title} image={element.img} city={element.city} open={isOpen === `formation-id-${element.id}`} handleClose={handleClose} />
+                        <ItemList
+                            id={`formation-id-${element.id}`}
+                            handleClick={() => handleClick(`formation-id-${element.id}`)}
+                            location={element.location}
+                            status={element.status}
+                            date={element.date}
+                            title={element.title}
+                            image={element.img}
+                            city={element.city}
+                            open={isOpen === `formation-id-${element.id}`}
+                            handleClose={handleClose}
+                            style={index === formations.length - 1 ? {borderBottom : "none"} : {}}
+                        />
                     ))}
                 </List>
             </Section>
             <Section id={"section-2"} title={"Mes Expériences Professionnelles"} description={""}>
                 <List sx={listStyle}>
                     {jobs.map((element, index) => (
-                        <ItemList id={`job-id-${element.id}`} handleClick={() => handleClick(`job-id-${element.id}`)} location={element.location} status={element.status} date={element.date} title={element.title} image={element.img} city={element.city} open={isOpen === `job-id-${element.id}`} handleClose={handleClose} />
+                        <ItemList
+                            id={`job-id-${element.id}`}
+                            handleClick={() => handleClick(`job-id-${element.id}`)}
+                            location={element.location}
+                            status={element.status}
+                            date={element.date}
+                            title={element.title}
+                            image={element.img}
+                            city={element.city}
+                            open={isOpen === `job-id-${element.id}`}
+                            handleClose={handleClose}
+                            style={index === jobs.length - 1 ? {borderBottom : "none"} : {}}
+                            clickable={true}
+                            dialogContent={element.dialogContent}
+                        />
                     ))}
                 </List>
             </Section>
@@ -275,17 +380,17 @@ const MiddleColumn: React.FC<MiddleColumnProps> = ({ width }) => {
                 <List sx={listStyle}>
                     {certificats.map((element, index) => (
                         <ItemList 
-                        id={`certificat-id-${element.id}`} 
-                        location={element.location} 
-                        status={element.status} 
-                        date={element.date} 
-                        title={element.title} 
-                        image={element.img} 
-                        open={isOpen === `certificat-id-${element.id}`} 
-                        handleClose={handleClose} 
-                        clickable={true} 
-                        handleClick={() => handleClick(`certificat-id-${element.id}`)} 
-                        style={index === certificats.length - 1 ? {borderBottom : "none"} : {}}
+                            id={`certificat-id-${element.id}`}
+                            location={element.location}
+                            status={element.status}
+                            date={element.date}
+                            title={element.title}
+                            image={element.img}
+                            open={isOpen === `certificat-id-${element.id}`}
+                            handleClose={handleClose}
+                            clickable={true}
+                            handleClick={() => handleClick(`certificat-id-${element.id}`)}
+                            style={index === certificats.length - 1 ? {borderBottom : "none"} : {}}
                         />
                     ))}
                 </List>

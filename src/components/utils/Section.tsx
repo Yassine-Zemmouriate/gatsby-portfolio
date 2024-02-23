@@ -25,7 +25,7 @@ const Container = styled.div`
     width: 100%;
     height: auto;
     background-color: transparent;
-    margin-top: 137px;
+    margin-top: 35px;
     margin-bottom: 60px;
     padding-top: 15px;
 `;

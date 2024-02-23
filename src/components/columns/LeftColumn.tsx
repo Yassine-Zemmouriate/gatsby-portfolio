@@ -32,7 +32,7 @@ const stackStyle = {
 }
 
 const socialMediaStyle = {
-    bgcolor : "#FFB400",
+    backgroundColor : "#FFB400",
     width: "24px",
     height: "24px",
     cursor: "pointer"
@@ -40,7 +40,8 @@ const socialMediaStyle = {
 
 const iconStyle = {
     width: "14px",
-    height: "14px"
+    height: "14px",
+    color : "white"
 }
 
 export const cvButtonStyle = {
@@ -63,10 +64,6 @@ const dataJSON = {
 const languages = [
     {
         value : 100,
-        title : "Arabe"
-    },
-    {
-        value : 100,
         title : "Français"
     },
     {
@@ -77,70 +74,80 @@ const languages = [
 
 const skills = [
     {
-        value : 100,
-        title : "HTML"
+        title : "HTML",
+        src : "images/html.png"
     },
     {
-        value : 100,
-        title : "CSS"
+        title : "CSS",
+        src : "images/css.png"
     },
     {
-        value : 100,
-        title : "Javascript"
+        title : "Javascript",
+        src : "images/js.png"
     },
     {
-        value : 100,
-        title : "Typescript"
+        title : "Typescript",
+        src : "images/ts.png"
     },
     {
-        value : 100,
-        title : "Java"
+        title : "ReactJS",
+        src : "images/reactjs.png"
     },
     {
-        value : 100,
-        title : "C++"
+        title : "Django Rest Framework",
+        src : "images/drf.png"
     },
     {
-        value : 100,
-        title : "Cuda"
+        title : "Gatsby",
+        src : "images/gatsby.png"
     },
     {
-        value : 100,
-        title : "Python"
+        title : "Java",
+        src : "images/java.png"
     },
     {
-        value : 100,
-        title : "ReactJS"
+        title : "Docker",
+        src : "images/docker.png"
     },
     {
-        value : 100,
-        title : "Django Rest Framework"
+        title : "Kubernetes",
+        src : "images/k8s.png"
     },
     {
-        value : 100,
-        title : "Docker"
+        title : "CI/CD pipeline",
+        src : "images/cicd.png"
     },
     {
-        value : 100,
-        title : "Kubernetes"
+        title : "Git",
+        src : "images/git.png"
     },
     {
-        value : 100,
-        title : "CI/CD pipeline"
+        title : "C++",
+        src : "images/cpp.png"
     },
     {
-        value : 100,
-        title : "Git"
+        title : "Cuda",
+        src : "images/cuda.jpeg"
     },
     {
-        value : 100,
-        title : "Gatsby"
+        title : "Python",
+        src : "images/python.png"
     },
     {
-        value : 100,
-        title : "DevOps"
+        title : "Android Studio",
+        src : "images/androidstudio.png"
+    },
+    {
+        title : "React Native",
+        src : "images/react-native.png"
     },
 ]
+
+const devweb = skills.slice(0, 7);
+const software = skills.slice(7, 12);
+const gpu = skills.slice(12, 14);
+const datascience = skills.slice(14, 15)
+const appmobile = skills.slice(15, 17);
 
 const LeftColumn : React.FC<SideBarProps> = ({width}) => {
 
@@ -152,43 +159,51 @@ const LeftColumn : React.FC<SideBarProps> = ({width}) => {
                 <JobField>Data Scientist & Développeur Full-Stack </JobField>
                 <Stack direction={"row"} justifyContent={"center"} spacing={2} sx={stackStyle}>
                     <Avatar sx={socialMediaStyle}>
-                        <FacebookRoundedIcon sx={iconStyle} />
+                        <a href={"https://www.facebook.com/yassine.zemmouri.503"} target={"_blank"}>
+                            <FacebookRoundedIcon sx={iconStyle} />
+                        </a>
                     </Avatar>
                     <Avatar sx={socialMediaStyle}>
-                        <XIcon sx={iconStyle} />
+                        <a href={"pdf/cv.pdf"} target={"_blank"}>
+                            <XIcon sx={iconStyle}/>
+                        </a>
                     </Avatar>
                     <Avatar sx={socialMediaStyle}>
-                        <LinkedInIcon sx={iconStyle} />
+                        <a href={"https://www.linkedin.com/in/yassine-zemmouriate-04a0b51b5"} target={"_blank"}>
+                            <LinkedInIcon sx={iconStyle}/>
+                        </a>
                     </Avatar>
                     <Avatar sx={socialMediaStyle}>
-                        <YouTubeIcon sx={iconStyle} />
+                        <a href={"pdf/cv.pdf"} target={"_blank"}>
+                            <YouTubeIcon sx={iconStyle}/>
+                        </a>
                     </Avatar>
 
                 </Stack>
             </AvatarField>
             <InfosField>
                 <FieldContainer>
-                <KeyField>Age : </KeyField>
+                <KeyField>Age</KeyField>
                 <ValueField>{dataJSON.age}</ValueField>
             </FieldContainer>
             <FieldContainer>
-                <KeyField>Adresse : </KeyField>
+                <KeyField>Adresse</KeyField>
                 <ValueField>{dataJSON.adress}</ValueField>
             </FieldContainer>
             <FieldContainer>
-                <KeyField>Permis : </KeyField>
+                <KeyField>Permis</KeyField>
                 <ValueField>{dataJSON.permis}</ValueField>
             </FieldContainer>
             <FieldContainer>
-                <KeyField>Téléphone : </KeyField>
+                <KeyField>Téléphone</KeyField>
                 <ValueField>{dataJSON.phone}</ValueField>
             </FieldContainer>
                 <FieldContainer>
-                <KeyField>Status : </KeyField>
+                <KeyField>Status</KeyField>
                 <ValueField style={{color : "green"}}>{dataJSON.status}</ValueField>
             </FieldContainer>
                 <FieldContainer>
-                <KeyField>Email : </KeyField>
+                <KeyField>Email</KeyField>
                 <ValueField>{dataJSON.email}</ValueField>
             </FieldContainer>
             </InfosField>
@@ -197,10 +212,84 @@ const LeftColumn : React.FC<SideBarProps> = ({width}) => {
                 {languages.map((element, index) => <LevelField key={`language-key-${index}`} value={element.value} title={element.title}/>)}
             </LanguagesField>
             <SkillsField>
-                <SkillsTitle>Skills</SkillsTitle>
-                {skills.map((element, index) => <LevelField key={`skill-key-${index}`} value={element.value} title={element.title} display={false} displaybar={false} />)}
+                <SkillsTitle>IT Skills</SkillsTitle>
+                <div style={{color : "green", paddingTop : "30px", paddingBottom : "15px"}}>Développement Web</div>
+                {devweb.map((element, index) => (
+                    <div key={`skill-key-${index}`} style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        marginBottom: "10px"
+                    }}>
+                        <span style={{marginBottom: "5px", flex: 4, color: "#767676"}}>{element.title}</span>
+                        <div style={{flex: 1, height: "40px", width: "40px"}}>
+                            <img src={element.src} alt={element.src} height={"100%"} width={"100%"}
+                                 style={{objectFit: "contain"}}/>
+                        </div>
+                    </div>
+                ))}
+                <div style={{color : "green", paddingTop : "30px", paddingBottom : "15px", borderTop : "1px solid lightgrey"}}>Data Science</div>
+                {datascience.map((element, index) => (
+                    <div key={`skill-key-${index}`} style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        marginBottom: "10px"
+                    }}>
+                        <span style={{marginBottom: "5px", flex: 4, color: "#767676"}}>{element.title}</span>
+                        <div style={{flex: 1, height: "40px", width: "40px"}}>
+                            <img src={element.src} alt={element.src} height={"100%"} width={"100%"}
+                                 style={{objectFit: "contain"}}/>
+                        </div>
+                    </div>
+                ))}
+                <div style={{color : "green", paddingTop : "30px", paddingBottom : "15px", borderTop : "1px solid lightgrey"}}>Ingénierie d'Application Logicielles</div>
+                {software.map((element, index) => (
+                    <div key={`skill-key-${index}`} style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        marginBottom: "10px"
+                    }}>
+                        <span style={{marginBottom: "5px", flex: 4, color: "#767676"}}>{element.title}</span>
+                        <div style={{flex: 1, height: "40px", width: "40px"}}>
+                            <img src={element.src} alt={element.src} height={"100%"} width={"100%"}
+                                 style={{objectFit: "contain"}}/>
+                        </div>
+                    </div>
+                ))}
+                <div style={{color : "green", paddingTop : "30px", paddingBottom : "15px", borderTop : "1px solid lightgrey"}}>Programmation GPU</div>
+                {gpu.map((element, index) => (
+                    <div key={`skill-key-${index}`} style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        marginBottom: "10px"
+                    }}>
+                        <span style={{marginBottom: "5px", flex: 4, color: "#767676"}}>{element.title}</span>
+                        <div style={{flex: 1, height: "40px", width: "40px"}}>
+                            <img src={element.src} alt={element.src} height={"100%"} width={"100%"}
+                                 style={{objectFit: "contain"}}/>
+                        </div>
+                    </div>
+                ))}
+                <div style={{color : "green", paddingTop : "30px", paddingBottom : "15px", borderTop : "1px solid lightgrey"}}>Développement Mobile</div>
+                {appmobile.map((element, index) => (
+                        <div key={`skill-key-${index}`} style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            marginBottom: "10px"
+                        }}>
+                            <span style={{marginBottom: "5px", flex: 4, color: "#767676"}}>{element.title}</span>
+                            <div style={{flex: 1, height: "40px", width: "40px"}}>
+                                <img src={element.src} alt={element.src} height={"100%"} width={"100%"}
+                                     style={{objectFit: "contain"}}/>
+                            </div>
+                        </div>
+                ))}
             </SkillsField>
-            <a href={"static/pdf/cv.pdf"} target={"_blank"}>
+            <a href={"pdf/cv.pdf"} target={"_blank"}>
                 <Button sx={cvButtonStyle} endIcon={<GetAppOutlinedIcon />}>Télécharger CV</Button>
             </a>
         </Container>
@@ -270,6 +359,7 @@ const FieldContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 9px;
 `;
 
@@ -280,8 +370,8 @@ const KeyField = styled.div`
     justify-content: center;
     align-items: center;
     height: 24px;
-    padding-left: 3px;
-    padding-right : 3px;
+    padding : 2px 4px 2px;
+    border-radius: 5px;
 `;
 
 const ValueField = styled.div`

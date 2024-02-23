@@ -17,9 +17,13 @@ interface ItemListProps {
     handleClose: () => void;
     handleClick: () => void;
     style? : CSSProperties;
+    dialogContent? : {
+        title : string;
+        contentText : string | React.ReactNode;
+    }
 }
 
-const ItemList: React.FC<ItemListProps> = ({ id, location, status, city, date, description, title, image, clickable = false, open = false, handleClose, handleClick, style }) => {
+const ItemList: React.FC<ItemListProps> = ({ id, location, status, city, date, description, title, image, clickable = false, open = false, handleClose, handleClick, style , dialogContent}) => {
 
     return !clickable ? (
         <Container id={id} style={style}>
@@ -76,7 +80,7 @@ const ItemList: React.FC<ItemListProps> = ({ id, location, status, city, date, d
                         </DescriptionContainer>}
                     </RightContainer>
                 </CardActionArea>
-                <DialogComponent title={''} contentText={undefined} open={open} handleClose={handleClose} />
+                <DialogComponent title={dialogContent?.title ? dialogContent?.title : "" } contentText={dialogContent?.contentText} open={open} handleClose={handleClose} />
             </Container>
         )
 
