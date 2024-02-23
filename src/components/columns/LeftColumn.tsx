@@ -164,7 +164,7 @@ const LeftColumn : React.FC<SideBarProps> = ({width}) => {
                         </a>
                     </Avatar>
                     <Avatar sx={socialMediaStyle}>
-                        <a href={"pdf/cv.pdf"} target={"_blank"}>
+                        <a href={"https://www.figma.com/file/8PtfHsECf7ijwdLu3Bu3gi/Preview--V2.0.0?type=design&node-id=5402-264&mode=design&t=S071zVZFu5wKOaJ4-0"} target={"_blank"}>
                             <XIcon sx={iconStyle}/>
                         </a>
                     </Avatar>

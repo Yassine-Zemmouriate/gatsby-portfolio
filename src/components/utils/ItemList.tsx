@@ -14,6 +14,8 @@ interface ItemListProps {
     image?: string;
     clickable?: boolean;
     open: boolean;
+    height? : string;
+    width? : string;
     handleClose: () => void;
     handleClick: () => void;
     style? : CSSProperties;
@@ -23,12 +25,12 @@ interface ItemListProps {
     }
 }
 
-const ItemList: React.FC<ItemListProps> = ({ id, location, status, city, date, description, title, image, clickable = false, open = false, handleClose, handleClick, style , dialogContent}) => {
+const ItemList: React.FC<ItemListProps> = ({ id, location, status, city, date, description, title, image, clickable = false, open = false, handleClose, handleClick, style , dialogContent, height = "100%", width = "100%"}) => {
 
     return !clickable ? (
         <Container id={id} style={style}>
             <ImageContainer>
-                <img src={image} alt={image} height={"100%"} width={"100%"} style={{ objectFit: "contain" }} />
+                <img src={image} alt={image} height={height} width={width} style={{ objectFit: "contain" }} />
             </ImageContainer>
             <LeftContainer>
                 <LocationContainer>
@@ -57,7 +59,7 @@ const ItemList: React.FC<ItemListProps> = ({ id, location, status, city, date, d
             <Container id={id} style={{ border: "none" }}>
                 <CardActionArea id={id} sx={{...containerStyle, ...style}} onClick={handleClick}>
                     <ImageContainer>
-                        <img src={image} alt={image} height={"100%"} width={"100%"} style={{ objectFit: "contain" }} />
+                        <img src={image} alt={image} height={height} width={width} style={{ objectFit: "contain" }} />
                     </ImageContainer>
                     <LeftContainer>
                         <LocationContainer>

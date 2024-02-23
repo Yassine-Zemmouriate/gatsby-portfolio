@@ -27,6 +27,13 @@ const config: GatsbyConfig = {
           ]
         }
       }
+    },
+    {
+      resolve : "gatsby-plugin-manifest",
+      options : {
+        name : "Yassine Curriculum Vitae",
+        icon : "static/images/circle.png"
+      }
     }
   ],
 };

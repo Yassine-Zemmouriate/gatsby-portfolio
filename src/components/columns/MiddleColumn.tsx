@@ -289,7 +289,29 @@ const certificats = [
         date: "Octobre 2023",
         title: "Developing AI Applications with Python & Flask",
         status: "Certificat Coursera",
-        img: "images/ibm.png"
+        img: "images/ibm.png",
+        dialogContent : {
+            title : "Developing AI Applications with Python & Flask",
+            contentText : <List>
+                <ListItemDialog
+                    description={"Décrire les étapes et les processus impliqués dans la création d'une application Python, y compris le cycle de vie du développement de l'application."}
+                />
+                <ListItemDialog
+                    description={"Créer des modules Python, exécuter des tests unitaires et empaqueter des applications tout en garantissant les meilleures pratiques de codage PEP8"}
+                />
+                <ListItemDialog
+                    description={"Expliquer les fonctionnalités de Flask et déployer des applications sur le Web à l'aide du framework Flask"}
+                />
+                <ListItemDialog
+                    description={"Créer et déployer une application basée sur l'IA sur un serveur Web à l'aide des bibliothèques IBM Watson AI et Flask"}
+                />
+                <div style={{display: "flex", justifyContent: "flex-end"}}>
+                    <a href={"https://www.coursera.org/account/accomplishments/verify/T62LY63FQG78"} target={"_blank"}>
+                        <Button sx={cvButtonStyle}>Voir le certificat</Button>
+                    </a>
+                </div>
+            </List>
+        }
     },
     {
         id: 1,
@@ -297,7 +319,29 @@ const certificats = [
         date: "Octobre 2023",
         title: "Introduction to Containers Docker, Kubernetes & OpenShift",
         status: "Certificat Coursera",
-        img: "images/ibm.png"
+        img: "images/ibm.png",
+        dialogContent : {
+            title : "Introduction to Containers Docker, Kubernetes & OpenShift",
+            contentText : <List>
+                <ListItemDialog
+                    description={"À l’aide de conteneurs, apprenez à déplacer rapidement des applications dans n’importe quel environnement."}
+                />
+                <ListItemDialog
+                    description={"Décrire et exploiter l'architecture Kubernetes pour configurer et utiliser un système complet de gestion de conteneurs basé sur le cycle de vie."}
+                />
+                <ListItemDialog
+                    description={"Créez des applications cloud natives à l'aide de Docker, Kubernetes, OpenShift et Istio."}
+                />
+                <ListItemDialog
+                    description={"Créez et exploitez un fichier de déploiement YAML pour configurer et créer des ressources telles que des pods, des services, des jeux de réplicas et autres de manière déclarative."}
+                />
+                <div style={{display: "flex", justifyContent: "flex-end"}}>
+                    <a href={"https://www.coursera.org/account/accomplishments/verify/WH6NBA4AKMDL"} target={"_blank"}>
+                        <Button sx={cvButtonStyle}>Voir le certificat</Button>
+                    </a>
+                </div>
+            </List>
+        }
     },
     {
         id: 2,
@@ -305,7 +349,29 @@ const certificats = [
         date: "Août 2023",
         title: "Introduction to DevOps",
         status: "Certificat Coursera",
-        img: "images/ibm.png"
+        img: "images/ibm.png",
+        dialogContent: {
+            title: "Introduction to DevOps",
+            contentText : <List>
+                <ListItemDialog
+                    description={"Les caractéristiques essentielles du DevOps, notamment la construction d'une culture de responsabilité partagée, de transparence et d'acceptation de l'échec."}
+                />
+                <ListItemDialog
+                    description={"Concepts DevOps essentiels : pratiques d'ingénierie logicielle, microservices natifs du cloud, déploiements continus automatisés et création de code résilient."}
+                />
+                <ListItemDialog
+                    description={"L'importance de l'intégration continue et de la livraison continue, de l'infrastructure en tant que code, du développement piloté par les tests, du développement piloté par le comportement."}
+                />
+                <ListItemDialog
+                    description={"L'impact organisationnel du DevOps, notamment la suppression des silos, le travail en équipes interfonctionnelles et le partage des responsabilités."}
+                />
+                <div style={{display: "flex", justifyContent: "flex-end"}}>
+                    <a href={"https://www.coursera.org/account/accomplishments/verify/2M48FQZM2NZM"} target={"_blank"}>
+                        <Button sx={cvButtonStyle}>Voir le certificat</Button>
+                    </a>
+                </div>
+            </List>
+        }
     }
 ]
 
@@ -322,8 +388,6 @@ const listStyle = {
 const MiddleColumn: React.FC<MiddleColumnProps> = ({ width }) => {
 
     const [isOpen, setOpen] = useState<string | null>(null);
-
-    React.useEffect(() => console.log(isOpen), [isOpen])
 
     const handleClick = (id: string) => {
         setOpen(id);
@@ -386,11 +450,14 @@ const MiddleColumn: React.FC<MiddleColumnProps> = ({ width }) => {
                             date={element.date}
                             title={element.title}
                             image={element.img}
+                            height={"60%"}
+                            width={"60%"}
                             open={isOpen === `certificat-id-${element.id}`}
                             handleClose={handleClose}
                             clickable={true}
                             handleClick={() => handleClick(`certificat-id-${element.id}`)}
                             style={index === certificats.length - 1 ? {borderBottom : "none"} : {}}
+                            dialogContent={element.dialogContent}
                         />
                     ))}
                 </List>
