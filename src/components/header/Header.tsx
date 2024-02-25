@@ -13,7 +13,9 @@ const Header : React.FC<HeaderProps> = () => {
                     Bonjour 👋 ! Je suis Yassine Zemmouriate, un étudiant en alternance passionné par les sciences des données et le développement web et mobile. Avec une solide expérience en apprentissage en projets innovants, je crée des solutions numériques que ça soit en rapport avec le Data science ou Sotware Engineering. Bienvenue sur mon portfolio créé par mes soins !
                 </Description>
             </TextField>
-            <ImageField>Image</ImageField>
+            <ImageField>
+                <img src={"images/output.png"} alt={"yassine"} height={"100%"} width={"100%"} style={{objectFit : "contain"}} />
+            </ImageField>
         </Container>);
 }
 
@@ -68,5 +70,5 @@ const ImageField = styled.div`
     text-align: center;
     align-items: center;
     justify-content: center;
-    object-fit: cover;
+    object-fit: contain;
 `;

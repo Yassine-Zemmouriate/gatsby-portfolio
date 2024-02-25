@@ -2,6 +2,7 @@ import React, { CSSProperties } from 'react';
 import styled from "styled-components";
 import { CardActionArea } from "@mui/material";
 import DialogComponent from "./DialogComponent";
+import {convertPxtoRem} from "./data";
 
 interface ItemListProps {
     id: string;
@@ -42,7 +43,9 @@ const ItemList: React.FC<ItemListProps> = ({ id, location, status, city, date, d
                 <DateContainer>
                     {date}
                 </DateContainer>
-                <CityContainer>{city}</CityContainer>
+                <CityContainer>
+                    {city}
+                </CityContainer>
             </LeftContainer>
             <RightContainer>
                 <TitleContainer>
@@ -95,8 +98,8 @@ const containerStyle = {
     flexDirection: "row",
     gap: "3%",
     borderBottom: "1px solid #F0F0F6",
-    paddingBottom: "22px",
-    paddingTop: "11px",
+    paddingBottom: `${convertPxtoRem(22)}rem`,
+    paddingTop: `${convertPxtoRem(11)}rem`,
 }
 
 const Container = styled.div`
@@ -104,8 +107,8 @@ const Container = styled.div`
     flex-direction: row;
     gap : 3%;
     border-bottom: 1px solid #F0F0F6;
-    padding-bottom: 22px;
-    padding-top: 11px;
+    padding-bottom: ${convertPxtoRem(22)}rem;
+    padding-top: ${convertPxtoRem(11)}rem;
 `;
 
 const LeftContainer = styled.div`
@@ -122,34 +125,34 @@ const RightContainer = styled.div`
 `;
 
 const TitleContainer = styled.div`
-    font-size: 18px;
+    font-size: ${convertPxtoRem(18)}rem;
     font-style: italic;
 `;
 
 const DescriptionContainer = styled.div`
     color : #767676;
-    font-size: 15px;
-    line-height: 24px;
+    font-size: ${convertPxtoRem(15)}rem;
+    line-height: ${convertPxtoRem(24)}rem;
     text-align: justify;
 `;
 
 const StatusContainer = styled.div`
     color : green;
-    font-size: 15px;
-    margin-bottom: 10px;
+    font-size: ${convertPxtoRem(15)}rem;
+    margin-bottom: ${convertPxtoRem(10)}rem;
 `;
 
 const LocationContainer = styled.div`
-    font-size: 18px;
+    font-size: ${convertPxtoRem(18)}rem;
     font-style: italic;
-    margin-bottom: 28px;
+    margin-bottom: ${convertPxtoRem(28)}rem;
 `;
 
 const DateContainer = styled.div`
-    font-size: 10px;
+    font-size: ${convertPxtoRem(10)}px;
     background-color: #FFB400;
     color : white;
-    padding : 2px 4px 2px;
+    padding : ${convertPxtoRem(2)}rem ${convertPxtoRem(4)}rem ${convertPxtoRem(2)}rem;
     width : auto;
 `;
 
@@ -158,8 +161,8 @@ const ImageContainer = styled.div`
 `;
 
 const CityContainer = styled.div`
-    margin-top: 10px;
+    margin-top: ${convertPxtoRem(10)}rem;
     font-style: italic;
     color : #767676;
-    font-size: 10px;
+    font-size: ${convertPxtoRem(10)}rem;
 `;

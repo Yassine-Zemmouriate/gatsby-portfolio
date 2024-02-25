@@ -8,6 +8,7 @@ import XIcon from '@mui/icons-material/X';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import LevelField from "../utils/LevelField";
+import {convertPxtoRem} from "../utils/data";
 
 export interface SideBarProps {
     width : string;
@@ -16,37 +17,37 @@ export interface SideBarProps {
 function primaryAvatarStyle(width :  number, height : number) {
 
     return({
-               bgcolor: "#FFB400",
-               width: `${width}px`,
-               height: `${height}px`,
-               marginTop: "50px",
-               marginBottom: "31px",
+               backgroundColor: "beige",
+               width: `${convertPxtoRem(width)}rem`,
+               height: `${convertPxtoRem(height)}rem`,
+               marginTop: `${convertPxtoRem(50)}rem`,
+               marginBottom: `${convertPxtoRem(31)}rem`,
                cursor: "pointer"
            })
 }
 
 const stackStyle = {
-    paddingBottom: "25px",
+    paddingBottom: `${convertPxtoRem(25)}rem`,
     borderBottom: "1.5px solid #F0F0F6",
-    width: "220px"
+    width: `${convertPxtoRem(220)}rem`
 }
 
 const socialMediaStyle = {
     backgroundColor : "#FFB400",
-    width: "24px",
-    height: "24px",
+    width: `${convertPxtoRem(24)}rem`,
+    height: `${convertPxtoRem(24)}rem`,
     cursor: "pointer"
 }
 
 const iconStyle = {
-    width: "14px",
-    height: "14px",
+    width: `${convertPxtoRem(14)}rem`,
+    height: `${convertPxtoRem(14)}rem`,
     color : "white"
 }
 
 export const cvButtonStyle = {
-    marginTop : '25px',
-    marginBottom : '25px',
+    marginTop : `${convertPxtoRem(25)}rem`,
+    marginBottom : `${convertPxtoRem(25)}rem`,
     color : "black",
     backgroundColor : "#FFB400",
     borderRadius : "0px"
@@ -154,7 +155,7 @@ const LeftColumn : React.FC<SideBarProps> = ({width}) => {
     return (
         <Container width={width}>
             <AvatarField>
-                <Avatar sx={primaryAvatarStyle(150, 150)}>YZ</Avatar>
+                <Avatar sx={primaryAvatarStyle(150, 150)}><img src={"images/output.png"} alt={"yassine"} height={"100%"} width={"100%"} style={{objectFit : "contain"}} /></Avatar>
                 <NameField>yassine zemmouriate</NameField>
                 <JobField>Data Scientist & Développeur Full-Stack </JobField>
                 <Stack direction={"row"} justifyContent={"center"} spacing={2} sx={stackStyle}>

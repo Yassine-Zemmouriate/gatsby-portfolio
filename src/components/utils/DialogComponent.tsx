@@ -36,7 +36,7 @@ const textStyle = {
 const DialogComponent : React.FC<DialogComponentProps> = ({ title = "", contentText = "", open, handleClose }) => {
   return (
       <ThemeProvider theme={theme}>
-    <Dialog open={open} onClose={handleClose} scroll={"paper"} maxWidth={"xl"} aria-labelledby="responsive-dialog-title">
+    <Dialog open={open} onClose={handleClose} scroll={"paper"} maxWidth={"md"} aria-labelledby="responsive-dialog-title">
       <DialogTitle sx={textStyle}>{title}</DialogTitle>
         <IconButton
           aria-label="close"
