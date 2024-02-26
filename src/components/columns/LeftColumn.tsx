@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Avatar, Stack, Button} from "@mui/material";
+import {Avatar, Stack, Button, CardActionArea} from "@mui/material";
 import styled from "styled-components";
 
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
@@ -9,6 +9,8 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import LevelField from "../utils/LevelField";
 import {convertPxtoRem} from "../utils/data";
+import {BootstrapTooltip} from "./RightColumn";
+import {useState} from "react";
 
 export interface SideBarProps {
     width : string;
@@ -17,7 +19,7 @@ export interface SideBarProps {
 function primaryAvatarStyle(width :  number, height : number) {
 
     return({
-               backgroundColor: "beige",
+               backgroundColor: "rgb(240, 240, 246)",
                width: `${convertPxtoRem(width)}rem`,
                height: `${convertPxtoRem(height)}rem`,
                marginTop: `${convertPxtoRem(50)}rem`,
@@ -59,7 +61,7 @@ const dataJSON = {
     "permis" : "B",
     "phone" : "07 66 52 62 43",
     "status" : "En alternance",
-    "email" : "zemmouriat@gmail.com"
+    "email" : "yassinezemmouriate@gmail.com"
 }
 
 const languages = [
@@ -70,6 +72,10 @@ const languages = [
     {
         value : 80,
         title : "Anglais"
+    },
+    {
+        value : 100,
+        title : "Arabe"
     }
 ]
 
@@ -152,12 +158,26 @@ const appmobile = skills.slice(15, 17);
 
 const LeftColumn : React.FC<SideBarProps> = ({width}) => {
 
+    const [title, setTitle] = useState<string>("Appuyer pour copier");
+    const onClickEmail = () => {
+    document.getElementById('email-id').addEventListener('click', function() {
+        const text = this.innerText;
+        setTitle("Copié !");
+        navigator.clipboard.writeText(text).then(() => {
+            setTimeout(() => setTitle("Appuyer pour copier"), 5000)
+        }).catch(err => {
+            console.error("Erreur lors de la copie du texte : ", err);
+        })
+    })
+}
+
     return (
         <Container width={width}>
             <AvatarField>
                 <Avatar sx={primaryAvatarStyle(150, 150)}><img src={"images/output.png"} alt={"yassine"} height={"100%"} width={"100%"} style={{objectFit : "contain"}} /></Avatar>
                 <NameField>yassine zemmouriate</NameField>
-                <JobField>Data Scientist & Développeur Full-Stack </JobField>
+                <JobField>Data Scientist</JobField>
+                <JobField>Développeur Full-Stack </JobField>
                 <Stack direction={"row"} justifyContent={"center"} spacing={2} sx={stackStyle}>
                     <Avatar sx={socialMediaStyle}>
                         <a href={"https://www.facebook.com/yassine.zemmouri.503"} target={"_blank"}>
@@ -205,7 +225,13 @@ const LeftColumn : React.FC<SideBarProps> = ({width}) => {
             </FieldContainer>
                 <FieldContainer>
                 <KeyField>Email</KeyField>
-                <ValueField>{dataJSON.email}</ValueField>
+                <ValueField id={"email-id"} onClick={onClickEmail}>
+                    <BootstrapTooltip title={title} placement={"top"}>
+                    <CardActionArea style={{fontSize: "15px", width: "140px", overflow: "hidden", textOverflow: "ellipsis"}}>
+                        {dataJSON.email}
+                    </CardActionArea>
+                    </BootstrapTooltip>
+                </ValueField>
             </FieldContainer>
             </InfosField>
             <LanguagesField>
@@ -343,9 +369,12 @@ const NameField = styled.div`
 `;
 
 const JobField = styled(NameField)`
-    color: #767676;
-    font-size: 15px;
+    color: #FFB400;
+    font-size: 12px;
     font-weight: 400;
+    padding: ${convertPxtoRem(1)}rem ${convertPxtoRem(1)}rem;
+    border-radius: 20px;
+    background-color: #F0F0F6;
     line-height: 24px; /* 160% */
     text-transform: capitalize;
     margin-bottom: 15px;
@@ -377,5 +406,7 @@ const KeyField = styled.div`
 
 const ValueField = styled.div`
     font-size: 15px;
-    max-width: 140px;
+    width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `;

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import '../../styles/index.css'
+import {convertPxtoRem} from "./data";
 
 function LinearProgressWithLabel(props: LinearProgressProps & { value: number, displaylabel : boolean, display : boolean }) {
   return (
@@ -43,5 +44,5 @@ const Container = styled.div`
 
 const TextField = styled.span`
     color : #767676;
-    font-size: 15px;
+    font-size: ${convertPxtoRem(15)}rem;
 `;

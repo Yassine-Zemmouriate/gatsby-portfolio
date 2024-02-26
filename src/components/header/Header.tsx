@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled from "styled-components";
+import {convertPxtoRem} from "../utils/data";
 
 export interface HeaderProps {
 
@@ -24,10 +25,10 @@ export default Header;
 const Container = styled.div`
     height: 30rem;
     width: 100%;
-    padding-left: 20px;
+    padding-left: ${convertPxtoRem(30)}rem;
     display: flex;
     gap: 2%;
-    border-radius: 5px;
+    border-radius: ${convertPxtoRem(5)}rem;
     background-image: url("images/header.png");
     backdrop-filter: blur(10px);
     background-position: center;
@@ -45,9 +46,9 @@ const TextField = styled.div`
 `;
 
 const Title = styled.div`
-    font-size : 48px;
+    font-size : ${convertPxtoRem(48)}rem;
     font-style: normal;
-    margin-bottom: 20px;
+    margin-bottom: ${convertPxtoRem(20)}rem;
 `;
 
 const JobTitle = styled(Title)`
@@ -66,7 +67,7 @@ const ImageField = styled.div`
     background-color: transparent;
     width: 38%;
     height: 100%;
-    border-bottom-right-radius: 5px ;
+    border-bottom-right-radius: ${convertPxtoRem(5)}rem ;
     text-align: center;
     align-items: center;
     justify-content: center;

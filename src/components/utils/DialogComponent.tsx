@@ -5,7 +5,7 @@ import {
     DialogTitle,
     DialogContent,
     ThemeProvider,
-    IconButton
+    IconButton, Breakpoint
 } from '@mui/material';
 
 import CloseIcon from "@mui/icons-material/Close";
@@ -14,6 +14,7 @@ interface DialogComponentProps {
     title : string;
     contentText : string | React.ReactNode;
     open : boolean;
+    maxWidth? : false | Breakpoint;
     handleClose : () => void;
 }
 
@@ -33,10 +34,10 @@ const textStyle = {
     fontFamily : "'Inter', sans-serif"
 }
 
-const DialogComponent : React.FC<DialogComponentProps> = ({ title = "", contentText = "", open, handleClose }) => {
+const DialogComponent : React.FC<DialogComponentProps> = ({ title = "", contentText = "", open, handleClose, maxWidth="md" }) => {
   return (
       <ThemeProvider theme={theme}>
-    <Dialog open={open} onClose={handleClose} scroll={"paper"} maxWidth={"md"} aria-labelledby="responsive-dialog-title">
+    <Dialog open={open} onClose={handleClose} scroll={"paper"} maxWidth={maxWidth} aria-labelledby="responsive-dialog-title">
       <DialogTitle sx={textStyle}>{title}</DialogTitle>
         <IconButton
           aria-label="close"

@@ -149,7 +149,7 @@ const LocationContainer = styled.div`
 `;
 
 const DateContainer = styled.div`
-    font-size: ${convertPxtoRem(10)}px;
+    font-size: ${convertPxtoRem(10)}rem;
     background-color: #FFB400;
     color : white;
     padding : ${convertPxtoRem(2)}rem ${convertPxtoRem(4)}rem ${convertPxtoRem(2)}rem;

@@ -4,6 +4,7 @@ import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import { House, Job, Grade, Feather, Code } from "../utils/svgs";
 import {useEffect, useState} from "react";
+import {convertPxtoRem} from "../utils/data";
 
 export interface RightColumnProps {
     width : string;
@@ -33,7 +34,7 @@ const icons = [
     }
 ]
 
-const BootstrapTooltip = styled(({ className, ...props }: TooltipProps) => (
+export const BootstrapTooltip = styled(({ className, ...props }: TooltipProps) => (
   <Tooltip {...props} arrow classes={{ popper: className }} />
 ))(({ theme }) => ({
   [`& .${tooltipClasses.arrow}`]: {
@@ -96,8 +97,8 @@ const ListIcon = styled.div`
 `;
 
 const IconContainer = styled.div<{color : string}>`
-    width : 40px;
-    height: 40px;
+    width : ${convertPxtoRem(40)}rem;
+    height: ${convertPxtoRem(40)}rem;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -25,6 +25,7 @@ import ItemList from "../utils/ItemList";
 import { Link } from "gatsby";
 import { cvButtonStyle } from "./LeftColumn";
 import GetAppOutlinedIcon from "@mui/icons-material/GetAppOutlined";
+import {convertPxtoRem} from "../utils/data";
 
 export interface MiddleColumnProps {
     width: string;
@@ -33,7 +34,7 @@ export interface MiddleColumnProps {
 const ImageContainer = styled.div`
     display : flex;
     justify-content: space-between;
-    height: 70px;
+    height: ${convertPxtoRem(70)}rem;
     width: 30%;
     object-fit: fill;
 `;
@@ -60,7 +61,7 @@ const listItemStyle = {
 const fields = [
     {
         id: 0,
-        icon: <MachineLearning color={"#FFB400"} height={"100px"} width={"100px"} />,
+        icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
         title: "Machine Learning",
         description:
             <List>
@@ -84,7 +85,7 @@ const fields = [
     },
     {
         id: 1,
-        icon: <MachineLearning color={"#FFB400"} height={"100px"} width={"100px"} />,
+        icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
         title: "Deep Learning",
         description: <List>
             <ListItemDialog description={"Exploration et analyse des données"} />
@@ -107,61 +108,61 @@ const fields = [
     },
     {
         id: 2,
-        icon: <MachineLearning color={"#FFB400"} height={"100px"} width={"100px"} />,
+        icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
         title: "Reinforcement Learning",
         description: "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
     },
     {
         id: 3,
-        icon: <MachineLearning color={"#FFB400"} height={"100px"} width={"100px"} />,
+        icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
         title: "Natural Language Processing",
         description: "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
     },
     {
         id: 4,
-        icon: <DevWeb color={"#FFB400"} height={"100px"} width={"100px"} />,
+        icon: <DevWeb color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
         title: "FullStack Development",
         description: "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
     },
     {
         id: 5,
-        icon: <MachineLearning color={"#FFB400"} height={"100px"} width={"100px"} />,
+        icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
         title: "Data Engineering",
         description: "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
     },
     {
         id: 6,
-        icon: <MachineLearning color={"#FFB400"} height={"100px"} width={"100px"} />,
+        icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
         title: "Ingénierie d'Applications Logicielles",
         description: "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
     },
     {
         id: 7,
-        icon: <DevWeb color={"#FFB400"} height={"100px"} width={"100px"} />,
+        icon: <DevWeb color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
         title: "Mobile Development",
         description: "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
     },
     {
         id: 8,
-        icon: <MachineLearning color={"#FFB400"} height={"100px"} width={"100px"} />,
+        icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
         title: "Big Data",
         description: "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
     },
     {
         id: 9,
-        icon: <MachineLearning color={"#FFB400"} height={"100px"} width={"100px"} />,
+        icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
         title: "Programmation GPU",
         description: "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
     },
     {
         id: 10,
-        icon: <MachineLearning color={"#FFB400"} height={"100px"} width={"100px"} />,
+        icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
         title: "Modèles Statistiques",
         description: "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
     },
     {
         id: 11,
-        icon: <MachineLearning color={"#FFB400"} height={"100px"} width={"100px"} />,
+        icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
         title: "Software Engineering",
         description: "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
     }
@@ -372,16 +373,64 @@ const certificats = [
                 </div>
             </List>
         }
+    },{
+        id: 3,
+        location: "IBM",
+        date: "en cours",
+        title: "Introduction to Cloud Computing",
+        status: "Certificat Coursera",
+        img: "images/ibm.png",
+        dialogContent : {
+            title : "Introduction to Cloud Computing",
+            contentText : <List>
+                <ListItemDialog
+                    description={"Décrire les étapes et les processus impliqués dans la création d'une application Python, y compris le cycle de vie du développement de l'application."}
+                />
+                <ListItemDialog
+                    description={"Créer des modules Python, exécuter des tests unitaires et empaqueter des applications tout en garantissant les meilleures pratiques de codage PEP8"}
+                />
+                <ListItemDialog
+                    description={"Expliquer les fonctionnalités de Flask et déployer des applications sur le Web à l'aide du framework Flask"}
+                />
+                <ListItemDialog
+                    description={"Créer et déployer une application basée sur l'IA sur un serveur Web à l'aide des bibliothèques IBM Watson AI et Flask"}
+                />
+            </List>
+        }
+    },{
+        id: 4,
+        location: "IBM",
+        date: "en cours",
+        title: "Introduction to Agile Development and Scrum",
+        status: "Certificat Coursera",
+        img: "images/ibm.png",
+        dialogContent : {
+            title : "Introduction to Agile Development and Scrum",
+            contentText : <List>
+                <ListItemDialog
+                    description={"Décrire les étapes et les processus impliqués dans la création d'une application Python, y compris le cycle de vie du développement de l'application."}
+                />
+                <ListItemDialog
+                    description={"Créer des modules Python, exécuter des tests unitaires et empaqueter des applications tout en garantissant les meilleures pratiques de codage PEP8"}
+                />
+                <ListItemDialog
+                    description={"Expliquer les fonctionnalités de Flask et déployer des applications sur le Web à l'aide du framework Flask"}
+                />
+                <ListItemDialog
+                    description={"Créer et déployer une application basée sur l'IA sur un serveur Web à l'aide des bibliothèques IBM Watson AI et Flask"}
+                />
+            </List>
+        }
     }
 ]
 
 const listStyle = {
-    borderRadius: "6px",
+    borderRadius: `${convertPxtoRem(6)}rem`,
     backgroundColor: "#FFFFFF",
     width: "100%",
     paddingTop: "0px",
-    paddingLeft: "37px",
-    paddingRight: "29px",
+    paddingLeft: `${convertPxtoRem(37)}rem`,
+    paddingRight: `${convertPxtoRem(29)}rem`,
     paddingBottom: "0px"
 }
 
@@ -498,18 +547,18 @@ const ContentContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    row-gap: 20px;
-    column-gap: 20px;
+    row-gap: ${convertPxtoRem(20)}rem;
+    column-gap: ${convertPxtoRem(20)}rem;
 `;
 
 const CardTitle = styled.div`
-    font-size: 18px;
+    font-size: ${convertPxtoRem(18)}rem;
     font-family: Inter, sans-serif;
     font-style: normal;
 `;
 
 export const cardStyle = {
-    height: "225px",
+    height: `${convertPxtoRem(225)}rem`,
     width: "40%",
 }
 
