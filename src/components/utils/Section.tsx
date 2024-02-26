@@ -4,15 +4,16 @@ import {convertPxtoRem} from "./utils";
 
 interface SectionProps {
     id : string;
-    title : string;
-    description : string;
+    title? : string;
+    description? : string;
     children? : React.ReactNode;
+    style? : React.CSSProperties;
 }
 
-const Section : React.FC<SectionProps> = ({id, title, description, children}) => {
+const Section : React.FC<SectionProps> = ({id, title, description, children, style}) => {
 
     return(
-        <Container id={id}>
+        <Container id={id} style={style}>
             <Title>{title}</Title>
             <Description>{description}</Description>
             <ChildrenContainer>

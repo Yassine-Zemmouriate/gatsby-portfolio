@@ -10,7 +10,7 @@ import {
     ListItemText,
     Chip,
     Stack,
-    Button
+    Button, Avatar
 } from "@mui/material";
 import ListItemIcon from '@mui/material/ListItemIcon';
 import PlayArrowTwoToneIcon from '@mui/icons-material/PlayArrowTwoTone';
@@ -21,12 +21,16 @@ import DialogComponent from "../utils/DialogComponent";
 import { useState } from "react";
 import ItemList from "../utils/ItemList";
 import {certificats, fields, formations, jobs} from "../utils/data";
-import {convertPxtoRem} from "../utils/utils";
+import {convertPxtoRem, device} from "../utils/utils";
+import MenuIcon from '@mui/icons-material/Menu';
+import LightModeIcon from "@mui/icons-material/LightMode";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 
 export interface MiddleColumnProps {
     width: string;
 }
 
+type ThemeProps = "dark" | "light";
 export const ImageContainer = styled.div`
     display : flex;
     justify-content: space-between;
@@ -34,6 +38,16 @@ export const ImageContainer = styled.div`
     width: 30%;
     object-fit: fill;
 `;
+
+function avatarStyle(width :  number, height : number) {
+
+    return({
+               backgroundColor: "rgb(240, 240, 246)",
+               width: `${convertPxtoRem(width)}rem`,
+               height: `${convertPxtoRem(height)}rem`,
+                marginLeft : "6px"
+           })
+}
 
 const listStyle = {
     borderRadius: `${convertPxtoRem(6)}rem`,
@@ -48,6 +62,7 @@ const listStyle = {
 const MiddleColumn: React.FC<MiddleColumnProps> = ({ width }) => {
 
     const [isOpen, setOpen] = useState<string | null>(null);
+    const [theme, setTheme] = useState<ThemeProps>("light");
 
     const handleClick = (id: string) => {
         setOpen(id);
@@ -59,6 +74,13 @@ const MiddleColumn: React.FC<MiddleColumnProps> = ({ width }) => {
 
     return (
         <Container width={width}>
+            <MobileHeaderContainer>
+                <Avatar sx={avatarStyle(50, 50)}><img src={"images/output.png"} alt={"yassine"} height={"100%"} width={"100%"} style={{objectFit : "contain"}} /></Avatar>
+                <div>
+                    { theme === "light" ? <LightModeIcon sx={{color : "#FFB400", marginRight : "6px"}} onClick={() => setTheme(currentTheme => (currentTheme === 'light' ? "dark" : "light"))} /> : <DarkModeIcon sx={{color : "#FFB400", marginRight : "6px"}} onClick={() => setTheme(currentTheme => (currentTheme === 'light' ? "dark" : "light"))} />}
+                    <MenuIcon sx={{marginRight : "20px"}}/>
+                </div>
+            </MobileHeaderContainer>
             <Header />
             <Section id={"section-moi"} title={"À propos de moi"} description={""}>
                 <List sx={{...listStyle, padding : "20px 30px", textAlign : "justify", lineHeight : "30px"}}>
@@ -155,6 +177,20 @@ const Container = styled.div<{ width: string }>`
     background-color : #F0F0F6;
     height : 100%;
     text-align: center;
+`;
+
+const MobileHeaderContainer = styled.div`
+    display: none;
+    @media screen and ${device.smalltablet} {
+        width : 100%;
+        height: ${convertPxtoRem(60)}rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        margin-bottom: ${convertPxtoRem(20)}rem;
+        border-radius: 500px;
+    }
 `;
 
 const ContentContainer = styled.div`
