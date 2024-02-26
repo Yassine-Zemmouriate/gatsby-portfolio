@@ -126,7 +126,6 @@ const RightContainer = styled.div`
 
 const TitleContainer = styled.div`
     font-size: ${convertPxtoRem(18)}rem;
-    font-style: italic;
 `;
 
 const DescriptionContainer = styled.div`
@@ -144,7 +143,6 @@ const StatusContainer = styled.div`
 
 const LocationContainer = styled.div`
     font-size: ${convertPxtoRem(18)}rem;
-    font-style: italic;
     margin-bottom: ${convertPxtoRem(28)}rem;
 `;
 

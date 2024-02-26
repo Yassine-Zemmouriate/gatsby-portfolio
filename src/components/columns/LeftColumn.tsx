@@ -351,6 +351,8 @@ const Container = styled.div<{width : string}>`
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 12px;
+    height : 100%;
 `;
 
 const NameField = styled.div`

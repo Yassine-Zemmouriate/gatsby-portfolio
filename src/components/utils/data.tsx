@@ -384,7 +384,7 @@ export const formations = [
         location: "Lycée Numérique Colbert",
         city: "Tourcoing - France",
         date: "Septembre 2018 - Décembre 2020",
-        title: "Classes Préparatoires aux Grandes Écoles option TSI",
+        title: "Classes Préparatoires aux Grandes Écoles option TSI - Mention Félicitations",
         status: "Étudiant",
         img: "images/colbert.svg"
     },
@@ -393,7 +393,7 @@ export const formations = [
         location: "Lycée Moulay Ismaïl",
         city: "Meknès - Maroc",
         date: "Septembre 2017 - Décembre 2018",
-        title: "Baccalauréat Générale Sciences Mathématiques B option Science de l'Ingénieur",
+        title: "Baccalauréat Générale Sciences Mathématiques B option Science de l'Ingénieur - Mention Très Bien",
         status: "Étudiant",
         img: "images/bac.png"
     }

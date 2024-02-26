@@ -90,9 +90,11 @@ const Container = styled.div<{width : string}>`
     justify-content: center;
     align-items: center;
     position: fixed;
-    top : 0;
-    right : 0;
-    height : 100%;
+    top : 50%;
+    right : 32px;
+    transform: translate(0, -50%);
+    height : 94.11%;
+    border-radius: 12px;
 `;
 
 const ListIcon = styled.div`

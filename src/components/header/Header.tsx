@@ -25,10 +25,9 @@ export default Header;
 const Container = styled.div`
     height: 30rem;
     width: 100%;
-    padding-left: ${convertPxtoRem(30)}rem;
     display: flex;
     gap: 2%;
-    border-radius: ${convertPxtoRem(5)}rem;
+    border-radius: 12px;
     background-image: url("images/header.png");
     backdrop-filter: blur(10px);
     background-position: center;
