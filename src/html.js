@@ -14,7 +14,7 @@ export default function HTML(props) {
         <title>Yassine Portfolio</title>
         {props.headComponents}
       </head>
-      <body {...props.bodyAttributes} style={{padding : "1.5%", fontFamily: "'Inter',  sans-serif", backgroundColor : "#F0F0F6"}}>
+      <body {...props.bodyAttributes} style={{padding : "1.5%", fontFamily: "'Inter',  sans-serif", backgroundColor : "#F0F0F6", display : "flex", justifyContent : "center"}}>
         {props.preBodyComponents}
         <div
           key={`body`}

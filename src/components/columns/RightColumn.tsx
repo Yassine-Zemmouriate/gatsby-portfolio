@@ -12,7 +12,7 @@ export interface RightColumnProps {
     width : string;
 }
 
-const icons = [
+export const icons = [
     {   id : 0,
         icon : <House/>,
         title : "À propos de moi"

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from "styled-components";
-import {convertPxtoRem} from "../utils/utils";
+import {convertPxtoRem, device} from "../utils/utils";
 
 export interface HeaderProps {
 
@@ -10,9 +10,6 @@ const Header : React.FC<HeaderProps> = () => {
         <Container id={"section-0"}>
             <TextField>
                 <Title>Yassine Zemmouriate <JobTitle>Consultant Data Scientist & FullStack Developer</JobTitle></Title>
-                <Description>
-                    Bonjour 👋 ! Je suis Yassine Zemmouriate, un étudiant en alternance passionné par les sciences des données et le développement web et mobile. Avec une solide expérience en apprentissage en projets innovants, je crée des solutions numériques que ça soit en rapport avec le Data science ou Sotware Engineering. Bienvenue sur mon portfolio créé par mes soins !
-                </Description>
             </TextField>
             <ImageField>
                 <img src={"images/output.png"} alt={"yassine"} height={"100%"} width={"100%"} style={{objectFit : "contain"}} />
@@ -48,6 +45,9 @@ const Title = styled.div`
     font-size : ${convertPxtoRem(48)}rem;
     font-style: normal;
     margin-bottom: ${convertPxtoRem(20)}rem;
+    @media screen and ${device.smalltablet} {
+        font-size: ${convertPxtoRem(25)}rem;
+    }
 `;
 
 const JobTitle = styled(Title)`
@@ -59,6 +59,12 @@ const Description = styled.div`
     flex-direction: column;
     color: #767676;
     line-height: 2rem;
+    padding : 5px;
+    text-align: left;
+    @media screen and ${device.smalltablet} {
+        font-size: ${convertPxtoRem(10)}rem;
+        line-height: 1rem;
+    }
 `;
 
 const ImageField = styled.div`

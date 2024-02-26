@@ -97,7 +97,6 @@ const containerStyle = {
     display: "flex",
     flexDirection: "row",
     gap: "3%",
-    borderBottom: "1px solid #F0F0F6",
     paddingBottom: `${convertPxtoRem(22)}rem`,
     paddingTop: `${convertPxtoRem(11)}rem`,
 }
