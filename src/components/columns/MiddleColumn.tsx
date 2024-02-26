@@ -60,6 +60,11 @@ const MiddleColumn: React.FC<MiddleColumnProps> = ({ width }) => {
     return (
         <Container width={width}>
             <Header />
+            <Section id={"section-moi"} title={"À propos de moi"} description={""}>
+                <List sx={{...listStyle, padding : "20px 30px", textAlign : "justify", lineHeight : "30px"}}>
+                    Bonjour 👋 ! Je suis Yassine Zemmouriate, un étudiant en alternance passionné par les sciences des données et le développement web et mobile. Avec une solide expérience en apprentissage en projets innovants, je crée des solutions numériques que ça soit en rapport avec le Data science ou Sotware Engineering. Bienvenue sur mon portfolio créé par mes soins !
+                </List>
+            </Section>
             <Section id={"section-1"} title={"Mes Diplômes & Formations"} description={""}>
                 <List sx={listStyle}>
                     {formations.map((element, index) => (

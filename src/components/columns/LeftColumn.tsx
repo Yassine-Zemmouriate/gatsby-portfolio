@@ -8,7 +8,7 @@ import XIcon from '@mui/icons-material/X';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import LevelField from "../utils/LevelField";
-import {convertPxtoRem} from "../utils/utils";
+import {convertPxtoRem, device} from "../utils/utils";
 import {BootstrapTooltip} from "./RightColumn";
 import {useState} from "react";
 
@@ -353,6 +353,9 @@ const Container = styled.div<{width : string}>`
     align-items: center;
     border-radius: 12px;
     height : 100%;
+    @media screen and ${device.smalltablet} {
+        display: none;
+    }
 `;
 
 const NameField = styled.div`
