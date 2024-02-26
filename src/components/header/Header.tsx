@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from "styled-components";
-import {convertPxtoRem} from "../utils/data";
+import {convertPxtoRem} from "../utils/utils";
 
 export interface HeaderProps {
 

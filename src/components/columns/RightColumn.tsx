@@ -4,7 +4,9 @@ import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import { House, Job, Grade, Feather, Code } from "../utils/svgs";
 import {useEffect, useState} from "react";
-import {convertPxtoRem} from "../utils/data";
+import {convertPxtoRem} from "../utils/utils";
+import LightModeIcon from '@mui/icons-material/LightMode';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 
 export interface RightColumnProps {
     width : string;
@@ -45,9 +47,12 @@ export const BootstrapTooltip = styled(({ className, ...props }: TooltipProps) =
   },
 }));
 
+type ThemeProps = "dark" | "light";
+
 const RightColumn : React.FC<RightColumnProps> = ({width}) => {
 
     const [selectedId, setSelectedId] = useState<number>(0);
+    const [theme, setTheme] = useState<ThemeProps>("light")
 
     const handleClick = (id : number) => {
         setSelectedId(id);
@@ -59,6 +64,9 @@ const RightColumn : React.FC<RightColumnProps> = ({width}) => {
 
     return(
         <Container width={width}>
+            <ThemeContainer onClick={() => setTheme(currentTheme => (currentTheme === 'light' ? "dark" : "light"))}>
+                { theme === "light" ? <LightModeIcon sx={{color : "#FFB400"}} /> : <DarkModeIcon sx={{color : "#FFB400"}} />}
+            </ThemeContainer>
             <ListIcon>
                 {icons.map((element) => (
                     <BootstrapTooltip key={element.id} title={element.title} placement={"top"}>
@@ -105,4 +113,11 @@ const IconContainer = styled.div<{color : string}>`
     border-radius: 50%;
     background-color: ${props => props.color};
     cursor: pointer;
+`;
+
+const ThemeContainer = styled.div`
+    cursor: pointer;
+    position : absolute;
+    top : ${convertPxtoRem(32)}rem;
+    left : calc(50% - 12px);
 `;

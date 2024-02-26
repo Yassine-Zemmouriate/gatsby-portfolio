@@ -2,7 +2,7 @@ import React, { CSSProperties } from 'react';
 import styled from "styled-components";
 import { CardActionArea } from "@mui/material";
 import DialogComponent from "./DialogComponent";
-import {convertPxtoRem} from "./data";
+import {convertPxtoRem} from "./utils";
 
 interface ItemListProps {
     id: string;

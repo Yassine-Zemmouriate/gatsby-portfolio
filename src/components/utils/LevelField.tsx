@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import '../../styles/index.css'
-import {convertPxtoRem} from "./data";
+import {convertPxtoRem} from "./utils";
 
 function LinearProgressWithLabel(props: LinearProgressProps & { value: number, displaylabel : boolean, display : boolean }) {
   return (

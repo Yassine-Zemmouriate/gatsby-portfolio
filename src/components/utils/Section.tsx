@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from "styled-components";
-import {convertPxtoRem} from "./data";
+import {convertPxtoRem} from "./utils";
 
 interface SectionProps {
     id : string;

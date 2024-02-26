@@ -5,10 +5,14 @@ import {
     DialogTitle,
     DialogContent,
     ThemeProvider,
-    IconButton, Breakpoint
+    IconButton, Breakpoint, ListItem, ListItemText
 } from '@mui/material';
 
 import CloseIcon from "@mui/icons-material/Close";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import PlayArrowTwoToneIcon from "@mui/icons-material/PlayArrowTwoTone";
+import {ImageContainer} from "../columns/MiddleColumn";
+import {listItemStyle} from "./data";
 
 interface DialogComponentProps {
     title : string;
@@ -33,6 +37,20 @@ const theme = createTheme({
 const textStyle = {
     fontFamily : "'Inter', sans-serif"
 }
+
+export const ListItemDialog: React.FC<{ description: string, img? : string }> = ({ description, img }) => (
+    <ListItem>
+        <ListItemIcon>
+            <PlayArrowTwoToneIcon sx={{ color: "#FFB400" }} />
+        </ListItemIcon>
+        <ListItemText sx={listItemStyle}>
+            {description}
+        </ListItemText>
+        <ImageContainer>
+            {img && <img src={img} alt={img}/>}
+        </ImageContainer>
+    </ListItem>
+);
 
 const DialogComponent : React.FC<DialogComponentProps> = ({ title = "", contentText = "", open, handleClose, maxWidth="md" }) => {
   return (

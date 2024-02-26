@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Avatar, Stack, Button, CardActionArea} from "@mui/material";
+import {Avatar, Stack, Button, CardActionArea, Chip} from "@mui/material";
 import styled from "styled-components";
 
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
@@ -8,7 +8,7 @@ import XIcon from '@mui/icons-material/X';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import LevelField from "../utils/LevelField";
-import {convertPxtoRem} from "../utils/data";
+import {convertPxtoRem} from "../utils/utils";
 import {BootstrapTooltip} from "./RightColumn";
 import {useState} from "react";
 
@@ -23,8 +23,7 @@ function primaryAvatarStyle(width :  number, height : number) {
                width: `${convertPxtoRem(width)}rem`,
                height: `${convertPxtoRem(height)}rem`,
                marginTop: `${convertPxtoRem(50)}rem`,
-               marginBottom: `${convertPxtoRem(31)}rem`,
-               cursor: "pointer"
+               marginBottom: `${convertPxtoRem(31)}rem`
            })
 }
 
@@ -159,16 +158,14 @@ const appmobile = skills.slice(15, 17);
 const LeftColumn : React.FC<SideBarProps> = ({width}) => {
 
     const [title, setTitle] = useState<string>("Appuyer pour copier");
+
     const onClickEmail = () => {
-    document.getElementById('email-id').addEventListener('click', function() {
-        const text = this.innerText;
         setTitle("Copié !");
-        navigator.clipboard.writeText(text).then(() => {
+        navigator.clipboard.writeText("yassinezemmouriate@gmail.com").then(() => {
             setTimeout(() => setTitle("Appuyer pour copier"), 5000)
         }).catch(err => {
             console.error("Erreur lors de la copie du texte : ", err);
         })
-    })
 }
 
     return (
@@ -176,8 +173,8 @@ const LeftColumn : React.FC<SideBarProps> = ({width}) => {
             <AvatarField>
                 <Avatar sx={primaryAvatarStyle(150, 150)}><img src={"images/output.png"} alt={"yassine"} height={"100%"} width={"100%"} style={{objectFit : "contain"}} /></Avatar>
                 <NameField>yassine zemmouriate</NameField>
-                <JobField>Data Scientist</JobField>
-                <JobField>Développeur Full-Stack </JobField>
+                <Chip label={"Data Scientist"} sx={{marginBottom : "15px", backgroundColor : "#FFB400", color : "white"}} />
+                <Chip label={"Développeur Full-Stack"} sx={{marginBottom : "15px", backgroundColor : "#FFB400", color : "white"}} />
                 <Stack direction={"row"} justifyContent={"center"} spacing={2} sx={stackStyle}>
                     <Avatar sx={socialMediaStyle}>
                         <a href={"https://www.facebook.com/yassine.zemmouri.503"} target={"_blank"}>
