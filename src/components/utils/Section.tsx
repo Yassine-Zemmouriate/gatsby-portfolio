@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from "styled-components";
-import {convertPxtoRem} from "./utils";
+import {convertPxtoRem, device} from "./utils";
 
 interface SectionProps {
     id : string;
@@ -33,7 +33,10 @@ const Container = styled.div`
 `;
 
 const Title = styled.div`
-    font-size : ${convertPxtoRem(32)}rem
+    font-size : ${convertPxtoRem(32)}rem;
+    @media screen and ${device.maxSmallTablet} {
+        font-size: 25px;
+    }
 `;
 
 const Description = styled.div`

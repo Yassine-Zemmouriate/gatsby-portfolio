@@ -107,20 +107,10 @@ const MiddleColumn: React.FC<MiddleColumnProps> = ({ width }) => {
             <MobileHeaderContainer>
                 <Avatar sx={avatarStyle(50, 50)}><img src={"images/output.png"} alt={"yassine"} height={"100%"} width={"100%"} style={{objectFit : "contain"}} /></Avatar>
                 <div>
+                    Consultant Data Scientist & FullStack Developer
+                </div>
+                <div style={{marginRight : "1rem"}}>
                     { theme === "light" ? <LightModeIcon sx={{color : "#FFB400", marginRight : "6px"}} onClick={() => setTheme(currentTheme => (currentTheme === 'light' ? "dark" : "light"))} /> : <DarkModeIcon sx={{color : "#FFB400", marginRight : "6px"}} onClick={() => setTheme(currentTheme => (currentTheme === 'light' ? "dark" : "light"))} />}
-                    <MenuIcon sx={{marginRight : "20px"}} onClick={() => toggleDrawer(true)}/>
-                    <ThemeProvider theme={themeBackdrop}>
-                    <Drawer anchor={"right"} open={drawerOpen} onClose={() => toggleDrawer(false)} PaperProps={{sx: {justifyContent: 'center', width : "6rem"}}}>
-                        <ListIcon>
-                        {icons.map((element) => (
-                    <IconContainer key={`icon-key-${element.id}`} color={selectedId === element.id ? "#FFB400" : "#F0F0F6"} onClick={() => handleIconsClick(element.id)}>
-                        {React.cloneElement(element.icon, { color : selectedId === element.id ? "#2B2B2B" : "#767676", sx : selectedId === element.id ? {color : "#2B2B2B"} : {color : "#767676"}})}
-                    </IconContainer>
-
-                ))}
-                        </ListIcon>
-                    </Drawer>
-                        </ThemeProvider>
                 </div>
             </MobileHeaderContainer>
             <Header />

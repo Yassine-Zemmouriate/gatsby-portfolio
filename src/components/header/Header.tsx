@@ -42,11 +42,11 @@ const TextField = styled.div`
 `;
 
 const Title = styled.div`
-    font-size : ${convertPxtoRem(48)}rem;
+    font-size : 48px;
     font-style: normal;
     margin-bottom: ${convertPxtoRem(20)}rem;
-    @media screen and ${device.smalltablet} {
-        font-size: ${convertPxtoRem(25)}rem;
+    @media screen and ${device.maxSmallTablet} {
+        font-size: 25px;
     }
 `;
 
