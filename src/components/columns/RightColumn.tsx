@@ -27,7 +27,7 @@ export const icons = [
 },
 {id : 3,
     icon : <Job/>,
-    title : "Professionnelles"
+    title : "Projets Personnels & Professionnels"
 },
     {
         id: 4,

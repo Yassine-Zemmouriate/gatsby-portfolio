@@ -78,82 +78,97 @@ const languages = [
     }
 ]
 
-const skills = [
+const devweb = [
     {
-        title : "HTML",
-        src : "images/html.png"
+        title: "HTML",
+        src: "images/html.png"
     },
     {
-        title : "CSS",
-        src : "images/css.png"
+        title: "CSS",
+        src: "images/css.png"
     },
     {
-        title : "Javascript",
-        src : "images/js.png"
+        title: "Javascript",
+        src: "images/js.png"
     },
     {
-        title : "Typescript",
-        src : "images/ts.png"
+        title: "Typescript",
+        src: "images/ts.png"
     },
     {
-        title : "ReactJS",
-        src : "images/reactjs.png"
+        title: "ReactJS",
+        src: "images/reactjs.png"
     },
     {
-        title : "Django Rest Framework",
-        src : "images/drf.png"
+        title: "Django Rest Framework",
+        src: "images/drf.png"
     },
     {
-        title : "Gatsby",
-        src : "images/gatsby.png"
-    },
-    {
-        title : "Java",
-        src : "images/java.png"
-    },
-    {
-        title : "Docker",
-        src : "images/docker.png"
-    },
-    {
-        title : "Kubernetes",
-        src : "images/k8s.png"
-    },
-    {
-        title : "CI/CD pipeline",
-        src : "images/cicd.png"
-    },
-    {
-        title : "Git",
-        src : "images/git.png"
-    },
-    {
-        title : "C++",
-        src : "images/cpp.png"
-    },
-    {
-        title : "Cuda",
-        src : "images/cuda.jpeg"
-    },
-    {
-        title : "Python",
-        src : "images/python.png"
-    },
-    {
-        title : "Android Studio",
-        src : "images/androidstudio.png"
-    },
-    {
-        title : "React Native",
-        src : "images/react-native.png"
-    },
-]
+        title: "Gatsby",
+        src: "images/gatsby.png"
+    }
+];
 
-const devweb = skills.slice(0, 7);
-const software = skills.slice(7, 12);
-const gpu = skills.slice(12, 14);
-const datascience = skills.slice(14, 15)
-const appmobile = skills.slice(15, 17);
+const software = [
+    {
+        title: "Java",
+        src: "images/java.png"
+    },
+    {
+        title: "Docker",
+        src: "images/docker.png"
+    },
+    {
+        title: "Kubernetes",
+        src: "images/k8s.png"
+    },
+    {
+        title: "CI/CD pipeline",
+        src: "images/cicd.png"
+    },
+    {
+        title: "Git",
+        src: "images/git.png"
+    },
+    {
+        title: "Kafka",
+        src: "images/kafka.png"
+    }
+];
+
+const gpu = [
+    {
+        title: "C++",
+        src: "images/cpp.png"
+    },
+    {
+        title: "Cuda",
+        src: "images/cuda.jpeg"
+    }
+];
+
+const datascience = [
+    {
+        title: "Python",
+        src: "images/python.png"
+    },
+    {
+        title: "Tableau",
+        src: "images/tableau_square.png"
+    }
+];
+
+const appmobile = [
+    {
+        title: "Android Studio",
+        src: "images/androidstudio.png"
+    },
+    {
+        title: "React Native",
+        src: "images/react-native.png"
+    }
+];
+
 
 const LeftColumn : React.FC<SideBarProps> = ({width}) => {
 

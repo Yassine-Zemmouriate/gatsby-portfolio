@@ -123,15 +123,15 @@ const MiddleColumn: React.FC<MiddleColumnProps> = ({ width }) => {
                 <List sx={listStyle}>
                     {formations.map((element, index) => (
                         <ItemList
-                            id={`formation-id-${element.id}`}
-                            handleClick={() => handleClick(`formation-id-${element.id}`)}
+                            id={`formation-id-${index}`}
+                            handleClick={() => handleClick(`formation-id-${index}`)}
                             location={element.location}
                             status={element.status}
                             date={element.date}
                             title={element.title}
                             image={element.img}
                             city={element.city}
-                            open={isOpen === `formation-id-${element.id}`}
+                            open={isOpen === `formation-id-${index}`}
                             handleClose={handleClose}
                             style={index === formations.length - 1 ? {borderBottom : "none"} : {}}
                         />
@@ -142,15 +142,15 @@ const MiddleColumn: React.FC<MiddleColumnProps> = ({ width }) => {
                 <List sx={listStyle}>
                     {jobs.map((element, index) => (
                         <ItemList
-                            id={`job-id-${element.id}`}
-                            handleClick={() => handleClick(`job-id-${element.id}`)}
+                            id={`job-id-${index}`}
+                            handleClick={() => handleClick(`job-id-${index}`)}
                             location={element.location}
                             status={element.status}
                             date={element.date}
                             title={element.title}
                             image={element.img}
                             city={element.city}
-                            open={isOpen === `job-id-${element.id}`}
+                            open={isOpen === `job-id-${index}`}
                             handleClose={handleClose}
                             style={index === jobs.length - 1 ? {borderBottom : "none"} : {}}
                             clickable={true}
@@ -159,33 +159,11 @@ const MiddleColumn: React.FC<MiddleColumnProps> = ({ width }) => {
                     ))}
                 </List>
             </Section>
-            <Section id={"section-3"} title={"Mes Certificats"} description={""}>
-                <List sx={listStyle}>
-                    {certificats.map((element, index) => (
-                        <ItemList 
-                            id={`certificat-id-${element.id}`}
-                            location={element.location}
-                            status={element.status}
-                            date={element.date}
-                            title={element.title}
-                            image={element.img}
-                            height={"60%"}
-                            width={"60%"}
-                            open={isOpen === `certificat-id-${element.id}`}
-                            handleClose={handleClose}
-                            clickable={true}
-                            handleClick={() => handleClick(`certificat-id-${element.id}`)}
-                            style={index === certificats.length - 1 ? {borderBottom : "none"} : {}}
-                            dialogContent={element.dialogContent}
-                        />
-                    ))}
-                </List>
-            </Section>
-            <Section id={"section-4"} title={"Mes Expériences Académiques"} description={""}>
+            <Section id={"section-3"} title={"Mes Projets Personnels & Professionnels"} description={""}>
                 <ContentContainer>
                     {fields.map((elmnt, idx) => (
-                        <Card variant={"outlined"} sx={cardStyle} key={`card-${elmnt.id}`}>
-                            <CardActionArea sx={{ width: "100%", height: "100%" }} onClick={() => handleClick(`card-${elmnt.id}`)}>
+                        <Card variant={"outlined"} sx={cardStyle} key={`card-${idx}`}>
+                            <CardActionArea sx={{ width: "100%", height: "100%" }} onClick={() => handleClick(`card-${idx}`)}>
                                 <CardMedia>
                                     {elmnt.icon}
                                 </CardMedia>
@@ -193,12 +171,33 @@ const MiddleColumn: React.FC<MiddleColumnProps> = ({ width }) => {
                                     <CardTitle>{elmnt.title}</CardTitle>
                                 </CardContent>
                             </CardActionArea>
-                            <DialogComponent title={elmnt.title} contentText={elmnt.description} open={isOpen === `card-${elmnt.id}`} handleClose={handleClose} />
+                            <DialogComponent title={elmnt.title} contentText={elmnt.description} open={isOpen === `card-${idx}`} handleClose={handleClose} />
                         </Card>
                     ))}
                 </ContentContainer>
             </Section>
-            
+          <Section id={"section-4"} title={"Mes Certificats"} description={""}>
+                <List sx={listStyle}>
+                    {certificats.map((element, index) => (
+                        <ItemList
+                            id={`certificat-id-${index}`}
+                            location={element.location}
+                            status={element.status}
+                            date={element.date}
+                            title={element.title}
+                            image={element.img}
+                            height={"60%"}
+                            width={"60%"}
+                            open={isOpen === `certificat-id-${index}`}
+                            handleClose={handleClose}
+                            clickable={true}
+                            handleClick={() => handleClick(`certificat-id-${index}`)}
+                            style={index === certificats.length - 1 ? {borderBottom : "none"} : {}}
+                            dialogContent={element.dialogContent}
+                        />
+                    ))}
+                </List>
+            </Section>
         </Container>
     )
 }

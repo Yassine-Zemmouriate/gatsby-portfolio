@@ -24,13 +24,12 @@ const ListItemDialog: React.FC<{ description: string, img? : string }> = ({ desc
             {description}
         </ListItemText>
         <ImageContainer>
-            {img && <img src={img} alt={img}/>}
+            {img && <img src={img} alt={img} />}
         </ImageContainer>
     </ListItem>
 );
 export const certificats = [
     {
-        id: 0,
         location: "IBM",
         date: "Octobre 2023",
         title: "Developing AI Applications with Python & Flask",
@@ -60,7 +59,6 @@ export const certificats = [
         }
     },
     {
-        id: 1,
         location: "IBM",
         date: "Octobre 2023",
         title: "Introduction to Containers Docker, Kubernetes & OpenShift",
@@ -90,7 +88,6 @@ export const certificats = [
         }
     },
     {
-        id: 2,
         location: "IBM",
         date: "Août 2023",
         title: "Introduction to DevOps",
@@ -119,7 +116,6 @@ export const certificats = [
             </List>
         }
     },{
-        id: 3,
         location: "IBM",
         date: "en cours",
         title: "Introduction to Cloud Computing",
@@ -143,7 +139,6 @@ export const certificats = [
             </List>
         }
     },{
-        id: 4,
         location: "IBM",
         date: "en cours",
         title: "Introduction to Agile Development and Scrum",
@@ -166,12 +161,39 @@ export const certificats = [
                 />
             </List>
         }
-    }
+    },{
+        location: "IBM",
+        date: "Avril 2024",
+        title: "DevOps, Cloud, and Agile Foundations",
+        status: "Certificat Coursera",
+        img: "images/ibm.png",
+        dialogContent : {
+            title : "DevOps, Cloud, and Agile Foundations",
+            contentText : <List>
+                <ListItemDialog
+                    description={"À l’aide de conteneurs, apprenez à déplacer rapidement des applications dans n’importe quel environnement."}
+                />
+                <ListItemDialog
+                    description={"Décrire et exploiter l'architecture Kubernetes pour configurer et utiliser un système complet de gestion de conteneurs basé sur le cycle de vie."}
+                />
+                <ListItemDialog
+                    description={"Créez des applications cloud natives à l'aide de Docker, Kubernetes, OpenShift et Istio."}
+                />
+                <ListItemDialog
+                    description={"Créez et exploitez un fichier de déploiement YAML pour configurer et créer des ressources telles que des pods, des services, des jeux de réplicas et autres de manière déclarative."}
+                />
+                <div style={{display: "flex", justifyContent: "flex-end"}}>
+                    <a href={"https://coursera.org/share/dd8edb5a8418be81d9474e5bcf9adca0"} target={"_blank"}>
+                        <Button sx={cvButtonStyle}>Voir le certificat</Button>
+                    </a>
+                </div>
+            </List>
+        }
+    },
 ]
 
 export const jobs = [
     {
-        id: 0,
         location: "Batt Advisors",
         city: "Metz - France",
         date: "Octobre 2022 - aujourd'hui",
@@ -211,7 +233,6 @@ export const jobs = [
         }
     },
     {
-        id: 1,
         location: "Appunto",
         city: "Paris 15ème Arrondissement - France",
         date: "Février 2018 - Octobre 2022",
@@ -255,123 +276,224 @@ export const jobs = [
 ]
 
 export const listItemStyle = {
-    fontStyle: "italic",
     fontFamily: "'Inter', sans-serif"
 }
 
 export const fields = [
-    {
-        id: 0,
+  {
         icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
-        title: "Machine Learning",
+        title: "Ingénierie d'Application Logiciel",
         description:
             <List>
-                <ListItemDialog description={"Exploration et analyse des données"} />
-                <ListItemDialog description={"Apprentissage supervisé : Régression logistique, Random forest, Decision tree, SVM"} />
-                <ListItemDialog description={"Apprentissage non supervisé : Vector quantization, clustering, PCA"} />
-                <ListItemDialog description={"Apprentissage non supervisé : Vector quantization, clustering, PCA"} />
+                <ListItem>
+                    <ListItemText sx={listItemStyle}>
+                        <span style={{color: "green", fontWeight: "bold"}}>Projet : </span>Créer une application Kafka qui récupère les données à partir d'une API Twitter
+                    </ListItemText>
+                </ListItem>
                 <ListItem>
                     <ListItemIcon>
                         <PlayArrowTwoToneIcon sx={{ color: "#FFB400" }} />
                     </ListItemIcon>
                     <ListItemText sx={listItemStyle}>
-                        Création d'un kanban pour la gestion des projets des clients dans le site interne de la startup avec Reactjs et React-Admin
+                        Créer des services avec une pipeline Stream API Kafka qui récupère les tweets à partir d'une API Twitter, puis compter les #hashtags avec un agrégateur en projet Maven Java
                     </ListItemText>
                     <ImageContainer>
-                        <img src={"images/sklearn.png"} />
+                        <img src={"images/kafka.png"} />
                     </ImageContainer>
                 </ListItem>
-                <ListItemDialog description={"Tester des modèles : Confusion Matrix, F1 score, ..."} />
+                <ListItem>
+                    <ListItemIcon>
+                        <PlayArrowTwoToneIcon sx={{ color: "#FFB400" }} />
+                    </ListItemIcon>
+                    <ListItemText sx={listItemStyle}>
+                        Conteneuriser chaque service Kafka avec Docker et DockerHub (Dockerfiles)
+                    </ListItemText>
+                    <ImageContainer>
+                        <img src={"images/docker.png"} />
+                    </ImageContainer>
+                </ListItem>
+                <ListItem>
+                    <ListItemIcon>
+                        <PlayArrowTwoToneIcon sx={{ color: "#FFB400" }} />
+                    </ListItemIcon>
+                    <ListItemText sx={listItemStyle}>
+                        Orchestrer les conteneurs avec Kubernetes (HPA, ReplicaSet, ...), puis avec docker-compose
+                    </ListItemText>
+                    <ImageContainer>
+                        <img src={"images/k8s.png"} />
+                    </ImageContainer>
+                </ListItem>
+                <ListItem>
+                    <ListItemIcon>
+                        <PlayArrowTwoToneIcon sx={{ color: "#FFB400" }} />
+                    </ListItemIcon>
+                    <ListItemText sx={listItemStyle}>
+                        Créer une pipeline CI/CD pour automatiser l'intégration et le déploiement avec GitLab (JavaDoc, Unit Tests, Build, Compile LaTeX to Pdf)
+                    </ListItemText>
+                    <ImageContainer>
+                        <img src={"images/cicd.png"} />
+                    </ImageContainer>
+                </ListItem>
+                <ListItem>
+                    <ListItemIcon>
+                        <PlayArrowTwoToneIcon sx={{ color: "#FFB400" }} />
+                    </ListItemIcon>
+                    <ListItemText sx={listItemStyle}>
+                        Vérification de la qualité du code avec SonarQube
+                    </ListItemText>
+                    <ImageContainer>
+                        <img src={"images/sonarqube.svg"} width={"100%"} />
+                    </ImageContainer>
+                </ListItem>
             </List>
     },
-    {
-        id: 1,
+  {
         icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
         title: "Deep Learning",
-        description: <List>
-            <ListItemDialog description={"Exploration et analyse des données"} />
-            <ListItemDialog description={"Apprentissage supervisé : Régression logistique, Random forest, Decision tree, SVM"} />
-            <ListItemDialog description={"Apprentissage non supervisé : Vector quantization, clustering, PCA"} />
-            <ListItemDialog description={"Apprentissage non supervisé : Vector quantization, clustering, PCA"} />
-            <ListItem>
-                <ListItemIcon>
-                    <PlayArrowTwoToneIcon sx={{ color: "#FFB400" }} />
-                </ListItemIcon>
-                <ListItemText sx={listItemStyle}>
-                    Création de modèles de Machine Learning (Régression Logistique, SVM, Random Forest, ...) avec la bibliothèque scikit-learn
-                </ListItemText>
-                <ImageContainer>
-                    <img src={"images/sklearn.png"} />
-                </ImageContainer>
-            </ListItem>
-            <ListItemDialog description={"Tester des modèles : Confusion Matrix, F1 score, ..."} />
-        </List>
+        description:
+            <List>
+                <ListItem>
+                    <ListItemText sx={listItemStyle}>
+                        <span style={{color: "green", fontWeight: "bold"}}>Projet : </span>Créer un réseau de neurones pour prédire la répartition des planctons (Compétition Kaggle)
+                    </ListItemText>
+                </ListItem>
+                <ListItem>
+                    <ListItemIcon>
+                        <PlayArrowTwoToneIcon sx={{ color: "#FFB400" }} />
+                    </ListItemIcon>
+                    <ListItemText sx={listItemStyle}>
+                        Entraîner des modèles Deep Learning, puis améliorer les performances (CNN, FNN, ...)
+                    </ListItemText>
+                    <ImageContainer>
+                        <img src={"images/pytorch.png"} />
+                    </ImageContainer>
+                </ListItem>
+                <ListItemDialog description={"Tester les modèles (F1 Score, Accuracy ...)"} />
+                <ListItem>
+                    <ListItemText sx={listItemStyle}>
+                        <span style={{color: "green", fontWeight: "bold"}}>Projet : </span>Créer un réseau de neurones pour prédire la température dans une zone donnée (Compétition Kaggle)
+                    </ListItemText>
+                </ListItem>
+            </List>
     },
-    {
-        id: 2,
+  {
         icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
-        title: "Reinforcement Learning",
-        description: "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
+        title: "Génie Logiciel Orienté Objet",
+        description:
+            <List>
+                <ListItem>
+                    <ListItemText sx={listItemStyle}>
+                        <span style={{color: "green", fontWeight: "bold"}}>Projet : </span>Développement d'une solution pour location de vélo à Paris
+                    </ListItemText>
+                </ListItem>
+                <ListItem>
+                    <ListItemIcon>
+                        <PlayArrowTwoToneIcon sx={{ color: "#FFB400" }} />
+                    </ListItemIcon>
+                    <ListItemText sx={listItemStyle}>
+                        Conception du logiciel en Orienté Objet (Java)
+                    </ListItemText>
+                    <ImageContainer>
+                        <img src={"images/java.png"} />
+                    </ImageContainer>
+                </ListItem>
+                <ListItem>
+                    <ListItemIcon>
+                        <PlayArrowTwoToneIcon sx={{ color: "#FFB400" }} />
+                    </ListItemIcon>
+                    <ListItemText sx={listItemStyle}>
+                        Modélisation logiciel UML avec Papyrus / Eclipse en utilisant les patrons de conception (Design Patterns)
+                    </ListItemText>
+                    <ImageContainer>
+                        <img src={"images/papyrus.svg"} />
+                    </ImageContainer>
+                </ListItem>
+            </List>
     },
-    {
-        id: 3,
+  {
         icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
-        title: "Natural Language Processing",
-        description: "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
+        title: "Développement Applications Mobiles",
+        description:
+            <List>
+                <ListItem>
+                    <ListItemText sx={listItemStyle}>
+                        <span style={{color: "green", fontWeight: "bold"}}>Projet : </span>Développement d'une application mobile pour commander dans un restaurant
+                    </ListItemText>
+                </ListItem>
+                    <ListItemDialog description={"Création d'une application android avec Android Studio"} img={"images/androidstudio.png"} />
+                    <ListItemDialog description={"Création d'une application native avec React Native à partir d'une maquette Adobe XD fournie par le client pour une crèche"} img={"images/react-native.png"} />
+
+            </List>
     },
-    {
-        id: 4,
-        icon: <DevWeb color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
-        title: "FullStack Development",
-        description: "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
-    },
-    {
-        id: 5,
+  {
         icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
-        title: "Data Engineering",
-        description: "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
+        title: "Développement Site Web",
+        description:
+            <List>
+                <ListItem>
+                    <ListItemText sx={listItemStyle}>
+                        <span style={{color: "green", fontWeight: "bold"}}>Projet : </span>Développement du Front-End du site vitrine du startup Appunto
+                    </ListItemText>
+                </ListItem>
+                <ListItemDialog description={"Développement d'une section pour afficher les client en React.js / Gatsby.js pour les sites statiques"} img={"images/gatsby.png"} />
+                <ListItem>
+                    <ListItemText sx={listItemStyle}>
+                        <span style={{color: "green", fontWeight: "bold"}}>Projet : </span>Développement du Front-End d'un site pour visualisation des données
+                    </ListItemText>
+                </ListItem>
+                <ListItemDialog description={"Visualisation des données avec Recharts et D3.js"} img={"images/d3.png"} />
+              <ListItem>
+                    <ListItemText sx={listItemStyle}>
+                        <span style={{color: "green", fontWeight: "bold"}}>Projet : </span>Développement Front-End et Back-End du site CRM interne de l'entreprise
+                    </ListItemText>
+                </ListItem>
+                <ListItemDialog description={"Création de pages en front-end pour le traitement de données comptables et sociales"} img={"images/reactjs.png"} />
+              <ListItemDialog description={"Traitement des données avec Django et Django Rest Framework"} img={"images/drf.png"} />
+              <ListItemDialog description={"Gestion des tâches partagées avec Celery (File d'attente de tâches asynchrones)"} img={"images/celery.png"} />
+              <ListItemDialog description={"Gestion de base de données clé-valeur avec Redis"} img={"images/redis.png"} />
+
+            </List>
     },
-    {
-        id: 6,
-        icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
-        title: "Ingénierie d'Applications Logicielles",
-        description: "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
-    },
-    {
-        id: 7,
-        icon: <DevWeb color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
-        title: "Mobile Development",
-        description: "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
-    },
-    {
-        id: 8,
-        icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
-        title: "Big Data",
-        description: "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
-    },
-    {
-        id: 9,
+  {
         icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
         title: "Programmation GPU",
-        description: "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
+        description:
+            <List>
+                <ListItem>
+                    <ListItemText sx={listItemStyle}>
+                        <span style={{color: "green", fontWeight: "bold"}}>Projet : </span> Amélioration de la performance du calcul pour un Kmeans avec Cuda
+                    </ListItemText>
+                </ListItem>
+                <ListItemDialog description={"Programmer côté GPU avec Cuda"} img={"images/cuda.jpeg"} />
+                <ListItemDialog description={"Archetecture d'un GPU Nvidia : Threads, Warps, Block, Grid, Shared Memory, Registers ..."} />
+                <ListItemDialog description={"Notion de coalescence / Allocation dynamique / Parallélisme des calculs / Opérations atomiques"} />
+            </List>
     },
-    {
-        id: 10,
+  {
         icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
-        title: "Modèles Statistiques",
-        description: "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
-    },
-    {
-        id: 11,
-        icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
-        title: "Software Engineering",
-        description: "HTML, CSS, Javascipt, Reactjs, Django, DRF ..."
+        title: "Big Data",
+        description:
+            <List>
+                <ListItem>
+                    <ListItemText sx={listItemStyle}>
+                        <span style={{color: "green", fontWeight: "bold"}}>Projet : </span> Exploitation du concepts Map-Reduce et SQL d'Apache Spark
+                    </ListItemText>
+                </ListItem>
+                <ListItemDialog description={"Programmer en pyspark une solution Map-Reduce qui permet de faire des calculs de moyenne sur des données en HDFS"} img={"images/spark.png"} />
+                <ListItemDialog description={"Exploitation des HDFS (Hadoop)"} img={"images/hadoop.png"} />
+                <ListItemDialog description={"Utilisation du concept SQL pour manipuler les données HDFS"} img={"images/sql.png"} />
+              <ListItem>
+                    <ListItemText sx={listItemStyle}>
+                        <span style={{color: "green", fontWeight: "bold"}}>Projet : </span> Création des pipelines pour traiter les données en utilisant Microsoft Azure Cloud
+                    </ListItemText>
+                </ListItem>
+              <ListItemDialog description={"Créer une pipeline pour traiter une immense quantité de données avec Azure"} img={"images/azure.png"} />
+            </List>
     }
 ]
 
 export const formations = [
     {
-        id: 0,
         location: "CentraleSupélec",
         city: "Metz - France",
         date: "Septembre 2020 - Décembre 2024",
@@ -380,7 +502,6 @@ export const formations = [
         img: "images/centrale.png"
     },
     {
-        id: 1,
         location: "Lycée Numérique Colbert",
         city: "Tourcoing - France",
         date: "Septembre 2018 - Décembre 2020",
@@ -389,7 +510,6 @@ export const formations = [
         img: "images/colbert.svg"
     },
     {
-        id: 2,
         location: "Lycée Moulay Ismaïl",
         city: "Meknès - Maroc",
         date: "Septembre 2017 - Décembre 2018",
