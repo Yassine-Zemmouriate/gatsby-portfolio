@@ -1,3 +1,4 @@
+import {Link} from "gatsby";
 import * as React from 'react';
 import styled from "styled-components";
 import {
@@ -198,6 +199,9 @@ const MiddleColumn: React.FC<MiddleColumnProps> = ({ width }) => {
                     ))}
                 </List>
             </Section>
+          <Section id={"section-5"} title={""} description={"Ce site est créé à l'aide de Gatsby.js ❤️ Vous trouverez le lien du git ci-dessous"} >
+            <Link to={"https://github.com/Yassine-Zemmouriate/gatsby-portfolio"} target={"_blank"}><img src={"images/github.png"} alt={"images/github.png"} height={"30px"} width={"30px"} /></Link>
+          </Section>
         </Container>
     )
 }

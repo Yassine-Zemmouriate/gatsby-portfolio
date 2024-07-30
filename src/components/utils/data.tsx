@@ -13,7 +13,7 @@ const ImageContainer = styled.div`
     justify-content: space-between;
     height: ${convertPxtoRem(70)}rem;
     width: 30%;
-    object-fit: fill;
+    object-fit: cover;
 `;
 const ListItemDialog: React.FC<{ description: string, img? : string }> = ({ description, img }) => (
     <ListItem>
@@ -281,7 +281,7 @@ export const listItemStyle = {
 
 export const fields = [
   {
-        icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
+        icon: <img src={"images/software-eng.png"} alt={"images/software-eng.png"} height={`100rem`} width={`100rem`} style={{objectFit: "contain", filter: "grayscale(100%)"}} />,
         title: "Ingénierie d'Application Logiciel",
         description:
             <List>
@@ -348,156 +348,193 @@ export const fields = [
             </List>
     },
   {
-        icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
-        title: "Deep Learning",
-        description:
-            <List>
-                <ListItem>
-                    <ListItemText sx={listItemStyle}>
-                        <span style={{color: "green", fontWeight: "bold"}}>Projet : </span>Créer un réseau de neurones pour prédire la répartition des planctons (Compétition Kaggle)
-                    </ListItemText>
-                </ListItem>
-                <ListItem>
-                    <ListItemIcon>
-                        <PlayArrowTwoToneIcon sx={{ color: "#FFB400" }} />
-                    </ListItemIcon>
-                    <ListItemText sx={listItemStyle}>
-                        Entraîner des modèles Deep Learning, puis améliorer les performances (CNN, FNN, ...)
-                    </ListItemText>
-                    <ImageContainer>
-                        <img src={"images/pytorch.png"} />
-                    </ImageContainer>
-                </ListItem>
-                <ListItemDialog description={"Tester les modèles (F1 Score, Accuracy ...)"} />
-                <ListItem>
-                    <ListItemText sx={listItemStyle}>
-                        <span style={{color: "green", fontWeight: "bold"}}>Projet : </span>Créer un réseau de neurones pour prédire la température dans une zone donnée (Compétition Kaggle)
-                    </ListItemText>
-                </ListItem>
-            </List>
-    },
+    icon: <img src={"images/deeplearning.jpeg"} alt={"images/deeplearning.jpeg"} height={`100rem`} width={`100rem`}
+               style={{objectFit: "contain"}}/>,
+    title: "Deep Learning",
+    description:
+      <List>
+        <ListItem>
+          <ListItemText sx={listItemStyle}>
+            <span style={{color: "green", fontWeight: "bold"}}>Projet : </span>Créer un réseau de neurones pour prédire
+            la répartition des planctons (Compétition Kaggle)
+          </ListItemText>
+        </ListItem>
+        <ListItem>
+          <ListItemIcon>
+            <PlayArrowTwoToneIcon sx={{color: "#FFB400"}}/>
+          </ListItemIcon>
+          <ListItemText sx={listItemStyle}>
+            Entraîner des modèles Deep Learning, puis améliorer les performances (CNN, FNN, ...)
+          </ListItemText>
+          <ImageContainer>
+            <img src={"images/pytorch.png"}/>
+          </ImageContainer>
+        </ListItem>
+        <ListItemDialog description={"Tester les modèles (F1 Score, Accuracy ...)"}/>
+        <hr/>
+        <ListItem>
+          <ListItemText sx={listItemStyle}>
+            <span style={{color: "green", fontWeight: "bold"}}>Projet : </span>Créer un réseau de neurones pour prédire
+            la température dans une zone donnée (Compétition Kaggle)
+          </ListItemText>
+        </ListItem>
+      </List>
+  },
   {
-        icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
-        title: "Génie Logiciel Orienté Objet",
-        description:
-            <List>
-                <ListItem>
-                    <ListItemText sx={listItemStyle}>
-                        <span style={{color: "green", fontWeight: "bold"}}>Projet : </span>Développement d'une solution pour location de vélo à Paris
-                    </ListItemText>
-                </ListItem>
-                <ListItem>
-                    <ListItemIcon>
-                        <PlayArrowTwoToneIcon sx={{ color: "#FFB400" }} />
-                    </ListItemIcon>
-                    <ListItemText sx={listItemStyle}>
-                        Conception du logiciel en Orienté Objet (Java)
-                    </ListItemText>
-                    <ImageContainer>
-                        <img src={"images/java.png"} />
-                    </ImageContainer>
-                </ListItem>
-                <ListItem>
-                    <ListItemIcon>
-                        <PlayArrowTwoToneIcon sx={{ color: "#FFB400" }} />
-                    </ListItemIcon>
-                    <ListItemText sx={listItemStyle}>
-                        Modélisation logiciel UML avec Papyrus / Eclipse en utilisant les patrons de conception (Design Patterns)
-                    </ListItemText>
-                    <ImageContainer>
-                        <img src={"images/papyrus.svg"} />
-                    </ImageContainer>
-                </ListItem>
-            </List>
-    },
+    icon: <img src={"images/oop.jpeg"} alt={"images/oop.jpeg"} height={`100rem`} width={`100rem`}
+               style={{objectFit: "contain", filter: "grayscale(100%)"}}/>,
+    title: "Génie Logiciel Orienté Objet",
+    description:
+      <List>
+        <ListItem>
+          <ListItemText sx={listItemStyle}>
+            <span style={{color: "green", fontWeight: "bold"}}>Projet : </span>Développement d'une solution pour
+            location de vélo à Paris
+          </ListItemText>
+        </ListItem>
+        <ListItem>
+          <ListItemIcon>
+            <PlayArrowTwoToneIcon sx={{color: "#FFB400"}}/>
+          </ListItemIcon>
+          <ListItemText sx={listItemStyle}>
+            Conception du logiciel en Orienté Objet (Java)
+          </ListItemText>
+          <ImageContainer>
+            <img src={"images/java.png"}/>
+          </ImageContainer>
+        </ListItem>
+        <ListItem>
+          <ListItemIcon>
+            <PlayArrowTwoToneIcon sx={{color: "#FFB400"}}/>
+          </ListItemIcon>
+          <ListItemText sx={listItemStyle}>
+            Modélisation logiciel UML avec Papyrus / Eclipse en utilisant les patrons de conception (Design Patterns)
+          </ListItemText>
+          <ImageContainer>
+            <img src={"images/papyrus.svg"}/>
+          </ImageContainer>
+        </ListItem>
+      </List>
+  },
   {
-        icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
-        title: "Développement Applications Mobiles",
-        description:
-            <List>
-                <ListItem>
-                    <ListItemText sx={listItemStyle}>
-                        <span style={{color: "green", fontWeight: "bold"}}>Projet : </span>Développement d'une application mobile pour commander dans un restaurant
-                    </ListItemText>
-                </ListItem>
-                    <ListItemDialog description={"Création d'une application android avec Android Studio"} img={"images/androidstudio.png"} />
-                    <ListItemDialog description={"Création d'une application native avec React Native à partir d'une maquette Adobe XD fournie par le client pour une crèche"} img={"images/react-native.png"} />
+    icon: <img src={"images/mobile.png"} alt={"images/mobile.png"} height={`100rem`} width={`100rem`}
+               style={{objectFit: "contain"}}/>,
+    title: "Développement Applications Mobiles",
+    description:
+      <List>
+        <ListItem>
+          <ListItemText sx={listItemStyle}>
+            <span style={{color: "green", fontWeight: "bold"}}>Projet : </span>Développement d'une application mobile
+            pour commander dans un restaurant
+          </ListItemText>
+        </ListItem>
+        <ListItemDialog description={"Création d'une application android avec Android Studio"}
+                        img={"images/androidstudio.png"}/>
+        <ListItemDialog
+          description={"Création d'une application native avec React Native à partir d'une maquette Adobe XD fournie par le client pour une crèche"}
+          img={"images/react-native.png"}/>
 
-            </List>
-    },
+      </List>
+  },
   {
-        icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
-        title: "Développement Site Web",
-        description:
-            <List>
-                <ListItem>
-                    <ListItemText sx={listItemStyle}>
-                        <span style={{color: "green", fontWeight: "bold"}}>Projet : </span>Développement du Front-End du site vitrine du startup Appunto
-                    </ListItemText>
-                </ListItem>
-                <ListItemDialog description={"Développement d'une section pour afficher les client en React.js / Gatsby.js pour les sites statiques"} img={"images/gatsby.png"} />
-                <ListItem>
-                    <ListItemText sx={listItemStyle}>
-                        <span style={{color: "green", fontWeight: "bold"}}>Projet : </span>Développement du Front-End d'un site pour visualisation des données
-                    </ListItemText>
-                </ListItem>
-                <ListItemDialog description={"Visualisation des données avec Recharts et D3.js"} img={"images/d3.png"} />
-              <ListItem>
-                    <ListItemText sx={listItemStyle}>
-                        <span style={{color: "green", fontWeight: "bold"}}>Projet : </span>Développement Front-End et Back-End du site CRM interne de l'entreprise
-                    </ListItemText>
-                </ListItem>
-                <ListItemDialog description={"Création de pages en front-end pour le traitement de données comptables et sociales"} img={"images/reactjs.png"} />
-              <ListItemDialog description={"Traitement des données avec Django et Django Rest Framework"} img={"images/drf.png"} />
-              <ListItemDialog description={"Gestion des tâches partagées avec Celery (File d'attente de tâches asynchrones)"} img={"images/celery.png"} />
-              <ListItemDialog description={"Gestion de base de données clé-valeur avec Redis"} img={"images/redis.png"} />
+    icon: <img src={"images/webdeveloppement.jpeg"} alt={"images/webdeveloppement.jpeg"} height={`100rem`} width={`100rem`}
+               style={{objectFit: "contain"}}/>,
+    title: "Développement Site Web",
+    description:
+      <List>
+        <ListItem>
+          <ListItemText sx={listItemStyle}>
+            <span style={{color: "green", fontWeight: "bold"}}>Projet : </span>Développement du Front-End du site
+            vitrine du startup Appunto
+          </ListItemText>
+        </ListItem>
+        <ListItemDialog
+          description={"Développement d'une section pour afficher les client en React.js / Gatsby.js pour les sites statiques"}
+          img={"images/gatsby.png"}/>
+        <hr/>
+        <ListItem>
+          <ListItemText sx={listItemStyle}>
+            <span style={{color: "green", fontWeight: "bold"}}>Projet : </span>Développement du Front-End d'un site pour
+            visualisation des données
+          </ListItemText>
+        </ListItem>
+        <ListItemDialog description={"Visualisation des données avec Recharts et D3.js"} img={"images/d3.png"}/>
+        <hr/>
+        <ListItem>
+          <ListItemText sx={listItemStyle}>
+            <span style={{color: "green", fontWeight: "bold"}}>Projet : </span>Développement Front-End et Back-End du
+            site CRM interne de l'entreprise
+          </ListItemText>
+        </ListItem>
+        <ListItemDialog
+          description={"Création de pages en front-end pour le traitement de données comptables et sociales"}
+          img={"images/reactjs.png"}/>
+        <ListItemDialog description={"Traitement des données avec Django et Django Rest Framework"}
+                        img={"images/drf.png"}/>
+        <ListItemDialog description={"Gestion des tâches partagées avec Celery (File d'attente de tâches asynchrones)"}
+                        img={"images/celery.png"}/>
+        <ListItemDialog description={"Gestion de base de données clé-valeur avec Redis"} img={"images/redis.png"}/>
 
-            </List>
-    },
+      </List>
+  },
   {
-        icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
-        title: "Programmation GPU",
-        description:
-            <List>
-                <ListItem>
-                    <ListItemText sx={listItemStyle}>
-                        <span style={{color: "green", fontWeight: "bold"}}>Projet : </span> Amélioration de la performance du calcul pour un Kmeans avec Cuda
-                    </ListItemText>
-                </ListItem>
-                <ListItemDialog description={"Programmer côté GPU avec Cuda"} img={"images/cuda.jpeg"} />
-                <ListItemDialog description={"Archetecture d'un GPU Nvidia : Threads, Warps, Block, Grid, Shared Memory, Registers ..."} />
-                <ListItemDialog description={"Notion de coalescence / Allocation dynamique / Parallélisme des calculs / Opérations atomiques"} />
-            </List>
-    },
+    icon: <img src={"images/progr-gpu.png"} alt={"images/progr-gpu.png"} height={`100rem`}
+               width={`100rem`}
+               style={{objectFit: "contain"}}/>,
+    title: "Programmation GPU",
+    description:
+      <List>
+        <ListItem>
+          <ListItemText sx={listItemStyle}>
+            <span style={{color: "green", fontWeight: "bold"}}>Projet : </span> Amélioration de la performance du calcul
+            pour un Kmeans avec Cuda
+          </ListItemText>
+        </ListItem>
+        <ListItemDialog description={"Programmer côté GPU avec Cuda"} img={"images/cuda.jpeg"}/>
+        <ListItemDialog
+          description={"Archetecture d'un GPU Nvidia : Threads, Warps, Block, Grid, Shared Memory, Registers ..."}/>
+        <ListItemDialog
+          description={"Notion de coalescence / Allocation dynamique / Parallélisme des calculs / Opérations atomiques"}/>
+      </List>
+  },
   {
-        icon: <MachineLearning color={"#FFB400"} height={`${convertPxtoRem(100)}rem`} width={`${convertPxtoRem(100)}rem`} />,
-        title: "Big Data",
-        description:
-            <List>
-                <ListItem>
-                    <ListItemText sx={listItemStyle}>
-                        <span style={{color: "green", fontWeight: "bold"}}>Projet : </span> Exploitation du concepts Map-Reduce et SQL d'Apache Spark
-                    </ListItemText>
-                </ListItem>
-                <ListItemDialog description={"Programmer en pyspark une solution Map-Reduce qui permet de faire des calculs de moyenne sur des données en HDFS"} img={"images/spark.png"} />
-                <ListItemDialog description={"Exploitation des HDFS (Hadoop)"} img={"images/hadoop.png"} />
-                <ListItemDialog description={"Utilisation du concept SQL pour manipuler les données HDFS"} img={"images/sql.png"} />
-              <ListItem>
-                    <ListItemText sx={listItemStyle}>
-                        <span style={{color: "green", fontWeight: "bold"}}>Projet : </span> Création des pipelines pour traiter les données en utilisant Microsoft Azure Cloud
-                    </ListItemText>
-                </ListItem>
-              <ListItemDialog description={"Créer une pipeline pour traiter une immense quantité de données avec Azure"} img={"images/azure.png"} />
-            </List>
-    }
+    icon: <img src={"images/bigdata.jpeg"} alt={"images/bigdata.jpeg"} height={`100rem`}
+               width={`100rem`}
+               style={{objectFit: "contain"}}/>,
+    title: "Big Data",
+    description:
+      <List>
+        <ListItem>
+          <ListItemText sx={listItemStyle}>
+            <span style={{color: "green", fontWeight: "bold"}}>Projet : </span> Exploitation du concepts Map-Reduce et
+            SQL d'Apache Spark
+          </ListItemText>
+        </ListItem>
+        <ListItemDialog
+          description={"Programmer en pyspark une solution Map-Reduce qui permet de faire des calculs de moyenne sur des données en HDFS"}
+          img={"images/spark.png"}/>
+        <ListItemDialog description={"Exploitation des HDFS (Hadoop)"} img={"images/hadoop.png"}/>
+        <ListItemDialog description={"Utilisation du concept SQL pour manipuler les données HDFS"}
+                        img={"images/sql.png"}/>
+        <hr/>
+        <ListItem>
+          <ListItemText sx={listItemStyle}>
+            <span style={{color: "green", fontWeight: "bold"}}>Projet : </span> Création des pipelines pour traiter les
+            données en utilisant Microsoft Azure Cloud
+          </ListItemText>
+        </ListItem>
+        <ListItemDialog description={"Créer une pipeline pour traiter une immense quantité de données avec Azure"}
+                        img={"images/azure.png"}/>
+      </List>
+  }
 ]
 
 export const formations = [
-    {
-        location: "CentraleSupélec",
-        city: "Metz - France",
-        date: "Septembre 2020 - Décembre 2024",
-        title: "Science des Données et de l'Information",
+  {
+    location: "CentraleSupélec",
+    city: "Metz - France",
+    date: "Septembre 2020 - Décembre 2024",
+    title: "Science des Données et de l'Information",
         status: "Étudiant - Apprenti",
         img: "images/centrale.png"
     },

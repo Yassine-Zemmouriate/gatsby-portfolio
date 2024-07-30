@@ -100,6 +100,10 @@ const devweb = [
         src: "images/reactjs.png"
     },
     {
+        title: "Django",
+        src: "images/django.png"
+    },
+    {
         title: "Django Rest Framework",
         src: "images/drf.png"
     },
@@ -151,6 +155,10 @@ const datascience = [
     {
         title: "Python",
         src: "images/python.png"
+    },
+    {
+        title: "Pytorch",
+        src: "images/pytorch-logo.png"
     },
     {
         title: "Tableau",
