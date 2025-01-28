@@ -7,6 +7,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import PlayArrowTwoToneIcon from "@mui/icons-material/PlayArrowTwoTone";
 import {convertPxtoRem} from "./utils";
 import styled from "styled-components";
+import { Skill } from "./Skill";
 
 const ImageContainer = styled.div`
     display : flex;
@@ -30,10 +31,150 @@ const ListItemDialog: React.FC<{ description: string, img? : string }> = ({ desc
 );
 export const certificats = [
     {
+        location: "Google",
+        date: "Février 2025",
+        title: "Google Project Management",
+        status: "Certificat Professionel Coursera",
+        img: "images/google.png",
+        dialogContent : {
+            title : "Google Project Management",
+            contentText : <List>
+                <ListItemDialog
+                    description={"Apprenez Python - le langage de programmation le plus populaire pour la science des données et le développement de logiciels."}
+                />
+                <ListItemDialog
+                    description={"Appliquer la logique de programmation Python Variables, structures de données, ramifications, boucles, fonctions, objets et classes."}
+                />
+                <ListItemDialog
+                    description={"Démontrer sa maîtrise de l'utilisation des bibliothèques Python telles que Pandas et Numpy, et du développement de code à l'aide de Jupyter Notebooks."}
+                />
+                <ListItemDialog
+                    description={"Accédez aux données et récupérez-les sur le Web à l'aide d'API et de bibliothèques Python comme Beautiful Soup."}
+                />
+            </List>
+        }
+    },
+    {
+        location: "IBM",
+        date: "Juillet 2024",
+        title: "Python for Data Science, AI & Development",
+        status: "Certificat Cours Coursera",
+        img: "images/ibm.png",
+        dialogContent : {
+            title : "Python for Data Science, AI & Development",
+            contentText : <List>
+                <ListItemDialog
+                    description={"Apprenez Python - le langage de programmation le plus populaire pour la science des données et le développement de logiciels."}
+                />
+                <ListItemDialog
+                    description={"Appliquer la logique de programmation Python Variables, structures de données, ramifications, boucles, fonctions, objets et classes."}
+                />
+                <ListItemDialog
+                    description={"Démontrer sa maîtrise de l'utilisation des bibliothèques Python telles que Pandas et Numpy, et du développement de code à l'aide de Jupyter Notebooks."}
+                />
+                <ListItemDialog
+                    description={"Accédez aux données et récupérez-les sur le Web à l'aide d'API et de bibliothèques Python comme Beautiful Soup."}
+                />
+                <div style={{display: "flex", justifyContent: "flex-end"}}>
+                    <a href={"https://coursera.org/share/b673146187ba1772b9e130580f0c4699"} target={"_blank"}>
+                        <Button sx={cvButtonStyle}>Voir le certificat</Button>
+                    </a>
+                </div>
+            </List>
+        }
+    },
+    {
+        location: "IBM",
+        date: "Janvier 2025",
+        title: "Application Development using Microservices and Serverless",
+        status: "Certificat Cours Coursera",
+        img: "images/ibm.png",
+        dialogContent : {
+            title : "Application Development using Microservices and Serverless",
+            contentText : <List>
+                <ListItemDialog
+                    description={"Résumez les fondamentaux des microservices, leurs avantages et leur contraste avec les architectures monolithiques."}
+                />
+                <ListItemDialog
+                    description={"Créez des points de terminaison d'API REST et appelez-les à l'aide de cURL et Postman ; utilisez SwaggerUI pour documenter et tester les API."}
+                />
+                <ListItemDialog
+                    description={"Créez et déployez des microservices à l'aide de conteneurs Docker et de technologies sans serveur comme IBM Code Engine."}
+                />
+                <ListItemDialog
+                    description={"Entraînez-vous de manière pratique avec des laboratoires et des projets utilisant un environnement cloud gratuit."}
+                />
+                <div style={{display: "flex", justifyContent: "flex-end"}}>
+                    <a href={"https://coursera.org/share/6a300a59cb9ef3090ad585bddb8fd89b"} target={"_blank"}>
+                        <Button sx={cvButtonStyle}>Voir le certificat</Button>
+                    </a>
+                </div>
+            </List>
+        }
+    },
+    {
+        location: "IBM",
+        date: "Juillet 2024",
+        title: "Hands-on Introduction to Linux Commands and Shell Scripting",
+        status: "Certificat Cours Coursera",
+        img: "images/ibm.png",
+        dialogContent : {
+            title : "Hands-on Introduction to Linux Commands and Shell Scripting",
+            contentText : <List>
+                <ListItemDialog
+                    description={"Décrivez l'architecture Linux et les distributions Linux courantes et mettez à jour et installez des logiciels sur un système Linux."}
+                />
+                <ListItemDialog
+                    description={"Exécutez des commandes courantes d'information, de fichier, de contenu, de navigation, de compression et de mise en réseau dans le shell Bash."}
+                />
+                <ListItemDialog
+                    description={"Développer des scripts shell à l'aide de commandes Linux, de variables d'environnement, de canaux et de filtres."}
+                />
+                <ListItemDialog
+                    description={"Planifiez des tâches cron sous Linux avec crontab et expliquez la syntaxe cron."}
+                />
+                <div style={{display: "flex", justifyContent: "flex-end"}}>
+                    <a href={"https://coursera.org/share/d4e3744c9f7025c0a5ec82827466ca4b"} target={"_blank"}>
+                        <Button sx={cvButtonStyle}>Voir le certificat</Button>
+                    </a>
+                </div>
+            </List>
+        }
+    },
+    {
+        location: "IBM",
+        date: "Janvier 2025",
+        title: "Getting Started with Git and GitHub",
+        status: "Certificat Cours Coursera",
+        img: "images/ibm.png",
+        dialogContent : {
+            title : "Getting Started with Git and GitHub",
+            contentText : <List>
+                <ListItemDialog
+                    description={"Décrivez le contrôle de version et sa place dans le codage social et collaboratif et dans DevOps."}
+                />
+                <ListItemDialog
+                    description={"Expliquez les concepts de base de Git tels que les référentiels et les branches utilisés pour le contrôle de version distribué et le codage social."}
+                />
+                <ListItemDialog
+                    description={"Créez des référentiels et des branches GitHub et effectuez des demandes d'extraction (PR) et des opérations de fusion pour collaborer sur un projet d'équipe."}
+                />
+                <ListItemDialog
+                    description={"Construisez votre portfolio en créant et en partageant un projet open source sur GitHub."}
+                />
+                <div style={{display: "flex", justifyContent: "flex-end"}}>
+                    <a href={"https://coursera.org/share/7702c1b571c9e2e697f77157904ae7aa"} target={"_blank"}>
+                        <Button sx={cvButtonStyle}>Voir le certificat</Button>
+                    </a>
+                </div>
+            </List>
+        }
+    },
+    {
         location: "IBM",
         date: "Octobre 2023",
         title: "Developing AI Applications with Python & Flask",
-        status: "Certificat Coursera",
+        status: "Certificat Cours Coursera",
         img: "images/ibm.png",
         dialogContent : {
             title : "Developing AI Applications with Python & Flask",
@@ -62,7 +203,7 @@ export const certificats = [
         location: "IBM",
         date: "Octobre 2023",
         title: "Introduction to Containers Docker, Kubernetes & OpenShift",
-        status: "Certificat Coursera",
+        status: "Certificat Cours Coursera",
         img: "images/ibm.png",
         dialogContent : {
             title : "Introduction to Containers Docker, Kubernetes & OpenShift",
@@ -86,86 +227,11 @@ export const certificats = [
                 </div>
             </List>
         }
-    },
-    {
-        location: "IBM",
-        date: "Août 2023",
-        title: "Introduction to DevOps",
-        status: "Certificat Coursera",
-        img: "images/ibm.png",
-        dialogContent: {
-            title: "Introduction to DevOps",
-            contentText : <List>
-                <ListItemDialog
-                    description={"Les caractéristiques essentielles du DevOps, notamment la construction d'une culture de responsabilité partagée, de transparence et d'acceptation de l'échec."}
-                />
-                <ListItemDialog
-                    description={"Concepts DevOps essentiels : pratiques d'ingénierie logicielle, microservices natifs du cloud, déploiements continus automatisés et création de code résilient."}
-                />
-                <ListItemDialog
-                    description={"L'importance de l'intégration continue et de la livraison continue, de l'infrastructure en tant que code, du développement piloté par les tests, du développement piloté par le comportement."}
-                />
-                <ListItemDialog
-                    description={"L'impact organisationnel du DevOps, notamment la suppression des silos, le travail en équipes interfonctionnelles et le partage des responsabilités."}
-                />
-                <div style={{display: "flex", justifyContent: "flex-end"}}>
-                    <a href={"https://www.coursera.org/account/accomplishments/verify/2M48FQZM2NZM"} target={"_blank"}>
-                        <Button sx={cvButtonStyle}>Voir le certificat</Button>
-                    </a>
-                </div>
-            </List>
-        }
-    },{
-        location: "IBM",
-        date: "en cours",
-        title: "Introduction to Cloud Computing",
-        status: "Certificat Coursera",
-        img: "images/ibm.png",
-        dialogContent : {
-            title : "Introduction to Cloud Computing",
-            contentText : <List>
-                <ListItemDialog
-                    description={"Décrire les étapes et les processus impliqués dans la création d'une application Python, y compris le cycle de vie du développement de l'application."}
-                />
-                <ListItemDialog
-                    description={"Créer des modules Python, exécuter des tests unitaires et empaqueter des applications tout en garantissant les meilleures pratiques de codage PEP8"}
-                />
-                <ListItemDialog
-                    description={"Expliquer les fonctionnalités de Flask et déployer des applications sur le Web à l'aide du framework Flask"}
-                />
-                <ListItemDialog
-                    description={"Créer et déployer une application basée sur l'IA sur un serveur Web à l'aide des bibliothèques IBM Watson AI et Flask"}
-                />
-            </List>
-        }
-    },{
-        location: "IBM",
-        date: "en cours",
-        title: "Introduction to Agile Development and Scrum",
-        status: "Certificat Coursera",
-        img: "images/ibm.png",
-        dialogContent : {
-            title : "Introduction to Agile Development and Scrum",
-            contentText : <List>
-                <ListItemDialog
-                    description={"Décrire les étapes et les processus impliqués dans la création d'une application Python, y compris le cycle de vie du développement de l'application."}
-                />
-                <ListItemDialog
-                    description={"Créer des modules Python, exécuter des tests unitaires et empaqueter des applications tout en garantissant les meilleures pratiques de codage PEP8"}
-                />
-                <ListItemDialog
-                    description={"Expliquer les fonctionnalités de Flask et déployer des applications sur le Web à l'aide du framework Flask"}
-                />
-                <ListItemDialog
-                    description={"Créer et déployer une application basée sur l'IA sur un serveur Web à l'aide des bibliothèques IBM Watson AI et Flask"}
-                />
-            </List>
-        }
     },{
         location: "IBM",
         date: "Avril 2024",
         title: "DevOps, Cloud, and Agile Foundations",
-        status: "Certificat Coursera",
+        status: "Certificat Professionnel Coursera",
         img: "images/ibm.png",
         dialogContent : {
             title : "DevOps, Cloud, and Agile Foundations",
@@ -196,7 +262,46 @@ export const jobs = [
     {
         location: "Batt Advisors",
         city: "Metz - France",
-        date: "Octobre 2022 - aujourd'hui",
+        date: "Novembre 2024 - aujourd'hui",
+        title: "Consultant Data Scientist - Développeur Full-Stack",
+        status: "Contrat CDI",
+        img: "images/batt_advisors.png",
+        dialogContent : {
+            title : "Consultant Data Scientist - Développeur Full-Stack",
+            contentText : <List>
+                <ListItemDialog
+                    description={"Traitement, analyse et visualisation de données financières et extra financières pour les clients du groupe"}
+                />
+                <ListItemDialog
+                    description={"Relation client et agilité"}
+                />
+                <ListItemDialog
+                    description={"Ajout d'outils dans le site interne de Batt & Associés avec Reactjs et Django Rest Framework"}
+                    img={"images/drf.png"}
+                />
+                <ListItemDialog
+                    description={"Création d'une extension de gestion des étiquettes de colis avec Tableau"}
+                    img={"images/tableau.png"}
+                />
+                <ListItemDialog
+                    description={"Ajout de l'outil Tableau Embedding v3 dans le site interne"}
+                />
+                <ListItemDialog
+                    description={"Création d'un paquet python pour calculer les liasses fiscales des clients"}
+                    img={"images/python.png"}
+                />
+                <div style={{display : "flex", justifyContent : "flex-end"}}>
+                    <a href={"https://www.battadvisors.eu/"} target={"_blank"}>
+                        <Button sx={cvButtonStyle}>Site de l'entreprise</Button>
+                    </a>
+                </div>
+            </List>
+        }
+    },
+    {
+        location: "Batt Advisors",
+        city: "Metz - France",
+        date: "Octobre 2022 - Novembre 2024",
         title: "Consultant Data Scientist - Développeur Full-Stack",
         status: "En alternance",
         img: "images/batt_advisors.png",
@@ -235,7 +340,7 @@ export const jobs = [
     {
         location: "Appunto",
         city: "Paris 15ème Arrondissement - France",
-        date: "Février 2018 - Octobre 2022",
+        date: "Février 2021 - Octobre 2022",
         title: "Développeur Front-end et Mobile",
         status: "En alternance",
         img: "images/appunto.jpeg",
@@ -556,4 +661,27 @@ export const formations = [
     }
 ]
 
+const moisMapping = {
+    "Janvier": 0,
+    "Février": 1,
+    "Mars": 2,
+    "Avril": 3,
+    "Mai": 4,
+    "Juin": 5,
+    "Juillet": 6,
+    "Août": 7,
+    "Septembre": 8,
+    "Octobre": 9,
+    "Novembre": 10,
+    "Décembre": 11
+};
 
+certificats.sort((a, b) => {
+    const [moisA, anneeA] = a.date.split(" ");
+    const [moisB, anneeB] = b.date.split(" ");
+    
+    const diffAnnee = parseInt(anneeB) - parseInt(anneeA);
+    if (diffAnnee !== 0) return diffAnnee;
+
+    return moisMapping[moisB] - moisMapping[moisA];
+});

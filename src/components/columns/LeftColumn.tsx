@@ -11,6 +11,7 @@ import LevelField from "../utils/LevelField";
 import {convertPxtoRem, device} from "../utils/utils";
 import {BootstrapTooltip} from "./RightColumn";
 import {useState} from "react";
+import { title } from 'process';
 
 export interface SideBarProps {
     width : string;
@@ -54,12 +55,25 @@ export const cvButtonStyle = {
     borderRadius : "0px"
 }
 
+const computeAge = (day: string) => {
+    const today = new Date();
+    const birthday = new Date(day);
+
+    let age = today.getFullYear() - birthday.getFullYear();
+    const month = today.getMonth() - birthday.getMonth();
+    if (month < 0 || (month === 0 && today.getDate() < birthday.getDate())) {
+        age--;
+    }
+
+    return age;
+}
+
 const dataJSON = {
-    "age": "23",
+    "age": `${computeAge("2000-12-09")}`,
     "adress" : "Metz, France",
     "permis" : "B",
     "phone" : "07 66 52 62 43",
-    "status" : "En alternance",
+    "status" : "En CDI",
     "email" : "yassinezemmouriate@gmail.com"
 }
 
@@ -137,6 +151,14 @@ const software = [
     {
         title: "Kafka",
         src: "images/kafka.png"
+    },
+    {
+        title: 'Celery',
+        src: "images/celery.png"
+    },
+    {
+        title: "Redis",
+        src: "images/redis.png"
     }
 ];
 
@@ -259,7 +281,7 @@ const LeftColumn : React.FC<SideBarProps> = ({width}) => {
                 {languages.map((element, index) => <LevelField key={`language-key-${index}`} value={element.value} title={element.title}/>)}
             </LanguagesField>
             <SkillsField>
-                <SkillsTitle>IT Skills</SkillsTitle>
+                <SkillsTitle>Compétences Informatiques</SkillsTitle>
                 <div style={{color : "green", paddingTop : "30px", paddingBottom : "15px"}}>Développement Web</div>
                 {devweb.map((element, index) => (
                     <div key={`skill-key-${index}`} style={{
