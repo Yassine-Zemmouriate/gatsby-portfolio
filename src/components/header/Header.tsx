@@ -11,9 +11,9 @@ const Header : React.FC<HeaderProps> = () => {
             <TextField>
                 <Title>Yassine Zemmouriate <JobTitle>Consultant Data Scientist & FullStack Developer</JobTitle></Title>
             </TextField>
-            <ImageField>
+            {/* <ImageField>
                 <img src={"images/output.png"} alt={"yassine"} height={"100%"} width={"100%"} style={{objectFit : "contain"}} />
-            </ImageField>
+            </ImageField> */}
         </Container>);
 }
 
@@ -29,6 +29,7 @@ const Container = styled.div`
     backdrop-filter: blur(10px);
     background-position: center;
     background-size: 100% 100%;
+    justify-content: center;
 `;
 
 const TextField = styled.div`

@@ -2,12 +2,11 @@ import {Button, List, ListItem, ListItemText} from "@mui/material";
 import {cvButtonStyle} from "../columns/LeftColumn";
 import * as React from "react";
 import GetAppOutlinedIcon from "@mui/icons-material/GetAppOutlined";
-import {DevWeb, MachineLearning} from "./svgs";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import PlayArrowTwoToneIcon from "@mui/icons-material/PlayArrowTwoTone";
 import {convertPxtoRem} from "./utils";
 import styled from "styled-components";
-import { Skill } from "./Skill";
+import { Month } from "./types";
 
 const ImageContainer = styled.div`
     display : flex;
@@ -661,7 +660,7 @@ export const formations = [
     }
 ]
 
-const moisMapping = {
+const moisMapping : Record<Month, number> = {
     "Janvier": 0,
     "Février": 1,
     "Mars": 2,
@@ -677,8 +676,8 @@ const moisMapping = {
 };
 
 certificats.sort((a, b) => {
-    const [moisA, anneeA] = a.date.split(" ");
-    const [moisB, anneeB] = b.date.split(" ");
+    const [moisA, anneeA] = a.date.split(" ") as [Month, string];
+    const [moisB, anneeB] = b.date.split(" ") as [Month, string];
     
     const diffAnnee = parseInt(anneeB) - parseInt(anneeA);
     if (diffAnnee !== 0) return diffAnnee;
