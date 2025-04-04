@@ -385,7 +385,7 @@ export const listItemStyle = {
 
 export const fields = [
   {
-        icon: <img src={"images/software-eng.png"} alt={"images/software-eng.png"} height={`100rem`} width={`100rem`} style={{objectFit: "contain", filter: "grayscale(100%)"}} />,
+        icon: <img src={"images/devops.png"} alt={"images/devops.png"} height={`100%`} width={`100%`} style={{objectFit: "fill"}} />,
         title: "Ingénierie d'Application Logiciel",
         description:
             <List>
@@ -452,8 +452,7 @@ export const fields = [
             </List>
     },
   {
-    icon: <img src={"images/deeplearning.jpeg"} alt={"images/deeplearning.jpeg"} height={`100rem`} width={`100rem`}
-               style={{objectFit: "contain"}}/>,
+    icon: <img src={"images/deeplearning.png"} alt={"images/deeplearning.png"}  height={`100%`} width={`100%`} style={{objectFit: "fill"}} />,
     title: "Deep Learning",
     description:
       <List>
@@ -485,8 +484,7 @@ export const fields = [
       </List>
   },
   {
-    icon: <img src={"images/oop.jpeg"} alt={"images/oop.jpeg"} height={`100rem`} width={`100rem`}
-               style={{objectFit: "contain", filter: "grayscale(100%)"}}/>,
+    icon: <img src={"images/oop.png"} alt={"images/oop.png"} height={`100%`} width={`100%`} style={{objectFit: "fill"}} />,
     title: "Génie Logiciel Orienté Objet",
     description:
       <List>
@@ -521,28 +519,8 @@ export const fields = [
       </List>
   },
   {
-    icon: <img src={"images/mobile.png"} alt={"images/mobile.png"} height={`100rem`} width={`100rem`}
-               style={{objectFit: "contain"}}/>,
-    title: "Développement Applications Mobiles",
-    description:
-      <List>
-        <ListItem>
-          <ListItemText sx={listItemStyle}>
-            <span style={{color: "green", fontWeight: "bold"}}>Projet : </span>Développement d'une application mobile
-            pour commander dans un restaurant
-          </ListItemText>
-        </ListItem>
-        <ListItemDialog description={"Création d'une application android avec Android Studio"}
-                        img={"images/androidstudio.png"}/>
-        <ListItemDialog
-          description={"Création d'une application native avec React Native à partir d'une maquette Adobe XD fournie par le client pour une crèche"}
-          img={"images/react-native.png"}/>
-
-      </List>
-  },
-  {
-    icon: <img src={"images/webdeveloppement.jpeg"} alt={"images/webdeveloppement.jpeg"} height={`100rem`} width={`100rem`}
-               style={{objectFit: "contain"}}/>,
+    icon: <img src={"images/webdeveloppement.png"} alt={"images/webdeveloppement.png"} height={`100%`} width={`100%`}
+               style={{objectFit: "fill"}}/>,
     title: "Développement Site Web",
     description:
       <List>
@@ -582,9 +560,9 @@ export const fields = [
       </List>
   },
   {
-    icon: <img src={"images/progr-gpu.png"} alt={"images/progr-gpu.png"} height={`100rem`}
-               width={`100rem`}
-               style={{objectFit: "contain"}}/>,
+    icon: <img src={"images/gpu.png"} alt={"images/gpu.png"} height={`100%`}
+               width={`100%`}
+               style={{objectFit: "fill"}}/>,
     title: "Programmation GPU",
     description:
       <List>
@@ -602,9 +580,9 @@ export const fields = [
       </List>
   },
   {
-    icon: <img src={"images/bigdata.jpeg"} alt={"images/bigdata.jpeg"} height={`100rem`}
-               width={`100rem`}
-               style={{objectFit: "contain"}}/>,
+    icon: <img src={"images/bigdata.png"} alt={"images/bigdata.png"} height={`100%`}
+               width={`100%`}
+               style={{objectFit: "fill"}}/>,
     title: "Big Data",
     description:
       <List>

@@ -106,7 +106,7 @@ const MiddleColumn: React.FC<MiddleColumnProps> = ({ width }) => {
     return (
         <Container width={width}>
             <MobileHeaderContainer>
-                <Avatar sx={avatarStyle(50, 50)}><img src={"images/output.png"} alt={"yassine"} height={"100%"} width={"100%"} style={{objectFit : "contain"}} /></Avatar>
+                <Avatar sx={avatarStyle(50, 50)}><img src={"images/yassine.png"} alt={"yassine"} height={"100%"} width={"100%"} style={{objectFit : "contain"}} /></Avatar>
                 <div>
                     Consultant Data Scientist & FullStack Developer
                 </div>
@@ -168,9 +168,6 @@ const MiddleColumn: React.FC<MiddleColumnProps> = ({ width }) => {
                                 <CardMedia>
                                     {elmnt.icon}
                                 </CardMedia>
-                                <CardContent>
-                                    <CardTitle>{elmnt.title}</CardTitle>
-                                </CardContent>
                             </CardActionArea>
                             <DialogComponent title={elmnt.title} contentText={elmnt.description} open={isOpen === `card-${idx}`} handleClose={handleClose} />
                         </Card>
@@ -272,6 +269,6 @@ const ListIcon = styled.div`
 
 export const cardStyle = {
     height: `${convertPxtoRem(225)}rem`,
-    width: "40%",
+    width: `${convertPxtoRem(337.5)}rem`,
 }
 

@@ -74,7 +74,7 @@ const dataJSON = {
     "permis" : "B",
     "phone" : "07 66 52 62 43",
     "status" : "En CDI",
-    "email" : "yassinezemmouriate@gmail.com"
+    "email" : "zemmouriateyassine@gmail.com"
 }
 
 const languages = [
@@ -206,7 +206,7 @@ const LeftColumn : React.FC<SideBarProps> = ({width}) => {
 
     const onClickEmail = () => {
         setTitle("Copié !");
-        navigator.clipboard.writeText("yassinezemmouriate@gmail.com").then(() => {
+        navigator.clipboard.writeText("zemmouriateyassine@gmail.com").then(() => {
             setTimeout(() => setTitle("Appuyer pour copier"), 5000)
         }).catch(err => {
             console.error("Erreur lors de la copie du texte : ", err);
@@ -216,7 +216,7 @@ const LeftColumn : React.FC<SideBarProps> = ({width}) => {
     return (
         <Container width={width}>
             <AvatarField>
-                <Avatar sx={primaryAvatarStyle(150, 150)}><img src={"images/output.png"} alt={"yassine"} height={"100%"} width={"100%"} style={{objectFit : "contain"}} /></Avatar>
+                <Avatar sx={primaryAvatarStyle(150, 150)}><img src={"images/yassine.png"} alt={"yassine"} height={"100%"} width={"100%"} style={{objectFit : "contain"}} /></Avatar>
                 <NameField>yassine zemmouriate</NameField>
                 <Chip label={"Data Scientist"} sx={{marginBottom : "15px", backgroundColor : "#FFB400", color : "white"}} />
                 <Chip label={"Développeur Full-Stack"} sx={{marginBottom : "15px", backgroundColor : "#FFB400", color : "white"}} />
